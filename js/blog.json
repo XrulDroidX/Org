@@ -1,17 +1,5 @@
 [
-  {
-    "title": "Tips Menjadi Pemuda Produktif",
-    "summary": "Artikel ini membahas cara-cara agar pemuda tetap produktif dan kreatif dalam kegiatan sosial dan edukasi.",
-    "link": "blog/article1.html"
-  },
-  {
-    "title": "Membangun Kepemimpinan di Usia Muda",
-    "summary": "Langkah-langkah praktis membangun karakter kepemimpinan sejak dini melalui organisasi kepemudaan.",
-    "link": "blog/article2.html"
-  },
-  {
-    "title": "Program Sosial ZAMARIS Tahun 2025",
-    "summary": "Rangkuman program sosial yang telah dijalankan ZAMARIS sepanjang tahun 2025.",
-    "link": "blog/article3.html"
-  }
+  {"title":"Tips Menjadi Pemuda Produktif","summary":"Artikel membahas cara pemuda tetap produktif dan kreatif.","link":"blog/article1.html"},
+  {"title":"Membangun Kepemimpinan di Usia Muda","summary":"Langkah praktis membangun karakter kepemimpinan melalui organisasi.","link":"blog/article2.html"},
+  {"title":"Program Sosial ZAMARIS 2025","summary":"Rangkuman program sosial yang dijalankan sepanjang tahun 2025.","link":"blog/article3.html"}
 ]
