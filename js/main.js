@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   /* menu toggle */
   if(menuToggle){
-    menuToggle.addEventListener('click', ()=> {
+    menuToggle.addEventListener('click', (e)=> {
+      e.stopPropagation(); // penting agar click tidak bubbling ke document
       const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
       menuToggle.setAttribute('aria-expanded', (!expanded).toString());
       navbar.classList.toggle('active');
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   /* close menu on outside click */
   document.addEventListener('click', (e)=>{
-    if(navbar && !navbar.contains(e.target) && !menuToggle.contains(e.target)){
+    if(navbar && !navbar.contains(e.target) && (!menuToggle || !menuToggle.contains(e.target))){
       navbar.classList.remove('active');
       if(menuToggle) menuToggle.setAttribute('aria-expanded','false');
     }
@@ -282,12 +283,19 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   /* copy rekening */
   const copyRekBtn = document.getElementById('copy-rek');
-  copyRekBtn && copyRekBtn.addEventListener('click', e => {
-    const rek = e.target.dataset.rek;
-    navigator.clipboard && navigator.clipboard.writeText(rek
-    e.target.textContent = 'Disalin!';
-    if(typeof gtag === 'function') gtag('event','copy_rek',{event_category:'donation'});
-  });
+  if(copyRekBtn){
+    copyRekBtn.addEventListener('click', e => {
+      const rek = e.target.dataset.rek;
+      if(navigator.clipboard){
+        navigator.clipboard.writeText(rek).then(()=>{
+          e.target.textContent = 'Disalin!';
+          if(typeof gtag === 'function') gtag('event','copy_rek',{event_category:'donation'});
+        }).catch(err=>{
+          console.warn('Gagal menyalin rekening:', err);
+        });
+      }
+    });
+  }
 
   /* newsletter form */
   const form = document.getElementById('newsletter-form');
