@@ -3,57 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Organisasi ZAMARIS</title>
-<meta name="description" content="Organisasi ZAMARIS - Meningkatkan kreativitas, kepemimpinan, dan kepedulian sosial pemuda.">
-<meta property="og:title" content="Organisasi ZAMARIS">
-<meta property="og:description" content="Organisasi ZAMARIS - Meningkatkan kreativitas dan kepedulian sosial pemuda">
-<meta property="og:image" content="assets/images/logo.png">
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'GA_MEASUREMENT_ID');
-</script>
-
+<title>ZAMARIS</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <!-- Header -->
 <header>
-  <nav aria-label="Main Navigation">
+  <div class="logo">
+    <img src="assets/images/logo.png" alt="Logo ZAMARIS">
+  </div>
+  <nav id="navbar" class="navbar">
     <a href="#home">Beranda</a>
     <a href="#about">Tentang Kami</a>
     <a href="#program">Program</a>
     <a href="#team">Pengurus</a>
     <a href="#gallery">Galeri</a>
     <a href="#news">Berita</a>
-    <a href="#agenda">Agenda</a>
     <a href="#blog">Blog</a>
     <a href="#contact">Kontak</a>
   </nav>
+  <button id="menu-toggle" aria-label="Menu">&#9776;</button>
 </header>
 
 <!-- Hero Section -->
-<section id="home" class="hero-section" tabindex="0">
+<section id="home" class="hero-section">
   <div class="hero-overlay">
-    <h1>Organisasi ZAMARIS</h1>
+    <h1>ZAMARIS</h1>
     <p>Membina generasi muda yang peduli sosial, kreatif, dan berinovasi demi masyarakat.</p>
-    <a href="#program" class="cta-button" aria-label="Lihat Program Kami">Lihat Program Kami</a>
+    <a href="#program" class="cta-button">Lihat Program Kami</a>
   </div>
 </section>
 
-<!-- About -->
-<section id="about" tabindex="0">
+<!-- Tentang Kami -->
+<section id="about">
   <h2>Tentang Kami</h2>
-  <p>Organisasi ZAMARIS berdiri sejak 2015 dengan visi memberdayakan pemuda melalui program sosial dan edukasi.</p>
+  <p>Organisasi Kepemudaan ZAMARIS berdiri sejak 2015 di Labuhanhaji, Aceh Selatan, dengan visi memberdayakan pemuda melalui program sosial dan edukasi.</p>
 </section>
 
 <!-- Program -->
-<section id="program" tabindex="0">
+<section id="program">
   <h2>Program Kami</h2>
   <div class="cards-container">
     <div class="card">
@@ -75,81 +64,84 @@ gtag('config', 'GA_MEASUREMENT_ID');
   </div>
 </section>
 
-<!-- Team -->
-<section id="team" tabindex="0">
+<!-- Pengurus -->
+<section id="team">
   <h2>Susunan Pengurus</h2>
-  <div class="team-container" role="list">
-    <div class="member" role="listitem">
-      <img src="assets/images/team/ketua.jpg" alt="Ketua" />
-      <h3>Nama Ketua</h3>
+  <div class="cards-container">
+    <div class="card">
+      <img src="assets/images/team/ketua.jpg" alt="Ketua" class="team-img">
+      <h3>Ahmad Z</h3>
       <p>Ketua</p>
     </div>
-    <div class="member" role="listitem">
-      <img src="assets/images/team/wakil.jpg" alt="Wakil Ketua" />
-      <h3>Nama Wakil</h3>
+    <div class="card">
+      <img src="assets/images/team/wakil.jpg" alt="Wakil Ketua" class="team-img">
+      <h3>Siti A</h3>
       <p>Wakil Ketua</p>
     </div>
-    <div class="member" role="listitem">
-      <img src="assets/images/team/bendahara.jpg" alt="Bendahara" />
-      <h3>Nama Bendahara</h3>
+    <div class="card">
+      <img src="assets/images/team/bendahara.jpg" alt="Bendahara" class="team-img">
+      <h3>Rudi H</h3>
       <p>Bendahara</p>
     </div>
-    <div class="member" role="listitem">
-      <img src="assets/images/team/sekretaris.jpg" alt="Sekretaris" />
-      <h3>Nama Sekretaris</h3>
+    <div class="card">
+      <img src="assets/images/team/sekretaris.jpg" alt="Sekretaris" class="team-img">
+      <h3>Lina P</h3>
       <p>Sekretaris</p>
     </div>
   </div>
 </section>
 
 <!-- Galeri -->
-<section id="gallery" tabindex="0">
-  <h2>Galeri Kegiatan</h2>
-  <div class="gallery-container" role="list"></div>
+<section id="gallery">
+  <h2>Galeri</h2>
+  <div class="cards-container" id="gallery-container">
+    <!-- Konten akan di-load dari gallery.json -->
+  </div>
 </section>
 
-<!-- News Cards -->
-<section id="news" tabindex="0">
+<!-- Berita -->
+<section id="news">
   <h2>Berita Terbaru</h2>
-  <div class="cards-container" id="news-container"></div>
-</section>
-
-<!-- Agenda -->
-<section id="agenda" tabindex="0">
-  <h2>Agenda Kegiatan</h2>
-  <iframe src="https://calendar.google.com/calendar/embed?src=yourcalendarid%40group.calendar.google.com&ctz=Asia/Jakarta" style="border:0" width="100%" height="400" frameborder="0" scrolling="no" title="Kalender Agenda"></iframe>
+  <div class="cards-container" id="news-container">
+    <!-- Konten akan di-load dari news.json -->
+  </div>
 </section>
 
 <!-- Blog -->
-<section id="blog" tabindex="0">
+<section id="blog">
   <h2>Blog & Resource</h2>
-  <div id="blog-container"></div>
+  <div class="cards-container">
+    <div class="card">
+      <h3>Artikel 1</h3>
+      <p>Ringkasan artikel 1...</p>
+      <a href="blog/article1.html">Baca Selengkapnya</a>
+    </div>
+    <div class="card">
+      <h3>Artikel 2</h3>
+      <p>Ringkasan artikel 2...</p>
+      <a href="blog/article2.html">Baca Selengkapnya</a>
+    </div>
+  </div>
 </section>
 
-<!-- Contact -->
-<section id="contact" tabindex="0">
+<!-- Kontak -->
+<section id="contact">
   <h2>Kontak Kami</h2>
-  <p>Alamat: Jl. Contoh No.123, Kota Contoh, Provinsi XYZ</p>
-  <p>Email: info@xyz.org | Telepon: 0812-3456-7890</p>
+  <p>Alamat: Labuhanhaji, Aceh Selatan</p>
+  <p>Email: info@zamaris.org | Telepon: 0812-3456-7890</p>
 
   <h3>Lokasi</h3>
-  <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" title="Lokasi Organisasi"></iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" title="Lokasi ZAMARIS"></iframe>
 
   <h3>Gabung Volunteer / Donasi</h3>
   <iframe src="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Form Volunteer / Donasi">Loading…</iframe>
-
-  <div class="social-media">
-    <a href="https://instagram.com" target="_blank" aria-label="Instagram">Instagram</a>
-    <a href="https://youtube.com" target="_blank" aria-label="YouTube">YouTube</a>
-    <a href="https://t.me" target="_blank" aria-label="Telegram">Telegram</a>
-  </div>
 </section>
 
 <!-- Footer -->
 <footer>
-  &copy; 2025 Organisasi ZAMARIS
+  &copy; 2025 ZAMARIS
 </footer>
 
 <script src="js/main.js"></script>
 </body>
-</html>
+  </html>
