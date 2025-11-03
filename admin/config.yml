@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main  # Pastikan sama dengan branch repo
+  branch: main  # pastikan sama dengan branch utama repo
 
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
@@ -19,3 +19,31 @@ collections:
       - { label: "Tanggal", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
       - { label: "Gambar Utama", name: "thumbnail", widget: "image" }
       - { label: "Isi Berita", name: "body", widget: "markdown" }
+
+  - name: "team"
+    label: "Struktur Organisasi"
+    folder: "admin/team"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nama", name: "name", widget: "string" }
+      - { label: "Jabatan", name: "position", widget: "string" }
+      - { label: "Foto", name: "photo", widget: "image" }
+
+  - name: "gallery"
+    label: "Galeri"
+    folder: "assets/images/gallery"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Judul", name: "title", widget: "string" }
+      - { label: "Foto", name: "image", widget: "image" }
+
+  - name: "contact"
+    label: "Kontak & Lokasi"
+    file: "admin/contact.yml"
+    fields:
+      - { label: "Alamat", name: "address", widget: "string" }
+      - { label: "Email", name: "email", widget: "string" }
+      - { label: "Telepon", name: "phone", widget: "string" }
+      - { label: "Google Maps URL", name: "maps_url", widget: "string" }
