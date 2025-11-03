@@ -22,6 +22,7 @@ gtag('config', 'GA_MEASUREMENT_ID');
 </head>
 <body>
 
+<!-- Header -->
 <header>
   <nav aria-label="Main Navigation">
     <a href="#home">Beranda</a>
@@ -36,74 +37,96 @@ gtag('config', 'GA_MEASUREMENT_ID');
   </nav>
 </header>
 
-<section id="home" tabindex="0">
-  <h1>Organisasi ZAMARIS</h1>
-  <p>Membina generasi muda yang peduli sosial, kreatif, dan berinovasi demi masyarakat.</p>
-  <a href="#contact" class="cta-button" aria-label="Gabung Sekarang">Gabung Sekarang</a>
+<!-- Hero Section -->
+<section id="home" class="hero-section" tabindex="0">
+  <div class="hero-overlay">
+    <h1>Organisasi ZAMARIS</h1>
+    <p>Membina generasi muda yang peduli sosial, kreatif, dan berinovasi demi masyarakat.</p>
+    <a href="#program" class="cta-button" aria-label="Lihat Program Kami">Lihat Program Kami</a>
+  </div>
 </section>
 
+<!-- About -->
 <section id="about" tabindex="0">
   <h2>Tentang Kami</h2>
   <p>Organisasi ZAMARIS berdiri sejak 2015 dengan visi memberdayakan pemuda melalui program sosial dan edukasi.</p>
 </section>
 
+<!-- Program -->
 <section id="program" tabindex="0">
   <h2>Program Kami</h2>
-  <ul>
-    <li>Workshop Kreativitas Pemuda</li>
-    <li>Bakti Sosial & Penggalangan Dana</li>
-    <li>Pelatihan Kepemimpinan</li>
-    <li>Kegiatan Lingkungan</li>
-    <li>Program Edukasi & Mentoring</li>
-  </ul>
+  <div class="cards-container">
+    <div class="card">
+      <h3>Workshop Kreativitas</h3>
+      <p>Pelatihan untuk meningkatkan kemampuan kreatif pemuda.</p>
+    </div>
+    <div class="card">
+      <h3>Bakti Sosial</h3>
+      <p>Program pengabdian masyarakat & penggalangan dana.</p>
+    </div>
+    <div class="card">
+      <h3>Pelatihan Kepemimpinan</h3>
+      <p>Menyiapkan pemuda menjadi pemimpin masa depan.</p>
+    </div>
+    <div class="card">
+      <h3>Kegiatan Lingkungan</h3>
+      <p>Program peduli lingkungan dan edukasi lingkungan hidup.</p>
+    </div>
+  </div>
 </section>
 
+<!-- Team -->
 <section id="team" tabindex="0">
   <h2>Susunan Pengurus</h2>
   <div class="team-container" role="list">
     <div class="member" role="listitem">
       <img src="assets/images/team/ketua.jpg" alt="Ketua" />
-      <h3>ZAMARIS</h3>
+      <h3>Nama Ketua</h3>
       <p>Ketua</p>
     </div>
     <div class="member" role="listitem">
       <img src="assets/images/team/wakil.jpg" alt="Wakil Ketua" />
-      <h3>ABI</h3>
+      <h3>Nama Wakil</h3>
       <p>Wakil Ketua</p>
     </div>
     <div class="member" role="listitem">
       <img src="assets/images/team/bendahara.jpg" alt="Bendahara" />
-      <h3>IMAM</h3>
+      <h3>Nama Bendahara</h3>
       <p>Bendahara</p>
     </div>
     <div class="member" role="listitem">
       <img src="assets/images/team/sekretaris.jpg" alt="Sekretaris" />
-      <h3>JUANDA</h3>
+      <h3>Nama Sekretaris</h3>
       <p>Sekretaris</p>
     </div>
   </div>
 </section>
 
+<!-- Galeri -->
 <section id="gallery" tabindex="0">
   <h2>Galeri Kegiatan</h2>
   <div class="gallery-container" role="list"></div>
 </section>
 
+<!-- News Cards -->
 <section id="news" tabindex="0">
   <h2>Berita Terbaru</h2>
-  <div id="news-container"></div>
+  <div class="cards-container" id="news-container"></div>
 </section>
 
+<!-- Agenda -->
 <section id="agenda" tabindex="0">
   <h2>Agenda Kegiatan</h2>
   <iframe src="https://calendar.google.com/calendar/embed?src=yourcalendarid%40group.calendar.google.com&ctz=Asia/Jakarta" style="border:0" width="100%" height="400" frameborder="0" scrolling="no" title="Kalender Agenda"></iframe>
 </section>
 
+<!-- Blog -->
 <section id="blog" tabindex="0">
   <h2>Blog & Resource</h2>
   <div id="blog-container"></div>
 </section>
 
+<!-- Contact -->
 <section id="contact" tabindex="0">
   <h2>Kontak Kami</h2>
   <p>Alamat: Jl. Contoh No.123, Kota Contoh, Provinsi XYZ</p>
@@ -122,6 +145,7 @@ gtag('config', 'GA_MEASUREMENT_ID');
   </div>
 </section>
 
+<!-- Footer -->
 <footer>
   &copy; 2025 Organisasi ZAMARIS
 </footer>
