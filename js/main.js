@@ -8,7 +8,6 @@ const observer = new IntersectionObserver((entries, obs) => {
     }
   });
 },{threshold:0.2});
-
 sections.forEach(sec => observer.observe(sec));
 
 // Lightbox gallery
@@ -27,14 +26,12 @@ galleryImages.forEach(img => {
     lightbox.style.justifyContent='center';
     lightbox.style.alignItems='center';
     lightbox.style.zIndex='1000';
-
     const imgEl = document.createElement('img');
     imgEl.src = img.src;
     imgEl.style.maxWidth='90%';
     imgEl.style.maxHeight='90%';
     imgEl.style.borderRadius='10px';
     lightbox.appendChild(imgEl);
-
     lightbox.addEventListener('click', ()=> lightbox.remove());
     document.body.appendChild(lightbox);
   });
