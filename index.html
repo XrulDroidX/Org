@@ -1,189 +1,249 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZAMARIS - Organisasi Kepemudaan</title>
-<meta name="description" content="ZAMARIS - Organisasi Kepemudaan di Labuhanhaji Aceh Selatan yang peduli sosial, kreatif, dan berinovasi.">
-<meta property="og:title" content="ZAMARIS - Organisasi Kepemudaan">
-<meta property="og:description" content="ZAMARIS - Organisasi Kepemudaan di Labuhanhaji Aceh Selatan yang peduli sosial, kreatif, dan berinovasi.">
-<meta property="og:image" content="assets/images/logo.png">
-<link rel="icon" type="image/png" href="assets/images/logo.png">
-<link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ZAMARIS — Organisasi Kepemudaan</title>
+<meta name="description" content="ZAMARIS - Organisasi kepemudaan di Labuhanhaji, Aceh Selatan. Program sosial, pelatihan, & komunitas pemuda." />
+<link rel="icon" href="assets/images/logo.png" type="image/png" />
+<link rel="stylesheet" href="css/style.css" />
+<!-- Structured Data: Organization -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"ZAMARIS",
+  "url":"https://zamaris.org",
+  "logo":"https://zamaris.org/assets/images/logo.png",
+  "sameAs":["https://instagram.com/zamaris","https://facebook.com/zamaris"]
+}
+</script>
 </head>
 <body>
 
-<!-- Header -->
-<header>
-  <div class="logo">
-    <img src="assets/images/logo.png" alt="Logo ZAMARIS">
-  </div>
-  <nav id="navbar" class="navbar">
+<header id="header" role="banner">
+  <div class="logo"><a href="index.html"><img src="assets/images/logo.png" alt="Logo ZAMARIS"></a></div>
+  <nav id="navbar" class="navbar" aria-label="Primary Navigation">
     <a href="#home">Beranda</a>
-    <a href="#about">Tentang Kami</a>
+    <a href="#highlight">Program Unggulan</a>
     <a href="#program">Program</a>
-    <a href="#team">Pengurus</a>
+    <a href="#events">Event</a>
+    <a href="#resources">Resource</a>
+    <a href="#video">Video</a>
     <a href="#gallery">Galeri</a>
     <a href="#news">Berita</a>
-    <a href="#blog">Blog</a>
     <a href="#contact">Kontak</a>
   </nav>
   <div class="header-right">
-    <button id="menu-toggle" aria-label="Menu">&#9776;</button>
-    <button id="dark-toggle" aria-label="Toggle Dark Mode">🌙</button>
+    <button id="menu-toggle" aria-label="Buka menu" aria-expanded="false">&#9776;</button>
+    <button id="contrast-toggle" aria-label="High contrast">AA</button>
+    <button id="dark-toggle" aria-label="Toggle dark mode">🌙</button>
   </div>
 </header>
 
-<!-- Hero Section -->
-<section id="home" class="hero-section fade-in">
-  <div class="hero-overlay">
-    <h1>ZAMARIS</h1>
-    <p>Membina generasi muda yang peduli sosial, kreatif, dan berinovasi demi masyarakat.</p>
-    <a href="#program" class="cta-button" data-cta="hero">Lihat Program Kami</a>
-  </div>
-</section>
+<main id="main" role="main">
 
-<!-- Tentang Kami -->
-<section id="about" class="fade-in">
-  <h2>Tentang Kami</h2>
-  <p>Organisasi Kepemudaan ZAMARIS berdiri sejak 2015 di Labuhanhaji, Aceh Selatan, dengan visi memberdayakan pemuda melalui program sosial dan edukasi.</p>
-</section>
+  <!-- HERO -->
+  <section id="home" class="hero-section">
+    <div class="hero-overlay">
+      <h1 class="brand-title">ZAMARIS</h1>
+      <p class="lead">Memupuk kreativitas, kepemimpinan, dan empati sosial pemuda Labuhanhaji — Aceh Selatan.</p>
+      <div class="hero-cta">
+        <a class="cta-button" href="#volunteer" data-gtag-event="cta_join">Gabung Sekarang</a>
+        <a class="secondary-button" href="#about">Tentang Kami</a>
+      </div>
+    </div>
+  </section>
 
-<!-- Program -->
-<section id="program" class="fade-in">
-  <h2>Program Kami</h2>
-  <div class="cards-container">
-    <div class="card">
-      <h3>Workshop Kreativitas</h3>
-      <p>Pelatihan untuk meningkatkan kemampuan kreatif pemuda.</p>
+  <!-- HIGHLIGHT PROGRAM -->
+  <section id="highlight" class="section fade-in" aria-labelledby="highlight-title">
+    <h2 id="highlight-title">Program Unggulan</h2>
+    <div class="highlight-grid">
+      <article class="highlight-card" tabindex="0">
+        <h3>Program Kepemimpinan</h3>
+        <p>Bootcamp kepemimpinan untuk pemuda yang ingin memimpin perubahan lokal.</p>
+        <a href="#program" class="btn-inline">Lihat Program</a>
+      </article>
+      <article class="highlight-card" tabindex="0">
+        <h3>Bakti Sosial</h3>
+        <p>Berbagi & aksi cepat tanggap bantuan ke masyarakat terdampak.</p>
+        <a href="#program" class="btn-inline">Ikut Aksi</a>
+      </article>
+      <article class="highlight-card" tabindex="0">
+        <h3>Workshop Kreatif</h3>
+        <p>Pelatihan skill digital & kreatif untuk membuka peluang usaha.</p>
+        <a href="#program" class="btn-inline">Daftar</a>
+      </article>
     </div>
-    <div class="card">
-      <h3>Bakti Sosial</h3>
-      <p>Program pengabdian masyarakat & penggalangan dana.</p>
-    </div>
-    <div class="card">
-      <h3>Pelatihan Kepemimpinan</h3>
-      <p>Menyiapkan pemuda menjadi pemimpin masa depan.</p>
-    </div>
-    <div class="card">
-      <h3>Kegiatan Lingkungan</h3>
-      <p>Program peduli lingkungan dan edukasi lingkungan hidup.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Pengurus -->
-<section id="team" class="fade-in">
-  <h2>Susunan Pengurus</h2>
-  <div class="cards-container">
-    <div class="card">
-      <img src="assets/images/team/ketua.jpg" alt="Ketua" class="team-img">
-      <h3>Ahmad Z</h3>
-      <p>Ketua</p>
+  <!-- PROGRAM -->
+  <section id="program" class="section fade-in" aria-labelledby="program-title">
+    <h2 id="program-title">Program & Kegiatan</h2>
+    <div class="cards-container">
+      <div class="card" tabindex="0">
+        <h3>Workshop Kreativitas</h3>
+        <p>Pelatihan penulisan, desain, dan produksi konten.</p>
+      </div>
+      <div class="card" tabindex="0">
+        <h3>Bakti Sosial</h3>
+        <p>Kegiatan mingguan untuk penanganan isu sosial di komunitas.</p>
+      </div>
+      <div class="card" tabindex="0">
+        <h3>Pelatihan Kepemimpinan</h3>
+        <p>Mentoring praktis untuk kader pemimpin organisasi.</p>
+      </div>
     </div>
-    <div class="card">
-      <img src="assets/images/team/wakil.jpg" alt="Wakil Ketua" class="team-img">
-      <h3>Siti A</h3>
-      <p>Wakil Ketua</p>
-    </div>
-    <div class="card">
-      <img src="assets/images/team/bendahara.jpg" alt="Bendahara" class="team-img">
-      <h3>Rudi H</h3>
-      <p>Bendahara</p>
-    </div>
-    <div class="card">
-      <img src="assets/images/team/sekretaris.jpg" alt="Sekretaris" class="team-img">
-      <h3>Lina P</h3>
-      <p>Sekretaris</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Galeri -->
-<section id="gallery" class="fade-in">
-  <h2>Galeri</h2>
-  <div class="filter-buttons">
-    <button data-filter="all">Semua</button>
-    <button data-filter="sosial">Sosial</button>
-    <button data-filter="workshop">Workshop</button>
-    <button data-filter="lingkungan">Lingkungan</button>
-  </div>
-  <div class="cards-container" id="gallery-container">
-    <!-- Konten akan di-load dari gallery.json -->
-  </div>
-</section>
+  <!-- EVENTS / CALENDAR -->
+  <section id="events" class="section fade-in" aria-labelledby="events-title">
+    <h2 id="events-title">Agenda & Event Mendatang</h2>
 
-<!-- Berita -->
-<section id="news" class="fade-in">
-  <h2>Berita Terbaru</h2>
-  <div class="cards-container" id="news-container">
-    <!-- Konten akan di-load dari news.json -->
-  </div>
-</section>
+    <div class="event-top">
+      <div class="next-event" aria-live="polite">
+        <h3 id="next-event-title">Event Terdekat</h3>
+        <p id="next-event-desc">Memuat...</p>
+        <div id="countdown" aria-hidden="false" class="countdown">—</div>
+        <a id="event-cta" class="cta-small" href="#volunteer">Daftar Sekarang</a>
+      </div>
+      <div class="event-list" id="event-list">
+        <!-- events loaded by JS -->
+      </div>
+    </div>
+  </section>
 
-<!-- Blog -->
-<section id="blog" class="fade-in">
-  <h2>Blog & Resource</h2>
-  <div class="cards-container" id="blog-container">
-    <!-- Konten Blog akan bisa dibuat dinamis -->
-  </div>
-  <div class="newsletter">
-    <h3>Langganan Newsletter</h3>
-    <form id="newsletter-form">
-      <input type="email" placeholder="Masukkan email Anda" required>
-      <button type="submit">Subscribe</button>
+  <!-- STATISTICS -->
+  <section id="stats" class="section fade-in" aria-labelledby="stats-title">
+    <h2 id="stats-title">Statistik & Dampak</h2>
+    <div class="stats-grid">
+      <div class="stat" data-target="1200"><span class="num">0</span><p>Pemuda Terbantu</p></div>
+      <div class="stat" data-target="85"><span class="num">0</span><p>Program</p></div>
+      <div class="stat" data-target="45"><span class="num">0</span><p>Event Tahunan</p></div>
+      <div class="stat" data-target="12"><span class="num">0</span><p>Wilayah Terjangkau</p></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONI -->
+  <section id="testimoni" class="section fade-in" aria-labelledby="testi-title">
+    <h2 id="testi-title">Cerita Pemuda</h2>
+    <div class="testi-slider" id="testi-slider" aria-live="polite">
+      <!-- slides injected by JS -->
+    </div>
+  </section>
+
+  <!-- DOWNLOAD / RESOURCES -->
+  <section id="resources" class="section fade-in" aria-labelledby="resources-title">
+    <h2 id="resources-title">Download & Resource</h2>
+    <div class="resources-grid">
+      <div class="resource-card">
+        <h3>AD/ART ZAMARIS</h3>
+        <p>Anggaran Dasar & Anggaran Rumah Tangga organisasi.</p>
+        <a href="assets/docs/ADART_ZAMARIS.pdf" download data-doc="ADART_ZAMARIS.pdf" class="btn-inline">Download PDF</a>
+      </div>
+      <div class="resource-card">
+        <h3>Laporan Tahunan 2024</h3>
+        <p>Ringkasan kegiatan & penggunaan dana 2024.</p>
+        <a href="assets/docs/Laporan_2024.pdf" download data-doc="Laporan_2024.pdf" class="btn-inline">Download</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section id="video" class="section fade-in" aria-labelledby="video-title">
+    <h2 id="video-title">Video Kegiatan (YouTube)</h2>
+    <div class="video-grid">
+      <!-- Thumbnail-based lazy embed -->
+      <div class="video-card" data-youtube="https://www.youtube.com/embed/VIDEO_ID_1">
+        <div class="yt-thumb" role="button" tabindex="0" aria-label="Putar video 1">
+          <img src="https://img.youtube.com/vi/VIDEO_ID_1/hqdefault.jpg" alt="Video kegiatan 1" loading="lazy">
+          <div class="play-overlay">▶</div>
+        </div>
+        <h3>Highlights Kegiatan ZAMARIS</h3>
+      </div>
+
+      <div class="video-card" data-youtube="https://www.youtube.com/embed/VIDEO_ID_2">
+        <div class="yt-thumb" role="button" tabindex="0" aria-label="Putar video 2">
+          <img src="https://img.youtube.com/vi/VIDEO_ID_2/hqdefault.jpg" alt="Video kegiatan 2" loading="lazy">
+          <div class="play-overlay">▶</div>
+        </div>
+        <h3>Workshop Kreatif</h3>
+      </div>
+    </div>
+    <p><a href="https://www.youtube.com/channel/YOUR_CHANNEL" target="_blank" rel="noopener">Lihat semua video di channel kami</a></p>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section fade-in" aria-labelledby="gallery-title">
+    <h2 id="gallery-title">Galeri</h2>
+    <div class="filter-buttons">
+      <button data-filter="all" class="active">Semua</button>
+      <button data-filter="sosial">Sosial</button>
+      <button data-filter="workshop">Workshop</button>
+      <button data-filter="lingkungan">Lingkungan</button>
+    </div>
+    <div id="gallery-container" class="cards-container">
+      <!-- gallery populate -->
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news" class="section fade-in" aria-labelledby="news-title">
+    <h2 id="news-title">Berita Terbaru</h2>
+    <div id="news-container" class="cards-container"></div>
+    <p><a href="blog/index.html">Semua Berita & Artikel</a></p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section fade-in" aria-labelledby="contact-title">
+    <h2 id="contact-title">Kontak & Lokasi</h2>
+    <p>Alamat: Labuhanhaji, Aceh Selatan</p>
+    <p>Email: <a href="mailto:info@zamaris.org">info@zamaris.org</a> | Tel: <a href="tel:+6281234567890">0812-3456-7890</a></p>
+
+    <h3>Lokasi</h3>
+    <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="300" style="border:0;" loading="lazy" title="Lokasi ZAMARIS"></iframe>
+
+    <h3 id="volunteer">Gabung Volunteer</h3>
+    <p>Isi form singkat untuk bergabung:</p>
+    <form id="volunteer-form">
+      <input type="text" name="name" placeholder="Nama lengkap" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <select name="interest" required>
+        <option value="">Bidang minat...</option>
+        <option value="sosial">Bakti Sosial</option>
+        <option value="workshop">Workshop</option>
+        <option value="logistik">Logistik</option>
+      </select>
+      <button type="submit">Daftar Volunteer</button>
     </form>
-    <p id="newsletter-msg"></p>
-  </div>
-</section>
+  </section>
 
-<!-- Kontak -->
-<section id="contact" class="fade-in">
-  <h2>Kontak Kami</h2>
-  <p>Alamat: Labuhanhaji, Aceh Selatan</p>
-  <p>Email: info@zamaris.org | Telepon: 0812-3456-7890</p>
+</main>
 
-  <h3>Lokasi</h3>
-  <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" title="Lokasi ZAMARIS"></iframe>
-
-  <h3>Gabung Volunteer / Donasi</h3>
-  <iframe src="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Form Volunteer / Donasi">Loading…</iframe>
-</section>
-
-<!-- Back to Top -->
-<button id="back-to-top" aria-label="Back to top">↑</button>
+<!-- Back to top -->
+<button id="back-to-top" aria-label="Kembali ke atas">↑</button>
 
 <!-- Footer -->
-<footer>
-  &copy; 2025 ZAMARIS
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <p>&copy; <span id="year"></span> ZAMARIS — Labuhanhaji, Aceh Selatan</p>
+    <div class="socials">
+      <a href="https://instagram.com/zamaris" aria-label="Instagram" target="_blank">IG</a>
+      <a href="https://facebook.com/zamaris" aria-label="Facebook" target="_blank">FB</a>
+      <a href="https://youtube.com" aria-label="YouTube" target="_blank">YT</a>
+    </div>
+  </div>
 </footer>
 
-<!-- JS -->
-<script src="js/main.js"></script>
+<script src="js/main.js" defer></script>
 
-<!-- Google Analytics + Event Tracking -->
+<!-- Google Analytics (ganti ID) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'GA_MEASUREMENT_ID');
+gtag('config','GA_MEASUREMENT_ID',{ 'anonymize_ip': true });
 </script>
-
-<!-- Structured Data for News & Blog -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "ZAMARIS",
-  "url": "https://zamaris.org",
-  "logo": "https://zamaris.org/assets/images/logo.png",
-  "sameAs": [
-    "https://facebook.com/zamaris",
-    "https://instagram.com/zamaris"
-  ]
-}
-</script>
-
 </body>
-      </html>
+    </html>
