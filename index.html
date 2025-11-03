@@ -7,6 +7,7 @@
 <meta name="description" content="ZAMARIS - Organisasi kepemudaan di Labuhanhaji, Aceh Selatan. Program sosial, pelatihan, & komunitas pemuda." />
 <link rel="icon" href="assets/images/logo.png" type="image/png" />
 <link rel="stylesheet" href="css/style.css" />
+
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -27,7 +28,6 @@
     <a href="#highlight">Program Unggulan</a>
     <a href="#program">Program</a>
     <a href="#events">Event</a>
-    <a href="#stats">Statistik</a>
     <a href="#resources">Resource</a>
     <a href="#video">Video</a>
     <a href="#gallery">Galeri</a>
@@ -50,8 +50,8 @@
       <h1 class="brand-title">ZAMARIS</h1>
       <p class="lead">Memupuk kreativitas, kepemimpinan, dan empati sosial pemuda Labuhanhaji — Aceh Selatan.</p>
       <div class="hero-cta">
-        <a class="cta-button" href="#volunteer">Gabung Sekarang</a>
-        <a class="secondary-button" href="about">Tentang Kami</a>
+        <a class="cta-small" href="#volunteer">Gabung Sekarang</a>
+        <a class="cta-small" href="#about">Tentang Kami</a>
       </div>
     </div>
     <svg class="hero-shape" viewBox="0 0 1200 200" preserveAspectRatio="none">
@@ -61,48 +61,48 @@
 
   <!-- HIGHLIGHT PROGRAM -->
   <section id="highlight" class="section fade-in">
-    <h2 id="highlight-title">Program Unggulan</h2>
-    <div class="highlight-grid">
-      <article class="highlight-card" tabindex="0">
+    <h2 class="section-title">Program Unggulan</h2>
+    <div class="highlight-grid minimal-grid">
+      <article class="highlight-card">
         <h3>Program Kepemimpinan</h3>
         <p>Bootcamp kepemimpinan untuk pemuda yang ingin memimpin perubahan lokal.</p>
-        <a href="#program" class="btn-inline">Lihat Program</a>
+        <a href="#program" class="cta-small">Lihat Program</a>
       </article>
-      <article class="highlight-card" tabindex="0">
+      <article class="highlight-card">
         <h3>Bakti Sosial</h3>
         <p>Berbagi & aksi cepat tanggap bantuan ke masyarakat terdampak.</p>
-        <a href="#program" class="btn-inline">Ikut Aksi</a>
+        <a href="#program" class="cta-small">Ikut Aksi</a>
       </article>
-      <article class="highlight-card" tabindex="0">
+      <article class="highlight-card">
         <h3>Workshop Kreatif</h3>
         <p>Pelatihan skill digital & kreatif untuk membuka peluang usaha.</p>
-        <a href="#program" class="btn-inline">Daftar</a>
+        <a href="#program" class="cta-small">Daftar</a>
       </article>
     </div>
   </section>
 
   <!-- PROGRAM -->
   <section id="program" class="section fade-in">
-    <h2>Program</h2>
+    <h2 class="section-title">Program Kami</h2>
     <div class="cards-container">
       <div class="card">
         <h3>Kepemimpinan</h3>
-        <p>Pelatihan intensif untuk membentuk pemimpin muda yang berdaya.</p>
+        <p>Pelatihan intensif kepemimpinan pemuda untuk perubahan sosial.</p>
+      </div>
+      <div class="card">
+        <h3>Kreativitas</h3>
+        <p>Workshop digital, seni, dan kreatif untuk peluang usaha muda.</p>
       </div>
       <div class="card">
         <h3>Sosial</h3>
-        <p>Aksi sosial rutin & program bantuan masyarakat.</p>
-      </div>
-      <div class="card">
-        <h3>Kreatif & Digital</h3>
-        <p>Workshop skill digital & konten kreatif untuk pemuda.</p>
+        <p>Aksi bakti sosial & volunteer untuk masyarakat lokal.</p>
       </div>
     </div>
   </section>
 
   <!-- EVENTS -->
   <section id="events" class="section fade-in">
-    <h2>Event Mendatang</h2>
+    <h2 class="section-title">Event Mendatang</h2>
     <div id="event-list" class="cards-container"></div>
     <div class="next-event">
       <h3 id="next-event-title"></h3>
@@ -111,92 +111,71 @@
     </div>
   </section>
 
-  <!-- STATS -->
+  <!-- STATISTICS -->
   <section id="stats" class="section fade-in">
-    <h2>Statistik</h2>
+    <h2 class="section-title">Statistik</h2>
     <div class="stats-grid">
-      <div class="stat" data-target="120">
-        <span class="num">0</span>
-        <p>Anggota Aktif</p>
-      </div>
-      <div class="stat" data-target="35">
-        <span class="num">0</span>
-        <p>Program Selesai</p>
-      </div>
-      <div class="stat" data-target="18">
-        <span class="num">0</span>
-        <p>Event</p>
-      </div>
+      <div class="stat" data-target="120"><span class="num">0</span><p>Relawan</p></div>
+      <div class="stat" data-target="15"><span class="num">0</span><p>Program</p></div>
+      <div class="stat" data-target="300"><span class="num">0</span><p>Peserta</p></div>
     </div>
   </section>
 
   <!-- RESOURCES -->
   <section id="resources" class="section fade-in">
-    <h2>Resources</h2>
+    <h2 class="section-title">Resource</h2>
     <div class="resources-grid">
-      <div class="resource-card">
-        <h3>Artikel</h3>
-        <p>Informasi & tips pengembangan diri pemuda.</p>
-      </div>
-      <div class="resource-card">
-        <h3>Dokumen</h3>
-        <p>Materi & modul pelatihan untuk anggota.</p>
-      </div>
+      <div class="resource-card"><h3>Dokumentasi</h3><p>File & materi pelatihan.</p></div>
+      <div class="resource-card"><h3>Video Tutorial</h3><p>Materi digital kreatif.</p></div>
     </div>
   </section>
 
   <!-- VIDEO -->
   <section id="video" class="section fade-in">
-    <h2>Video</h2>
-    <div class="video-grid">
+    <h2 class="section-title">Video</h2>
+    <div class="video-grid" id="video-container">
+      <!-- JS akan lazy load iframe video -->
       <div class="video-card" data-youtube="https://www.youtube.com/embed/dQw4w9WgXcQ">
-        <div class="yt-thumb" tabindex="0">
-          <img src="assets/images/video-thumb1.jpg" alt="Video 1">
-        </div>
-      </div>
-      <div class="video-card" data-youtube="https://www.youtube.com/embed/3GwjfUFyY6M">
-        <div class="yt-thumb" tabindex="0">
-          <img src="assets/images/video-thumb2.jpg" alt="Video 2">
-        </div>
+        <div class="yt-thumb" tabindex="0"><img src="assets/images/video-thumb.jpg" alt="Video"></div>
       </div>
     </div>
   </section>
 
   <!-- GALLERY -->
   <section id="gallery" class="section fade-in">
-    <h2>Galeri</h2>
+    <h2 class="section-title">Galeri</h2>
+    <div id="gallery-container" class="cards-container"></div>
     <div class="filter-buttons">
       <button data-filter="all" class="active">Semua</button>
-      <button data-filter="kegiatan">Kegiatan</button>
-      <button data-filter="workshop">Workshop</button>
+      <button data-filter="program">Program</button>
+      <button data-filter="events">Event</button>
+      <button data-filter="social">Sosial</button>
     </div>
-    <div id="gallery-container" class="cards-container"></div>
   </section>
 
   <!-- NEWS -->
   <section id="news" class="section fade-in">
-    <h2>Berita</h2>
+    <h2 class="section-title">Berita</h2>
     <div id="news-container" class="cards-container"></div>
   </section>
 
   <!-- BLOG -->
   <section id="blog" class="section fade-in">
-    <h2>Blog</h2>
+    <h2 class="section-title">Blog</h2>
     <div id="blog-container" class="cards-container"></div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section fade-in">
-    <h2>Kontak</h2>
-    <p>Email: info@zamaris.org</p>
-    <p>Telepon: +62 812 3456 7890</p>
-    <p>Alamat: Labuhanhaji, Aceh Selatan</p>
   </section>
 
   <!-- TESTIMONI -->
   <section id="testimoni" class="section fade-in">
-    <h2>Testimoni</h2>
-    <div id="testi-slider" class="cards-container"></div>
+    <h2 class="section-title">Testimoni</h2>
+    <div id="testi-slider"></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section fade-in">
+    <h2 class="section-title">Kontak</h2>
+    <p>Email: info@zamaris.org</p>
+    <p>Telepon: +62 812 3456 7890</p>
   </section>
 
 </main>
@@ -207,13 +186,13 @@
   <div class="footer-inner">
     <p>&copy; <span id="year"></span> ZAMARIS — Labuhanhaji, Aceh Selatan</p>
     <div class="socials">
-      <a href="https://instagram.com/zamaris" aria-label="Instagram" target="_blank">IG</a>
-      <a href="https://facebook.com/zamaris" aria-label="Facebook" target="_blank">FB</a>
-      <a href="https://youtube.com" aria-label="YouTube" target="_blank">YT</a>
+      <a href="https://instagram.com/zamaris" target="_blank">IG</a>
+      <a href="https://facebook.com/zamaris" target="_blank">FB</a>
+      <a href="https://youtube.com" target="_blank">YT</a>
     </div>
   </div>
 </footer>
 
 <script src="js/main.js" defer></script>
 </body>
-      </html>
+                                      </html>
