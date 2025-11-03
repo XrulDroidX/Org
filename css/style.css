@@ -21,4 +21,4 @@ section.fade-in{opacity:1;transform:translateY(0);}
   .team-container, .gallery-container{grid-template-columns:1fr;}
   nav a{display:block;margin:5px 0;}
   iframe{height:300px;}
-  }
+}
