@@ -1,12 +1,17 @@
 [
   {
-    "title": "Berita Terbaru 1",
-    "summary": "Ringkasan berita terbaru 1...",
+    "title": "Berita Terbaru: Bakti Sosial",
+    "summary": "ZAMARIS mengadakan bakti sosial di Labuhanhaji untuk membantu masyarakat yang membutuhkan.",
     "image": "assets/images/news/news1.jpg"
   },
   {
-    "title": "Berita Terbaru 2",
-    "summary": "Ringkasan berita terbaru 2...",
+    "title": "Pelatihan Kepemudaan",
+    "summary": "Pelatihan kepemudaan diadakan untuk meningkatkan skill dan kepemimpinan generasi muda.",
     "image": "assets/images/news/news2.jpg"
+  },
+  {
+    "title": "Workshop Kreativitas Anak Muda",
+    "summary": "Workshop ini bertujuan menumbuhkan kreativitas dan inovasi di kalangan pemuda Aceh Selatan.",
+    "image": "assets/images/news/news3.jpg"
   }
 ]
