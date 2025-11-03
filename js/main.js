@@ -1,4 +1,3 @@
-/* main.js - ZAMARIS final morph */
 document.addEventListener('DOMContentLoaded', ()=>{
 
   /* basic refs */
@@ -29,7 +28,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
   });
 
-  /* shrink header */
+  /* shrink header & back-to-top */
   const onScroll = ()=> {
     if(window.scrollY > 60) header.classList.add('shrink'); else header.classList.remove('shrink');
     backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
@@ -205,92 +204,33 @@ document.addEventListener('DOMContentLoaded', ()=>{
   /* TESTIMONI slider */
   const testiData = [
     {name:'Ali',text:'Bergabung di ZAMARIS mengubah cara saya melihat masyarakat.'},
-    {name:'Nina',text:'Banyak ilmu praktis dan jaringan yang saya dapatkan.'},
-    {name:'Rizal',text:'Pelatihan kepemimpinan sangat aplikatif.'}
-  ];
-  const testiSlider = document.getElementById('testi-slider');
-  if(testiSlider){
-    testiData.forEach(t=>{
-      const s = document.createElement('div'); s.className='card';
-      s.innerHTML = `<p>"${t.text}"</p><strong>${t.name}</strong>`;
-      testiSlider.appendChild(s);
-    });
-
-    let curTesti = 0;
-    const slides = testiSlider.children;
-    const showTesti = i => {
-      Array.from(slides).forEach((el, idx) => el.style.display = idx === i ? 'block' : 'none');
+    {name:'Nina',text:'Banyak ilmu praktis dan jaringan yang saya dapatkan.'];
+  const testiContainer = document.getElementById('testi-slider');
+  if(testiContainer){
+    let index = 0;
+    const showTesti = ()=>{
+      testiContainer.innerHTML = '';
+      const t = testiData[index];
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `<p>"${t.text}"</p><h4>${t.name}</h4>`;
+      testiContainer.appendChild(card);
+      index = (index +1) % testiData.length;
     };
-    showTesti(0);
-    setInterval(() => {
-      curTesti = (curTesti + 1) % slides.length;
-      showTesti(curTesti);
-    }, 5000);
+    showTesti();
+    setInterval(showTesti,5000);
   }
 
-  /* REVEAL ON SCROLL */
-  function revealOnScroll() {
-    document.querySelectorAll('.fade-in, .card').forEach(el => {
+  /* reveal on scroll (fade-in) */
+  function revealOnScroll(){
+    document.querySelectorAll('.fade-in').forEach(el=>{
       const rect = el.getBoundingClientRect();
-      if(rect.top < window.innerHeight - 100) el.classList.add('visible');
-    });
-  }
-  revealOnScroll();
-
-  /* Video lazy embed */
-  document.querySelectorAll('.video-card').forEach(vc => {
-    const thumb = vc.querySelector('.yt-thumb');
-    const url = vc.dataset.youtube;
-    thumb && thumb.addEventListener('click', () => {
-      const iframe = document.createElement('iframe');
-      iframe.src = url + '?rel=0&autoplay=1';
-      iframe.width = '100%';
-      iframe.height = 315;
-      iframe.setAttribute('allow','accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture');
-      iframe.setAttribute('allowfullscreen','');
-      vc.innerHTML = '';
-      vc.appendChild(iframe);
-      if(typeof gtag === 'function') gtag('event','play_video',{event_category:'video', event_label:url});
-    });
-    thumb && thumb.addEventListener('keypress', (e)=> { if(e.key==='Enter') thumb.click(); });
-  });
-
-  /* forms & newsletter & copy rek tetap sama */
-  // … kode volunteer, vol-form-page, copy-rek, newsletter sama persis
-
-  /* highlight nav section */
-  const sections = document.querySelectorAll('main section[id]');
-  const navLinks = document.querySelectorAll('nav a');
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const id = entry.target.id;
-      const link = document.querySelector(`nav a[href="#${id}"]`);
-      if(entry.isIntersecting){
-        navLinks.forEach(a => a.classList.remove('active'));
-        link && link.classList.add('active');
+      if(rect.top < window.innerHeight - 50){
+        el.style.opacity = 1;
+        el.style.transform = 'translateY(0)';
+        el.style.transition = 'all 0.6s ease';
       }
     });
-  }, {threshold: 0.45});
-  sections.forEach(s => io.observe(s));
-
-  /* MORPH LOOP */
-  function startMorphLoop() {
-    const morphElems = document.querySelectorAll('.card, .highlight-card, .resource-card, .stat');
-    morphElems.forEach(el => {
-      let direction = 1, progress = 0, speed = 0.003;
-      function loop() {
-        progress += direction * speed;
-        if(progress >= 1){ progress = 1; direction = -1; }
-        else if(progress <= 0){ progress = 0; direction = 1; }
-        const scale = 1 + 0.02 * progress;
-        const radius = 8 + 12 * progress;
-        el.style.transform = `scale(${scale})`;
-        el.style.borderRadius = `${radius}px`;
-        requestAnimationFrame(loop);
-      }
-      loop();
-    });
   }
-  startMorphLoop();
 
-}); // DOMContentLoaded
+});
