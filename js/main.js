@@ -85,6 +85,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }catch(e){ console.warn('JSON load',url,e); return [];}
   };
 
+  /* PARTNERS */
+const partnersContainer = document.getElementById('partners-container');
+if(partnersContainer && typeof partners !== 'undefined'){
+  partners.forEach(p => {
+    const div = document.createElement('div');
+    div.className = 'partner-card';
+    div.innerHTML = `<a href="${p.link}" target="_blank"><img src="${p.logo}" alt="${p.name}" loading="lazy"></a>`;
+    partnersContainer.appendChild(div);
+  });
+}
+
   /* GALLERY */
   fetchJSON('js/gallery.json').then(data=>{
     const container = document.getElementById('gallery-container');
