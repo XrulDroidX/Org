@@ -37,12 +37,14 @@ nav a:hover{
 }
 
 /* ===== Hero Section ===== */
-.hero-section{
-    position:relative;
-    background:url('../assets/images/hero-bg.jpg') center/cover no-repeat;
-    text-align:center;
-    color:#fff;
-    padding:120px 20px;
+.hero-section {
+    background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
 }
 .hero-overlay{
     background:rgba(0,0,0,0.5);
@@ -222,4 +224,4 @@ iframe{
     .team-container, .gallery-container, .cards-container{
         grid-template-columns:1fr;
     }
-}
+        }
