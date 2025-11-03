@@ -27,10 +27,12 @@
     <a href="#highlight">Program Unggulan</a>
     <a href="#program">Program</a>
     <a href="#events">Event</a>
+    <a href="#stats">Statistik</a>
     <a href="#resources">Resource</a>
     <a href="#video">Video</a>
     <a href="#gallery">Galeri</a>
     <a href="#news">Berita</a>
+    <a href="#blog">Blog</a>
     <a href="#contact">Kontak</a>
   </nav>
   <div class="header-right">
@@ -58,7 +60,7 @@
   </section>
 
   <!-- HIGHLIGHT PROGRAM -->
-  <section id="highlight" class="section fade-in" aria-labelledby="highlight-title">
+  <section id="highlight" class="section fade-in">
     <h2 id="highlight-title">Program Unggulan</h2>
     <div class="highlight-grid">
       <article class="highlight-card" tabindex="0">
@@ -79,9 +81,124 @@
     </div>
   </section>
 
-  <!-- PROGRAM, EVENTS, STATS, TESTIMONI, RESOURCES, VIDEO, GALLERY, PARTNERS, NEWS, BLOG, CONTACT -->
-  <!-- Struktur sama seperti versi sebelumnya, biar clean & mudah di morph -->
-  
+  <!-- PROGRAM -->
+  <section id="program" class="section fade-in">
+    <h2>Program</h2>
+    <div class="cards-container">
+      <div class="card">
+        <h3>Kepemimpinan</h3>
+        <p>Pelatihan intensif untuk membentuk pemimpin muda yang berdaya.</p>
+      </div>
+      <div class="card">
+        <h3>Sosial</h3>
+        <p>Aksi sosial rutin & program bantuan masyarakat.</p>
+      </div>
+      <div class="card">
+        <h3>Kreatif & Digital</h3>
+        <p>Workshop skill digital & konten kreatif untuk pemuda.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events" class="section fade-in">
+    <h2>Event Mendatang</h2>
+    <div id="event-list" class="cards-container"></div>
+    <div class="next-event">
+      <h3 id="next-event-title"></h3>
+      <p id="next-event-desc"></p>
+      <p id="countdown"></p>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats" class="section fade-in">
+    <h2>Statistik</h2>
+    <div class="stats-grid">
+      <div class="stat" data-target="120">
+        <span class="num">0</span>
+        <p>Anggota Aktif</p>
+      </div>
+      <div class="stat" data-target="35">
+        <span class="num">0</span>
+        <p>Program Selesai</p>
+      </div>
+      <div class="stat" data-target="18">
+        <span class="num">0</span>
+        <p>Event</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section id="resources" class="section fade-in">
+    <h2>Resources</h2>
+    <div class="resources-grid">
+      <div class="resource-card">
+        <h3>Artikel</h3>
+        <p>Informasi & tips pengembangan diri pemuda.</p>
+      </div>
+      <div class="resource-card">
+        <h3>Dokumen</h3>
+        <p>Materi & modul pelatihan untuk anggota.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section id="video" class="section fade-in">
+    <h2>Video</h2>
+    <div class="video-grid">
+      <div class="video-card" data-youtube="https://www.youtube.com/embed/dQw4w9WgXcQ">
+        <div class="yt-thumb" tabindex="0">
+          <img src="assets/images/video-thumb1.jpg" alt="Video 1">
+        </div>
+      </div>
+      <div class="video-card" data-youtube="https://www.youtube.com/embed/3GwjfUFyY6M">
+        <div class="yt-thumb" tabindex="0">
+          <img src="assets/images/video-thumb2.jpg" alt="Video 2">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section fade-in">
+    <h2>Galeri</h2>
+    <div class="filter-buttons">
+      <button data-filter="all" class="active">Semua</button>
+      <button data-filter="kegiatan">Kegiatan</button>
+      <button data-filter="workshop">Workshop</button>
+    </div>
+    <div id="gallery-container" class="cards-container"></div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news" class="section fade-in">
+    <h2>Berita</h2>
+    <div id="news-container" class="cards-container"></div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog" class="section fade-in">
+    <h2>Blog</h2>
+    <div id="blog-container" class="cards-container"></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section fade-in">
+    <h2>Kontak</h2>
+    <p>Email: info@zamaris.org</p>
+    <p>Telepon: +62 812 3456 7890</p>
+    <p>Alamat: Labuhanhaji, Aceh Selatan</p>
+  </section>
+
+  <!-- TESTIMONI -->
+  <section id="testimoni" class="section fade-in">
+    <h2>Testimoni</h2>
+    <div id="testi-slider" class="cards-container"></div>
+  </section>
+
 </main>
 
 <button id="back-to-top" aria-label="Kembali ke atas">↑</button>
@@ -99,4 +216,4 @@
 
 <script src="js/main.js" defer></script>
 </body>
-  </html>
+      </html>
