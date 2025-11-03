@@ -1,4 +1,12 @@
 [
-  {"title":"Workshop Kreativitas Pemuda","date":"3 Nov 2025","link":"news/berita1.html","img":"assets/images/news/news1.jpg"},
-  {"title":"Bakti Sosial Desa XYZ","date":"1 Nov 2025","link":"news/berita2.html","img":"assets/images/news/news2.jpg"}
+  {
+    "title": "Berita Terbaru 1",
+    "summary": "Ringkasan berita terbaru 1...",
+    "image": "assets/images/news/news1.jpg"
+  },
+  {
+    "title": "Berita Terbaru 2",
+    "summary": "Ringkasan berita terbaru 2...",
+    "image": "assets/images/news/news2.jpg"
+  }
 ]
