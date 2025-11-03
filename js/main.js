@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const onScroll = ()=> {
     if(window.scrollY > 60) header.classList.add('shrink'); else header.classList.remove('shrink');
     backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
-    handleSectionActive();
     revealOnScroll();
     animateCounters();
   };
@@ -59,15 +58,20 @@ document.addEventListener('DOMContentLoaded', ()=>{
   /* back to top */
   backToTop && backToTop.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
 
-  /* dark mode auto + toggle */
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  if(prefersDark) document.body.classList.add('dark-mode');
+  /* DARK MODE: persist with localStorage */
+  const darkModePref = localStorage.getItem('darkMode');
+  if(darkModePref === 'enabled' || (!darkModePref && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.body.classList.add('dark-mode');
+    if(darkToggle) darkToggle.textContent = '☀️';
+  }
   darkToggle && darkToggle.addEventListener('click', ()=>{
     document.body.classList.toggle('dark-mode');
-    darkToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    const enabled = document.body.classList.contains('dark-mode');
+    darkToggle.textContent = enabled ? '☀️' : '🌙';
+    localStorage.setItem('darkMode', enabled ? 'enabled' : 'disabled');
   });
 
-  /* contrast toggle (high contrast) */
+  /* contrast toggle */
   contrastToggle && contrastToggle.addEventListener('click', ()=>{
     document.documentElement.classList.toggle('high-contrast');
   });
@@ -92,7 +96,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
       card.innerHTML = `<img src="${item.image}" alt="${item.title}" loading="lazy"><h3>${item.title}</h3>`;
       container.appendChild(card);
     });
-    // filter buttons
     document.querySelectorAll('.filter-buttons button').forEach(btn=>{
       btn.addEventListener('click', ()=> {
         document.querySelectorAll('.filter-buttons button').forEach(b=>b.classList.remove('active'));
@@ -127,7 +130,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
   });
 
-  /* EVENTS (sample static or from JSON) */
+  /* EVENTS */
   const events = [
     {id:1,title:'Bakti Sosial Labuhanhaji',date:'2025-11-20',place:'Labuhanhaji',desc:'Distribusi bantuan & pengobatan gratis'},
     {id:2,title:'Workshop Kreatif',date:'2025-12-08',place:'Aula Kecamatan',desc:'Pelatihan desain & konten kreatif'}
@@ -142,7 +145,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
       el.innerHTML = `<h4>${ev.title}</h4><small>${ev.date} • ${ev.place}</small><p>${ev.desc}</p>`;
       eventList.appendChild(el);
     });
-    // pick next future event
     const now = new Date();
     const next = events.find(e=> new Date(e.date) > now) || events[0];
     if(next){
@@ -188,7 +190,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
   }
 
-  /* TESTIMONI slider (simple) */
+  /* TESTIMONI slider */
   const testiData = [
     {name:'Ali',text:'Bergabung di ZAMARIS mengubah cara saya melihat masyarakat.'},
     {name:'Nina',text:'Banyak ilmu praktis dan jaringan yang saya dapatkan.'},
@@ -201,19 +203,23 @@ document.addEventListener('DOMContentLoaded', ()=>{
       s.innerHTML = `<p>"${t.text}"</p><strong>${t.name}</strong>`;
       testiSlider.appendChild(s);
     });
+
     // simple auto rotate
     let curTesti = 0;
     const slides = testiSlider.children;
-    const showTesti = i=>{
-      Array.from(slides).forEach((el,idx)=> el.style.display = idx===i ? 'block' : 'none');
+    const showTesti = i => {
+      Array.from(slides).forEach((el, idx) => el.style.display = idx === i ? 'block' : 'none');
     };
     showTesti(0);
-    setInterval(()=> { curTesti = (curTesti+1)%slides.length; showTesti(curTesti); }, 5000);
+    setInterval(() => {
+      curTesti = (curTesti + 1) % slides.length;
+      showTesti(curTesti);
+    }, 5000);
   }
 
   /* REVEAL ON SCROLL for elements with .fade-in and .card */
-  function revealOnScroll(){
-    document.querySelectorAll('.fade-in, .card').forEach(el=>{
+  function revealOnScroll() {
+    document.querySelectorAll('.fade-in, .card').forEach(el => {
       const rect = el.getBoundingClientRect();
       if(rect.top < window.innerHeight - 100) el.classList.add('visible');
     });
@@ -221,27 +227,31 @@ document.addEventListener('DOMContentLoaded', ()=>{
   revealOnScroll();
 
   /* Video lazy embed on click */
-  document.querySelectorAll('.video-card').forEach(vc=>{
+  document.querySelectorAll('.video-card').forEach(vc => {
     const thumb = vc.querySelector('.yt-thumb');
     const url = vc.dataset.youtube;
-    thumb && thumb.addEventListener('click', ()=> {
+    thumb && thumb.addEventListener('click', () => {
       const iframe = document.createElement('iframe');
       iframe.src = url + '?rel=0&autoplay=1';
-      iframe.width = '100%'; iframe.height = 315; iframe.setAttribute('allow','accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'); iframe.setAttribute('allowfullscreen','');
-      vc.innerHTML = ''; vc.appendChild(iframe);
+      iframe.width = '100%';
+      iframe.height = 315;
+      iframe.setAttribute('allow','accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture');
+      iframe.setAttribute('allowfullscreen','');
+      vc.innerHTML = '';
+      vc.appendChild(iframe);
       if(typeof gtag === 'function') gtag('event','play_video',{event_category:'video', event_label:url});
     });
     thumb && thumb.addEventListener('keypress', (e)=> { if(e.key==='Enter') thumb.click(); });
   });
 
-  /* Volunteer form submit (simple) */
+  /* Volunteer form submit */
   const volForm = document.getElementById('volunteer-form');
   if(volForm){
-    volForm.addEventListener('submit', e=>{
+    volForm.addEventListener('submit', e => {
       e.preventDefault();
       const data = new FormData(volForm);
       const name = data.get('name');
-      document.getElementById('volunteer-form').reset();
+      volForm.reset();
       alert(`Terima kasih ${name}, formulir Anda telah dikirim.`);
       if(typeof gtag === 'function') gtag('event','volunteer_submitted',{event_category:'form', event_label:name});
     });
@@ -250,7 +260,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   /* Page volunteer form */
   const volFormPage = document.getElementById('vol-form-page');
   if(volFormPage){
-    volFormPage.addEventListener('submit', e=>{
+    volFormPage.addEventListener('submit', e => {
       e.preventDefault();
       const fd = new FormData(volFormPage);
       document.getElementById('vol-msg').textContent = 'Terima kasih, formulir Anda telah diterima.';
@@ -260,7 +270,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
   }
 
   /* copy rekening */
-  document.getElementById('copy-rek') && document.getElementById('copy-rek').addEventListener('click', (e)=>{
+  const copyRekBtn = document.getElementById('copy-rek');
+  copyRekBtn && copyRekBtn.addEventListener('click', e => {
     const rek = e.target.dataset.rek;
     navigator.clipboard && navigator.clipboard.writeText(rek);
     e.target.textContent = 'Disalin!';
@@ -270,7 +281,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   /* newsletter form */
   const form = document.getElementById('newsletter-form');
   if(form){
-    form.addEventListener('submit', e=>{
+    form.addEventListener('submit', e => {
       e.preventDefault();
       const email = form.querySelector('input[type="email"]').value;
       document.getElementById('newsletter-msg').textContent = `Terima kasih ${email}, Anda terdaftar.`;
@@ -282,16 +293,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
   /* helper: highlight nav section (intersection observer variant) */
   const sections = document.querySelectorAll('main section[id]');
   const navLinks = document.querySelectorAll('nav a');
-  const io = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
       const id = entry.target.id;
       const link = document.querySelector(`nav a[href="#${id}"]`);
       if(entry.isIntersecting){
-        navLinks.forEach(a=>a.classList.remove('active'));
+        navLinks.forEach(a => a.classList.remove('active'));
         link && link.classList.add('active');
       }
     });
-  }, {threshold:0.45});
-  sections.forEach(s=> io.observe(s));
+  }, {threshold: 0.45});
+  sections.forEach(s => io.observe(s));
 
 }); // DOMContentLoaded
