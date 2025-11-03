@@ -1,49 +1,64 @@
-backend:
-  name: git-gateway
-  branch: main  # pastikan sama dengan branch utama repo
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZAMARIS Admin Dashboard</title>
+  <meta name="robots" content="noindex, nofollow">
+  
+  <!-- Logo -->
+  <link rel="icon" href="../assets/images/logo.png">
 
-media_folder: "assets/images/uploads"
-public_folder: "/assets/images/uploads"
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-publish_mode: editorial_workflow
+  <style>
+    body {
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background:#f4f7fb;
+      color:#333;
+    }
+    .loading {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      flex-direction:column;
+      text-align:center;
+    }
+    .loading img {width:100px;margin-bottom:15px;opacity:0.8;}
+    .loading h1 {font-weight:600;color:#004aad;}
+  </style>
+</head>
+<body>
+  <div id="nc-root" class="loading">
+    <img src="../assets/images/logo.png" alt="ZAMARIS Logo">
+    <h1>Memuat Dashboard Admin...</h1>
+    <p>Pastikan Netlify Identity & Git Gateway aktif</p>
+  </div>
 
-collections:
-  - name: "news"
-    label: "Berita"
-    folder: "blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    extension: "html"
-    fields:
-      - { label: "Judul", name: "title", widget: "string" }
-      - { label: "Tanggal", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
-      - { label: "Gambar Utama", name: "thumbnail", widget: "image" }
-      - { label: "Isi Berita", name: "body", widget: "markdown" }
+  <!-- Netlify Identity -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- Netlify CMS -->
+  <script src="https://unpkg.com/netlify-cms-app@^2.0.0/dist/netlify-cms.js"></script>
 
-  - name: "team"
-    label: "Struktur Organisasi"
-    folder: "admin/team"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Nama", name: "name", widget: "string" }
-      - { label: "Jabatan", name: "position", widget: "string" }
-      - { label: "Foto", name: "photo", widget: "image" }
+  <script>
+    // Init Netlify CMS
+    if(typeof NetlifyCmsApp !== "undefined") {
+      NetlifyCmsApp.init();
+    }
 
-  - name: "gallery"
-    label: "Galeri"
-    folder: "assets/images/gallery"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Judul", name: "title", widget: "string" }
-      - { label: "Foto", name: "image", widget: "image" }
-
-  - name: "contact"
-    label: "Kontak & Lokasi"
-    file: "admin/contact.yml"
-    fields:
-      - { label: "Alamat", name: "address", widget: "string" }
-      - { label: "Email", name: "email", widget: "string" }
-      - { label: "Telepon", name: "phone", widget: "string" }
-      - { label: "Google Maps URL", name: "maps_url", widget: "string" }
+    // Redirect setelah login
+    if(window.netlifyIdentity){
+      window.netlifyIdentity.on("init", user=>{
+        if(!user){
+          window.netlifyIdentity.on("login", ()=>{
+            document.location.href="/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
