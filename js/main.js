@@ -17,11 +17,8 @@ document.querySelectorAll('nav a').forEach(anchor => {
 // ===== Back-to-Top Button =====
 const backToTop = document.getElementById('back-to-top');
 window.addEventListener('scroll', () => {
-    if(window.scrollY > 300){
-        backToTop.style.display = 'block';
-    } else {
-        backToTop.style.display = 'none';
-    }
+    if(window.scrollY > 300) backToTop.style.display = 'block';
+    else backToTop.style.display = 'none';
 
     // ===== Navbar Highlight Active Section =====
     document.querySelectorAll('section').forEach(section => {
@@ -34,20 +31,23 @@ window.addEventListener('scroll', () => {
             if(link) link.classList.add('active');
         }
     });
-});
-backToTop.addEventListener('click', () => {
-    window.scrollTo({top:0, behavior:'smooth'});
-});
 
-// ===== Dark Mode Toggle =====
+    // ===== Fade-in Animation Sections =====
+    document.querySelectorAll('.fade-in, .card').forEach(el=>{
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 100) el.classList.add('visible');
+    });
+});
+backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+// ===== Dark Mode Toggle & Auto =====
 const darkToggle = document.getElementById('dark-toggle');
+const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+if(prefersDark) document.body.classList.add('dark-mode');
+
 darkToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
-    if(document.body.classList.contains('dark-mode')){
-        darkToggle.textContent = '☀️';
-    } else {
-        darkToggle.textContent = '🌙';
-    }
+    darkToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
 });
 
 // ===== Load Gallery JSON =====
@@ -58,11 +58,21 @@ fetch('js/gallery.json')
     data.forEach(item => {
         const div = document.createElement('div');
         div.className = 'card';
-        div.innerHTML = `
-            <img src="${item.image}" alt="${item.title}" loading="lazy">
-            <h3>${item.title}</h3>
-        `;
+        div.dataset.category = item.category;
+        div.innerHTML = `<img src="${item.image}" alt="${item.title}" loading="lazy"><h3>${item.title}</h3>`;
         galleryContainer.appendChild(div);
+    });
+
+    // ===== Gallery Filter =====
+    document.querySelectorAll('.filter-buttons button').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+            document.querySelectorAll('.filter-buttons button').forEach(b=>b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            document.querySelectorAll('#gallery-container .card').forEach(card=>{
+                card.style.display = (filter==='all' || card.dataset.category===filter) ? 'block' : 'none';
+            });
+        });
     });
 });
 
@@ -74,11 +84,7 @@ fetch('js/news.json')
     data.forEach(item => {
         const div = document.createElement('div');
         div.className = 'card';
-        div.innerHTML = `
-            <img src="${item.image}" alt="${item.title}" loading="lazy">
-            <h3>${item.title}</h3>
-            <p>${item.summary}</p>
-        `;
+        div.innerHTML = `<img src="${item.image}" alt="${item.title}" loading="lazy"><h3>${item.title}</h3><p>${item.summary}</p>`;
         newsContainer.appendChild(div);
     });
 });
@@ -91,11 +97,19 @@ fetch('js/blog.json')
     data.forEach(item => {
         const div = document.createElement('div');
         div.className = 'card';
-        div.innerHTML = `
-            <h3>${item.title}</h3>
-            <p>${item.summary}</p>
-            <a href="${item.link}">Baca Selengkapnya</a>
-        `;
+        div.innerHTML = `<h3>${item.title}</h3><p>${item.summary}</p><a href="${item.link}">Baca Selengkapnya</a>`;
         blogContainer.appendChild(div);
     });
+});
+
+// ===== Newsletter Form =====
+const form = document.getElementById('newsletter-form');
+form.addEventListener('submit', e=>{
+    e.preventDefault();
+    const email = form.querySelector('input[type="email"]').value;
+    document.getElementById('newsletter-msg').textContent = `Terima kasih ${email}, Anda berhasil subscribe!`;
+    form.reset();
+
+    // Event tracking GA
+    if(typeof gtag==='function') gtag('event','subscribe',{event_category:'newsletter', event_label:email});
 });
