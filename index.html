@@ -35,22 +35,22 @@
 </header>
 
 <!-- Hero Section -->
-<section id="home" class="hero-section">
+<section id="home" class="hero-section fade-in">
   <div class="hero-overlay">
     <h1>ZAMARIS</h1>
     <p>Membina generasi muda yang peduli sosial, kreatif, dan berinovasi demi masyarakat.</p>
-    <a href="#program" class="cta-button">Lihat Program Kami</a>
+    <a href="#program" class="cta-button" data-cta="hero">Lihat Program Kami</a>
   </div>
 </section>
 
 <!-- Tentang Kami -->
-<section id="about">
+<section id="about" class="fade-in">
   <h2>Tentang Kami</h2>
   <p>Organisasi Kepemudaan ZAMARIS berdiri sejak 2015 di Labuhanhaji, Aceh Selatan, dengan visi memberdayakan pemuda melalui program sosial dan edukasi.</p>
 </section>
 
 <!-- Program -->
-<section id="program">
+<section id="program" class="fade-in">
   <h2>Program Kami</h2>
   <div class="cards-container">
     <div class="card">
@@ -73,7 +73,7 @@
 </section>
 
 <!-- Pengurus -->
-<section id="team">
+<section id="team" class="fade-in">
   <h2>Susunan Pengurus</h2>
   <div class="cards-container">
     <div class="card">
@@ -100,15 +100,21 @@
 </section>
 
 <!-- Galeri -->
-<section id="gallery">
+<section id="gallery" class="fade-in">
   <h2>Galeri</h2>
+  <div class="filter-buttons">
+    <button data-filter="all">Semua</button>
+    <button data-filter="sosial">Sosial</button>
+    <button data-filter="workshop">Workshop</button>
+    <button data-filter="lingkungan">Lingkungan</button>
+  </div>
   <div class="cards-container" id="gallery-container">
     <!-- Konten akan di-load dari gallery.json -->
   </div>
 </section>
 
 <!-- Berita -->
-<section id="news">
+<section id="news" class="fade-in">
   <h2>Berita Terbaru</h2>
   <div class="cards-container" id="news-container">
     <!-- Konten akan di-load dari news.json -->
@@ -116,15 +122,23 @@
 </section>
 
 <!-- Blog -->
-<section id="blog">
+<section id="blog" class="fade-in">
   <h2>Blog & Resource</h2>
   <div class="cards-container" id="blog-container">
-    <!-- Konten Blog akan bisa dibuat dinamis nanti -->
+    <!-- Konten Blog akan bisa dibuat dinamis -->
+  </div>
+  <div class="newsletter">
+    <h3>Langganan Newsletter</h3>
+    <form id="newsletter-form">
+      <input type="email" placeholder="Masukkan email Anda" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <p id="newsletter-msg"></p>
   </div>
 </section>
 
 <!-- Kontak -->
-<section id="contact">
+<section id="contact" class="fade-in">
   <h2>Kontak Kami</h2>
   <p>Alamat: Labuhanhaji, Aceh Selatan</p>
   <p>Email: info@zamaris.org | Telepon: 0812-3456-7890</p>
@@ -146,7 +160,8 @@
 
 <!-- JS -->
 <script src="js/main.js"></script>
-<!-- Google Analytics -->
+
+<!-- Google Analytics + Event Tracking -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -155,5 +170,20 @@ gtag('js', new Date());
 gtag('config', 'GA_MEASUREMENT_ID');
 </script>
 
+<!-- Structured Data for News & Blog -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ZAMARIS",
+  "url": "https://zamaris.org",
+  "logo": "https://zamaris.org/assets/images/logo.png",
+  "sameAs": [
+    "https://facebook.com/zamaris",
+    "https://instagram.com/zamaris"
+  ]
+}
+</script>
+
 </body>
-  </html>
+      </html>
