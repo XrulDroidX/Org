@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Daftar Volunteer</title>
+<link rel="stylesheet" href="css/style.css" /></head>
+<body>
+<header>... (header markup) ...</header>
+<main>
+<section class="section">
+  <h1>Gabung sebagai Volunteer</h1>
+  <p>Silakan isi formulir singkat ini. Kami akan menghubungi Anda via email/WA.</p>
+
+  <form id="vol-form-page">
+    <label>Nama lengkap<input type="text" name="name" required></label>
+    <label>Email<input type="email" name="email" required></label>
+    <label>Nomor WA<input type="tel" name="phone" required></label>
+    <label>Bidang minat
+      <select name="interest" required>
+        <option value="">Pilih</option>
+        <option value="sosial">Bakti Sosial</option>
+        <option value="digital">Digital & Content</option>
+        <option value="event">Event & Logistik</option>
+      </select>
+    </label>
+    <button type="submit">Kirim</button>
+  </form>
+  <p id="vol-msg" aria-live="polite"></p>
+</section>
+</main>
+<script src="js/main.js" defer></script>
+</body>
+</html>
