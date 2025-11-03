@@ -1,186 +1,66 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ZAMARIS — Organisasi Kepemudaan</title>
-<meta name="description" content="ZAMARIS - Organisasi kepemudaan di Labuhanhaji, Aceh Selatan. Program sosial, pelatihan, & komunitas pemuda." />
-<link rel="icon" href="assets/images/logo.png" type="image/png" />
-<link rel="stylesheet" href="css/style.css" />
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Organization",
-  "name":"ZAMARIS",
-  "url":"https://zamaris.org",
-  "logo":"https://zamaris.org/assets/images/logo.png",
-  "sameAs":["https://instagram.com/zamaris","https://facebook.com/zamaris"]
-}
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Nama Organisasi Anda] - Beranda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
 
-<header id="header" role="banner">
-  <div class="logo"><a href="index.html"><img src="assets/images/logo.png" alt="Logo ZAMARIS"></a></div>
-  <nav id="navbar" class="navbar" aria-label="Primary Navigation">
-    <a href="#home">Beranda</a>
-    <a href="#highlight">Program Unggulan</a>
-    <a href="#program">Program</a>
-    <a href="#events">Event</a>
-    <a href="#resources">Resource</a>
-    <a href="#video">Video</a>
-    <a href="#gallery">Galeri</a>
-    <a href="#news">Berita</a>
-    <a href="#contact">Kontak</a>
-  </nav>
-  <div class="header-right">
-    <button id="menu-toggle" aria-label="Buka menu" aria-expanded="false">&#9776;</button>
-    <button id="contrast-toggle" aria-label="High contrast">AA</button>
-    <button id="dark-toggle" aria-label="Toggle dark mode">🌙</button>
-  </div>
-</header>
+    <div class="background-shapes" id="bg-shapes"></div>
 
-<main id="main" role="main">
+    <header class="header"></header>
 
-  <!-- HERO -->
-  <section id="home" class="hero-section">
-    <div class="hero-overlay">
-      <h1 class="brand-title">ZAMARIS</h1>
-      <p class="lead">Memupuk kreativitas, kepemimpinan, dan empati sosial pemuda Labuhanhaji — Aceh Selatan.</p>
-      <div class="hero-cta">
-        <a class="cta-button" href="#highlight">Gabung Sekarang</a>
-        <a class="secondary-button" href="#program">Tentang Kami</a>
-      </div>
+    <main>
+        <section id="hero" class="hero container">
+            <div class="hero-content glass-card">
+                <h1 class="hero-title">Membangun Masa Depan, Satu Aksi Nyata.</h1>
+                <p class="hero-description">
+                    Kami adalah kolektif pemuda yang berdedikasi untuk menciptakan perubahan sosial positif di komunitas kami.
+                </p>
+                <a href="program.html" class="button">Lihat Program Kami</a>
+            </div>
+        </section>
+
+        <section id="slider" class="slider-container container reveal">
+            <h2>Galeri Program</h2>
+            <div class="slider">
+                <div class="slide active">
+                    <img src="assets/images/galeri-1.jpg" alt="Foto Program 1">
+                </div>
+                <div class="slide">
+                    <img src="assets/images/galeri-2.jpg" alt="Foto Program 2">
+                </div>
+                <div class="slider-nav">
+                    <button class="nav-prev">&lt;</button>
+                    <button class="nav-next">&gt;</button>
+                </div>
+            </div>
+        </section>
+        
+        <section id="tentang" class="features container">
+             </section>
+
+    </main>
+
+    <footer class="footer"></footer>
+
+    <div class="modal" id="my-modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>Info Penting!</h3>
+            <p>Pendaftaran relawan untuk program "Bakti Sosial 2025" telah dibuka! Klik <a href="kontak.html">di sini</a> untuk mendaftar.</p>
+        </div>
     </div>
-  </section>
-
-  <!-- HIGHLIGHT PROGRAM -->
-  <section id="highlight" class="section fade-in" aria-labelledby="highlight-title">
-    <h2 id="highlight-title">Program Unggulan</h2>
-    <div class="highlight-grid">
-      <article class="highlight-card">
-        <h3>Program Kepemimpinan</h3>
-        <p>Bootcamp kepemimpinan untuk pemuda yang ingin memimpin perubahan lokal.</p>
-        <a href="#program" class="btn-inline">Lihat Program</a>
-      </article>
-      <article class="highlight-card">
-        <h3>Bakti Sosial</h3>
-        <p>Berbagi & aksi cepat tanggap bantuan ke masyarakat terdampak.</p>
-        <a href="#program" class="btn-inline">Ikut Aksi</a>
-      </article>
-      <article class="highlight-card">
-        <h3>Workshop Kreatif</h3>
-        <p>Pelatihan skill digital & kreatif untuk membuka peluang usaha.</p>
-        <a href="#program" class="btn-inline">Daftar</a>
-      </article>
+    
+    <div class="theme-switcher">
+        <button data-theme="gradient" title="Mode Gradasi">🎨</button>
+        <button data-theme="light" title="Mode Terang">☀️</button>
+        <button data-theme="dark" title="Mode Gelap">🌙</button>
     </div>
-  </section>
 
-  <!-- PROGRAM -->
-  <section id="program" class="section fade-in">
-    <h2>Program</h2>
-    <div class="cards-container">
-      <div class="card">
-        <h3>Pelatihan Kepemimpinan</h3>
-        <p>Pelatihan intensif bagi pemuda untuk mengembangkan skill kepemimpinan.</p>
-      </div>
-      <div class="card">
-        <h3>Bakti Sosial</h3>
-        <p>Kegiatan sosial untuk membantu masyarakat terdampak bencana.</p>
-      </div>
-      <div class="card">
-        <h3>Workshop Kreatif</h3>
-        <p>Pelatihan digital kreatif untuk membuka peluang usaha dan inovasi.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- EVENTS -->
-  <section id="events" class="section fade-in">
-    <h2>Event Mendatang</h2>
-    <div id="next-event">
-      <h3 id="next-event-title"></h3>
-      <p id="next-event-desc"></p>
-      <p>Countdown: <span id="countdown"></span></p>
-    </div>
-    <div id="event-list"></div>
-  </section>
-
-  <!-- STAT COUNTER -->
-  <section id="stats" class="section fade-in">
-    <h2>Statistik</h2>
-    <div class="stats-grid">
-      <div class="stat" data-target="120"><span class="num">0</span> Relawan</div>
-      <div class="stat" data-target="45"><span class="num">0</span> Event</div>
-      <div class="stat" data-target="30"><span class="num">0</span> Komunitas</div>
-    </div>
-  </section>
-
-  <!-- RESOURCES -->
-  <section id="resources" class="section fade-in">
-    <h2>Resources</h2>
-    <div class="resources-grid">
-      <div class="resource-card">Dokumen & Materi</div>
-      <div class="resource-card">Video Tutorial</div>
-      <div class="resource-card">Link Penting</div>
-    </div>
-  </section>
-
-  <!-- VIDEO -->
-  <section id="video" class="section fade-in">
-    <h2>Video</h2>
-    <div class="video-grid">
-      <div class="video-card" data-youtube="https://www.youtube.com/embed/dQw4w9WgXcQ">
-        <div class="yt-thumb">▶ Klik untuk play</div>
-      </div>
-      <div class="video-card" data-youtube="https://www.youtube.com/embed/3JZ_D3ELwOQ">
-        <div class="yt-thumb">▶ Klik untuk play</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section id="gallery" class="section fade-in">
-    <h2>Galeri</h2>
-    <div class="filter-buttons">
-      <button data-filter="all" class="active">Semua</button>
-      <button data-filter="leadership">Kepemimpinan</button>
-      <button data-filter="social">Sosial</button>
-    </div>
-    <div id="gallery-container" class="cards-container"></div>
-  </section>
-
-  <!-- NEWS -->
-  <section id="news" class="section fade-in">
-    <h2>Berita</h2>
-    <div id="news-container" class="cards-container"></div>
-  </section>
-
-  <!-- TESTIMONI -->
-  <section id="testimoni" class="section fade-in">
-    <h2>Testimoni</h2>
-    <div id="testi-slider" class="testi-slider"></div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section fade-in">
-    <h2>Kontak</h2>
-    <form>
-      <input type="text" placeholder="Nama" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Pesan" required></textarea>
-      <button type="submit" class="cta-button">Kirim</button>
-    </form>
-  </section>
-
-</main>
-
-<button id="back-to-top" aria-label="Kembali ke atas">↑</button>
-
-<footer>
-  <p>&copy; <span id="year"></span> ZAMARIS — Labuhanhaji, Aceh Selatan</p>
-</footer>
-
-<script src="js/main.js" defer></script>
+    <script src="scripts/main.js"></script>
 </body>
-          </html>
+</html>
