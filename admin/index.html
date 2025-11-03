@@ -1,0 +1,125 @@
+<!-- File: admin/index.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZAMARIS CMS Dashboard</title>
+
+  <!-- Meta untuk CMS -->
+  <meta name="robots" content="noindex" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/images/logo.png" />
+
+  <!-- Tambahkan font & gaya sederhana -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Netlify CMS -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="https://unpkg.com/netlify-cms-app@^2.0.0/dist/netlify-cms.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f9fb;
+    }
+
+    header {
+      background: #004aad;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    header img {
+      height: 60px;
+      display: block;
+      margin: 0 auto 10px auto;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .btn-login {
+      background: #004aad;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1rem;
+      transition: background 0.2s ease;
+    }
+
+    .btn-login:hover {
+      background: #003b8b;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="../assets/images/logo.png" alt="Logo ZAMARIS" />
+    <h1>ZAMARIS Admin Dashboard</h1>
+  </header>
+
+  <main>
+    <p>Gunakan panel di bawah untuk mengelola konten website organisasi.</p>
+    <p>Silakan klik tombol di bawah untuk login ke sistem.</p>
+    <a href="#" class="btn-login" onclick="login()">Login Admin</a>
+  </main>
+
+  <footer>
+    © 2025 ZAMARIS - Sistem Manajemen Konten
+  </footer>
+
+  <script>
+    // Login menggunakan Netlify Identity
+    function login() {
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.open();
+      }
+    }
+
+    // Redirect otomatis ke CMS jika sudah login
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', user => {
+        if (!user) {
+          window.netlifyIdentity.on('login', () => {
+            document.location.href = '/admin/';
+          });
+        }
+      });
+    }
+  </script>
+</body>
+  </html>
