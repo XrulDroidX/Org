@@ -1,0 +1,28 @@
+/* --- Manajer Proyek CSS --- */
+
+/* 1. Global (Variabel, Font, Body) */
+@import url('_global.css');
+
+/* 2. Komponen (Bagian yang bisa dipakai ulang) */
+@import url('components/_button.css');    /* (Kode tidak berubah) */
+@import url('components/_glass-card.css'); /* (Kode tidak berubah) */
+@import url('components/_header.css');    /* (Kode BARU di bawah) */
+@import url('components/_footer.css');    /* (Kode BARU di bawah) */
+@import url('components/_slider.css');    /* (Kode BARU di bawah) */
+@import url('components/_modal.css');     /* (Kode BARU di bawah) */
+@import url('components/_theme-switcher.css'); /* (Kode BARU di bawah) */
+@import url('components/_blog-card.css'); /* (Kode BARU di bawah) */
+@import url('components/_contact-form.css'); /* (Kode tidak berubah) */
+
+/* 3. Animasi & Utilitas */
+@import url('_animations.css'); /* (Kode tidak berubah) */
+
+/* 4. Layout spesifik */
+.page-header {
+    padding-top: 8rem;
+    padding-bottom: 2rem;
+    color: var(--text-light);
+}
+.page-header h1 {
+    font-size: 2.5rem;
+}
