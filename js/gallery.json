@@ -1,7 +1,5 @@
 [
   {"title":"Kegiatan Sosial 1","image":"assets/images/gallery/galeri1.jpg","category":"sosial"},
-  {"title":"Kegiatan Sosial 2","image":"assets/images/gallery/galeri2.jpg","category":"sosial"},
-  {"title":"Pelatihan Kepemudaan","image":"assets/images/gallery/galeri3.jpg","category":"workshop"},
-  {"title":"Workshop Kreativitas","image":"assets/images/gallery/galeri4.jpg","category":"workshop"},
-  {"title":"Program Lingkungan","image":"assets/images/gallery/galeri5.jpg","category":"lingkungan"}
+  {"title":"Workshop Kreatif 2025","image":"assets/images/gallery/galeri2.jpg","category":"workshop"},
+  {"title":"Aksi Lingkungan","image":"assets/images/gallery/galeri3.jpg","category":"lingkungan"}
 ]
