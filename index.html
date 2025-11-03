@@ -3,7 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZAMARIS</title>
+<title>ZAMARIS - Organisasi Kepemudaan</title>
+<meta name="description" content="ZAMARIS - Organisasi Kepemudaan di Labuhanhaji Aceh Selatan yang peduli sosial, kreatif, dan berinovasi.">
+<meta property="og:title" content="ZAMARIS - Organisasi Kepemudaan">
+<meta property="og:description" content="ZAMARIS - Organisasi Kepemudaan di Labuhanhaji Aceh Selatan yang peduli sosial, kreatif, dan berinovasi.">
+<meta property="og:image" content="assets/images/logo.png">
+<link rel="icon" type="image/png" href="assets/images/logo.png">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -23,7 +28,10 @@
     <a href="#blog">Blog</a>
     <a href="#contact">Kontak</a>
   </nav>
-  <button id="menu-toggle" aria-label="Menu">&#9776;</button>
+  <div class="header-right">
+    <button id="menu-toggle" aria-label="Menu">&#9776;</button>
+    <button id="dark-toggle" aria-label="Toggle Dark Mode">🌙</button>
+  </div>
 </header>
 
 <!-- Hero Section -->
@@ -110,17 +118,8 @@
 <!-- Blog -->
 <section id="blog">
   <h2>Blog & Resource</h2>
-  <div class="cards-container">
-    <div class="card">
-      <h3>Artikel 1</h3>
-      <p>Ringkasan artikel 1...</p>
-      <a href="blog/article1.html">Baca Selengkapnya</a>
-    </div>
-    <div class="card">
-      <h3>Artikel 2</h3>
-      <p>Ringkasan artikel 2...</p>
-      <a href="blog/article2.html">Baca Selengkapnya</a>
-    </div>
+  <div class="cards-container" id="blog-container">
+    <!-- Konten Blog akan bisa dibuat dinamis nanti -->
   </div>
 </section>
 
@@ -137,11 +136,24 @@
   <iframe src="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Form Volunteer / Donasi">Loading…</iframe>
 </section>
 
+<!-- Back to Top -->
+<button id="back-to-top" aria-label="Back to top">↑</button>
+
 <!-- Footer -->
 <footer>
   &copy; 2025 ZAMARIS
 </footer>
 
+<!-- JS -->
 <script src="js/main.js"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'GA_MEASUREMENT_ID');
+</script>
+
 </body>
   </html>
