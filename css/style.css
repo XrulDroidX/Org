@@ -37,14 +37,12 @@ nav a:hover{
 }
 
 /* ===== Hero Section ===== */
-.hero-section {
-    background: url('https://unsplash.com/id/foto/sekelompok-orang-berpegangan-tangan-di-atas-pohon-DNkoNXQti3c') center/cover no-repeat;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-align: center;
+.hero-section{
+    position:relative;
+    background:url('../assets/images/hero-bg.jpg') center/cover no-repeat;
+    text-align:center;
+    color:#fff;
+    padding:120px 20px;
 }
 .hero-overlay{
     background:rgba(0,0,0,0.5);
