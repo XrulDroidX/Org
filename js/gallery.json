@@ -1,4 +1,10 @@
 [
-  {"src":"assets/images/gallery/galeri1.jpg","alt":"Kegiatan 1"},
-  {"src":"assets/images/gallery/galeri2.jpg","alt":"Kegiatan 2"}
+  {
+    "title": "Kegiatan Sosial 1",
+    "image": "assets/images/gallery/galeri1.jpg"
+  },
+  {
+    "title": "Kegiatan Sosial 2",
+    "image": "assets/images/gallery/galeri2.jpg"
+  }
 ]
