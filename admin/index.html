@@ -1,71 +1,60 @@
-<!-- File: admin/index.html -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZAMARIS CMS Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZAMARIS Admin Dashboard</title>
+  <meta name="robots" content="noindex, nofollow">
+  
+  <!-- Logo -->
+  <link rel="icon" href="../assets/images/logo.png">
 
-  <!-- Tidak diindeks mesin pencari -->
-  <meta name="robots" content="noindex, nofollow" />
-
-  <!-- Logo dan font -->
-  <link rel="icon" href="../assets/images/logo.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     body {
-      margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: #f4f7fb;
-      color: #333;
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background:#f4f7fb;
+      color:#333;
     }
-
     .loading {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
-      text-align: center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      flex-direction:column;
+      text-align:center;
     }
-
-    .loading img {
-      width: 100px;
-      opacity: 0.8;
-      margin-bottom: 15px;
-    }
-
-    .loading h1 {
-      font-weight: 600;
-      color: #004aad;
-    }
+    .loading img {width:100px;margin-bottom:15px;opacity:0.8;}
+    .loading h1 {font-weight:600;color:#004aad;}
   </style>
 </head>
 <body>
-  <!-- Ini penting! Netlify CMS akan dimuat di dalam elemen ini -->
   <div id="nc-root" class="loading">
-    <img src="../assets/images/logo.png" alt="ZAMARIS Logo" />
+    <img src="../assets/images/logo.png" alt="ZAMARIS Logo">
     <h1>Memuat Dashboard Admin...</h1>
-    <p>Pastikan Netlify Identity sudah aktif</p>
+    <p>Pastikan Netlify Identity aktif & Git Gateway aktif</p>
   </div>
 
-  <!-- Script Netlify Identity dan CMS -->
+  <!-- Netlify Identity -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms-app@^2.0.0/dist/netlify-cms.js"></script>
 
   <script>
-    // Jalankan Netlify CMS di elemen #nc-root
-    if (typeof NetlifyCmsApp !== "undefined") {
+    // Init Netlify CMS
+    if(typeof NetlifyCmsApp !== "undefined") {
       NetlifyCmsApp.init();
     }
 
-    // Netlify Identity redirect setelah login
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", (user) => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
+    // Redirect setelah login
+    if(window.netlifyIdentity){
+      window.netlifyIdentity.on("init", user=>{
+        if(!user){
+          window.netlifyIdentity.on("login", ()=>{
+            document.location.href="/admin/";
           });
         }
       });
