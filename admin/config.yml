@@ -1,25 +1,15 @@
 backend:
   name: git-gateway
-  branch: main  # Ganti dengan nama branch kamu di repo (misal: main/master)
-  commit_messages:
-    create: "✏️ Buat: {{collection}} '{{slug}}'"
-    update: "🔧 Ubah: {{collection}} '{{slug}}'"
-    delete: "🗑️ Hapus: {{collection}} '{{slug}}'"
-    uploadMedia: "📸 Upload: {{path}}"
-    deleteMedia: "🧹 Hapus file: {{path}}"
+  branch: main  # Pastikan sama dengan branch repo
 
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
 publish_mode: editorial_workflow
 
-site_url: "https://zamaris.netlify.app"
-logo_url: "/assets/images/logo.png"
-
 collections:
-  # 📰 BERITA
   - name: "news"
-    label: "Berita & Kegiatan"
+    label: "Berita"
     folder: "blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -29,40 +19,3 @@ collections:
       - { label: "Tanggal", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
       - { label: "Gambar Utama", name: "thumbnail", widget: "image" }
       - { label: "Isi Berita", name: "body", widget: "markdown" }
-
-  # 🖼️ GALERI
-  - name: "gallery"
-    label: "Galeri Foto"
-    folder: "assets/images/gallery"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Judul", name: "title", widget: "string" }
-      - { label: "Deskripsi", name: "description", widget: "text" }
-      - { label: "Foto", name: "image", widget: "image" }
-
-  # 👥 STRUKTUR PENGURUS
-  - name: "team"
-    label: "Struktur Organisasi"
-    folder: "js/data/team"
-    create: true
-    slug: "{{slug}}"
-    extension: "json"
-    fields:
-      - { label: "Nama", name: "name", widget: "string" }
-      - { label: "Jabatan", name: "position", widget: "string" }
-      - { label: "Foto", name: "photo", widget: "image" }
-      - { label: "Deskripsi Singkat", name: "bio", widget: "text" }
-
-  # 📍 KONTAK & LOKASI
-  - name: "contact"
-    label: "Kontak & Lokasi"
-    files:
-      - label: "Informasi Kontak"
-        name: "contact_info"
-        file: "js/data/contact.json"
-        fields:
-          - { label: "Alamat", name: "address", widget: "string" }
-          - { label: "Email", name: "email", widget: "string" }
-          - { label: "No Telepon", name: "phone", widget: "string" }
-          - { label: "Google Maps Embed URL", name: "map_url", widget: "string" }
