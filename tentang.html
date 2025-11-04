@@ -6,6 +6,7 @@
     <title>JEJAKA - Tentang Kami</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2H0P06HDK"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -17,6 +18,9 @@
 </head>
 <body>
 
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo">JEJAKA</div> </div>
+
     <div class="background-shapes" id="bg-shapes"></div>
     <header class="header"></header>
 
@@ -26,12 +30,12 @@
             <p>Mengenal lebih dekat visi, misi, dan tim di balik JEJAKA.</p>
         </section>
 
-        <section id="visi-misi" class="features container reveal">
-            <div class="feature-card glass-card">
+        <section id="visi-misi" class="features container">
+            <div class="feature-card glass-card reveal" data-delay="0">
                 <h3>Visi Kami</h3>
                 <p>Menjadi wadah utama bagi pemuda untuk berkolaborasi, berinovasi, dan berkontribusi bagi masyarakat.</p>
             </div>
-            <div class="feature-card glass-card">
+            <div class="feature-card glass-card reveal" data-delay="150">
                 <h3>Misi Kami</h3>
                 <p>Menjalankan program sosial yang berdampak, berkelanjutan, dan relevan dengan kebutuhan zaman.</p>
             </div>
@@ -43,31 +47,31 @@
                 
                 <div class="pengurus-grid">
                     
-                    <div class="pengurus-card">
+                    <div class="pengurus-card reveal" data-delay="0">
                         <img src="assets/images/ketua.jpg" alt="Foto Pengurus" class="pengurus-card-img">
                         <h4>ZAMARIS</h4>
                         <p>Ketua Umum</p>
                     </div>
 
-                    <div class="pengurus-card">
+                    <div class="pengurus-card reveal" data-delay="150">
                         <img src="assets/images/placeholder-profil.jpg" alt="Foto Pengurus" class="pengurus-card-img">
                         <h4>ABI</h4>
                         <p>Sekretaris Jenderal</p>
                     </div>
 
-                    <div class="pengurus-card">
+                    <div class="pengurus-card reveal" data-delay="300">
                         <img src="assets/images/bendahara.jpg" alt="Foto Pengurus" class="pengurus-card-img">
                         <h4>IMAM</h4>
                         <p>Bendahara Umum</p>
                     </div>
 
-                    <div class="pengurus-card">
+                    <div class="pengurus-card reveal" data-delay="450">
                         <img src="assets/images/placeholder-profil.jpg" alt="Foto Pengurus" class="pengurus-card-img">
                         <h4>JUANDA</h4>
                         <p>Ketua Divisi Program</p>
                     </div>
 
-                    </div>
+                </div>
             </div>
         </section>
         
@@ -83,5 +87,5 @@
 
     <script src="scripts/main.js"></script>
 </body>
-          </html>
-          
+</html>
+
