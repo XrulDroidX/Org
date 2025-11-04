@@ -1,75 +1,65 @@
-// File: scripts/tools-remover.js
+// File: scripts/tools-remover.js (Versi Cloudinary)
 
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('image-form');
-    const input = document.getElementById('image-upload');
+    
+    // --- GANTI DUA BARIS INI DENGAN INFO AKUN ANDA ---
+    const CLOUD_NAME = "GANTI_DENGAN_NAMA_CLOUD_ANDA"; 
+    const UPLOAD_PRESET = "GANTI_DENGAN_NAMA_PRESET_ANDA"; // (misal: 'jejaka-bg-remover')
+    // --------------------------------------------------
+
+    const uploadButton = document.getElementById('upload-widget');
     const resultsContainer = document.getElementById('results-container');
     const loadingSpinner = document.getElementById('loading-spinner');
     const resultOutput = document.getElementById('result-output');
     const resultImage = document.getElementById('result-image');
-    const submitButton = document.getElementById('submit-button');
+    const downloadLink = document.getElementById('download-link');
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Hentikan form submit biasa
-
-        const file = input.files[0];
-        if (!file) return;
-
-        // Tampilkan loading
-        resultsContainer.style.display = 'block';
-        loadingSpinner.style.display = 'block';
-        resultOutput.style.display = 'none';
-        submitButton.disabled = true;
-        submitButton.textContent = 'Memproses...';
-
-        try {
-            // 1. Ubah gambar menjadi Base64 string
-            const imageBase64 = await toBase64(file);
-
-            // 2. Kirim Base64 ke "kantor belakang" (Netlify Function) kita
-            const response = await fetch('/.netlify/functions/remove-background', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ image: imageBase64 })
-            });
-
-            if (!response.ok) {
-                const error = await response.json();
-                throw new Error(error.message || 'Gagal memproses gambar.');
+    // 1. Buat widget Cloudinary
+    const myWidget = cloudinary.createUploadWidget({
+        cloudName: CLOUD_NAME,
+        uploadPreset: UPLOAD_PRESET,
+        sources: ['local', 'url', 'camera'],
+        styles: {
+            palette: {
+                window: "#FFFFFF",
+                windowBorder: "#90A0B3",
+                tabIcon: "#007BFF",
+                menuIcons: "#5A616A",
+                link: "#007BFF",
+                action: "#007BFF",
+                inactiveTabIcon: "#90A0B3",
+                error: "#F44235",
+                inProgress: "#007BFF",
+                complete: "#00C49F",
             }
-
-            const data = await response.json();
-            
-            // 3. Tampilkan hasilnya
-            // Picsart mengembalikan gambar dalam format Base64
-            resultImage.src = `data:image/png;base64,${data.resultImageBase64}`;
-            resultOutput.style.display = 'block';
-
-        } catch (error) {
-            console.error(error);
-            alert(`Terjadi kesalahan: ${error.message}`);
-        } finally {
-            // Sembunyikan loading
+        }
+    }, (error, result) => { 
+        if (!error && result && result.event === "success") { 
+            // 3. Sukses! Sembunyikan loading
+            console.log('Done! Here is the image info: ', result.info); 
             loadingSpinner.style.display = 'none';
-            submitButton.disabled = false;
-            submitButton.textContent = 'Hapus Latar Belakang';
+
+            // 4. Tampilkan gambar hasil (sudah dihapus background-nya)
+            resultImage.src = result.info.secure_url;
+            downloadLink.href = result.info.secure_url; // Set link unduh
+            resultOutput.style.display = 'block';
+            
+        } else if (error) {
+            console.error('Cloudinary Error: ', error);
+            alert('Gagal meng-upload gambar. Silakan coba lagi.');
+            loadingSpinner.style.display = 'none';
+        } else if (result && result.event === "uploading") {
+            // 2. Tampilkan loading saat proses upload
+            console.log('Uploading...');
+            resultsContainer.style.display = 'block';
+            resultOutput.style.display = 'none';
+            loadingSpinner.style.display = 'block';
         }
     });
 
-    // Fungsi helper untuk mengubah File menjadi Base64
-    function toBase64(file) {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = () => {
-                // Hapus awalan 'data:image/jpeg;base64,'
-                const base64String = reader.result
-                    .replace('data:', '')
-                    .replace(/^.+,/, '');
-                resolve(base64String);
-            };
-            reader.onerror = error => reject(error);
-        });
-    }
+    // Buka widget saat tombol diklik
+    uploadButton.addEventListener('click', () => {
+        myWidget.open();
+    }, false);
+
 });
-          
