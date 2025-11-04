@@ -1,4 +1,4 @@
-/* File: styles/components/_laporan-list.css */
+/* File: styles/components/_laporan-list.css (Sudah Diperbaiki) */
 
 .laporan-list-container {
     max-width: 800px; /* Lebar optimal untuk daftar */
@@ -29,22 +29,19 @@
     font-size: 1.2rem;
     color: var(--text-dark);
     margin-bottom: 0.25rem;
-    /* Ambil ruang utama */
     flex-basis: 70%;
 }
 
 .laporan-item p {
     font-size: 0.9rem;
     color: #666;
-    flex-basis: 100%; /* Buat deskripsi di bawah judul */
+    flex-basis: 100%;
     margin-bottom: 1rem;
 }
 
 .laporan-item .button {
     padding: 10px 20px;
-    /* Pindah ke kanan di desktop */
     margin-left: auto;
-    /* Penuhi lebar di mobile */
     flex-basis: 100%;
     text-align: center;
 }
@@ -52,10 +49,27 @@
 /* Penyesuaian untuk desktop */
 @media (min-width: 768px) {
     .laporan-item p {
-        flex-basis: 70%; /* Deskripsi di samping judul */
+        flex-basis: 70%;
         margin-bottom: 0;
     }
     .laporan-item .button {
-        flex-basis: auto; /* Tombol ambil ukuran sendiri */
+        flex-basis: auto;
     }
+} /* <-- TANDA KURUNG PENUTUP SEHARUSNYA DI SINI */
+
+
+/* (BARU) Style untuk Judul Kategori di halaman Sumber Daya */
+/* (Dipindahkan ke luar blok @media) */
+.laporan-item-kategori {
+    padding: 1.5rem 2rem;
+    background: var(--bg-light); /* Warna latar abu-abu muda */
+    border-bottom: 1px solid #eee;
+}
+
+.laporan-item-kategori h3 {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
