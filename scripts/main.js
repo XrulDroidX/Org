@@ -146,40 +146,46 @@ function setupSlider() {
     });
 }
 
-// --- Modul 6: Logika Background Switcher (VERSI UPGRADE 7 TEMA) ---
+// --- Modul 6: Logika Background Switcher (VERSI DIPERBAIKI) ---
 function setupThemeSwitcher() {
     const buttons = document.querySelectorAll('.theme-switcher button');
+    if (buttons.length === 0) return; // Hentikan jika tidak ada tombol
+
     const body = document.body;
-    
-    // Objek Latar Belakang (untuk preloader)
     const bgElement = document.getElementById('bg-shapes');
 
     function applyTheme(theme) {
-        // Hapus semua class tema sebelumnya
-        body.className = '';
-        
-        // Tambahkan class tema yang baru
+        // 1. Hapus semua class tema sebelumnya dari body
+        body.className = ''; 
+        // Ini adalah kesalahan sebelumnya, kita tidak boleh menghapus semua class,
+        // Hapus hanya class tema
+        body.classList.remove('theme-gradient', 'theme-light', 'theme-dark', 'theme-soft-blue', 'theme-sage-green', 'theme-earth', 'theme-lavender');
+
+        // 2. Tambahkan class tema yang baru
         if (theme) {
             body.classList.add(theme);
         }
-        
-        // Perbarui background-shapes agar cocok
+
+        // 3. Perbarui background-shapes agar cocok
         if (bgElement) {
-            // Kita perlu mengambil warna dari CSS variabel yang baru saja kita set
+            // Kita perlu mengambil warna dari CSS variabel yang baru saja kita set di body
             const newBg = getComputedStyle(body).getPropertyValue('--bg-color');
             bgElement.style.background = newBg;
         }
         
+        // 4. Simpan pilihan tema
         localStorage.setItem('sitetheme', theme);
     }
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
-            applyTheme(button.dataset.theme);
+            const theme = button.dataset.theme;
+            applyTheme(theme);
         });
     });
 
-    // Cek tema yg tersimpan saat memuat halaman
+    // 5. Terapkan tema yang tersimpan saat memuat halaman
+    //    (Pastikan tema diterapkan SEBELUM preloader hilang agar tidak 'flash')
     const savedTheme = localStorage.getItem('sitetheme') || 'gradient'; // Default ke gradasi
     applyTheme(savedTheme);
 }
