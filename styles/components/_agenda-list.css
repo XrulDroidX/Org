@@ -1,0 +1,88 @@
+/* File: styles/components/_agenda-list.css */
+
+.agenda-list-container {
+    max-width: 900px;
+    padding-bottom: 4rem;
+}
+
+.agenda-list {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+}
+
+.agenda-item {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    border-bottom: 1px solid #eee;
+    gap: 2rem;
+}
+.agenda-item:last-child {
+    border-bottom: none;
+}
+
+.agenda-date {
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 700;
+}
+.agenda-date .day {
+    display: block;
+    font-size: 2rem;
+    line-height: 1;
+}
+.agenda-date .month {
+    display: block;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* Untuk item agenda yang sudah lewat */
+.agenda-item.past-event .agenda-date {
+    background: #aaa;
+}
+.agenda-item.past-event .agenda-details h4 {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.agenda-details {
+    flex: 1; /* Ambil sisa ruang */
+}
+.agenda-details h4 {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+}
+.agenda-details p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.agenda-item .button {
+    padding: 10px 20px;
+    margin-left: auto;
+}
+.agenda-item .button-secondary {
+    background: #eee;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .agenda-item {
+        flex-wrap: wrap; /* Susun ke bawah di mobile */
+    }
+    .agenda-details {
+        flex-basis: 100%;
+        order: -1; /* Pindahkan detail ke atas tanggal */
+        margin-bottom: 1rem;
+    }
+    .agenda-item .button {
+        flex-basis: 100%;
+        text-align: center;
+    }
+}
