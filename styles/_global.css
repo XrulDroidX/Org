@@ -1,4 +1,4 @@
-/* File: styles/_global.css (Sudah Diperbaiki) */
+/* File: styles/_global.css (Versi BARU dengan 7 Tema) */
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +6,13 @@
 }
 
 :root {
-    /* Palet Warna Anda */
+    /* Palet Default (Gradasi) */
     --primary-color: #007BFF;
     --accent-color: #00C49F;
-    --text-dark: #2C3E50;
-    --text-light: #FDFDFD;
-    --bg-light: #F4F4F9;
-    --glass-bg: rgba(255, 255, 255, 0.1);
+    --bg-color: linear-gradient(45deg, #6d80fe, #00c4ff);
+    --text-color: #FDFDFD; /* Teks terang di atas gradasi */
+    --card-bg-color: rgba(255, 255, 255, 0.1);
+    --card-text-color: #FDFDFD;
     
     --header-height: 4.5rem;
 }
@@ -26,12 +26,88 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     
-    /* DEFAULT: Tema Terang (Light) */
-    background-color: var(--bg-light); /* Latar abu-abu muda */
-    color: var(--text-dark); /* Teks gelap */
+    /* Default */
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.5s ease, color 0.5s ease;
 }
 
-/* Latar belakang gradasi (hanya di body, bukan di tema) */
+/* --- Variabel Tema --- */
+
+/* 1. Tema Gradasi (Default) */
+body.theme-gradient {
+    --primary-color: #007BFF;
+    --accent-color: #00C49F;
+    --bg-color: linear-gradient(45deg, #6d80fe, #00c4ff);
+    --text-color: #FDFDFD;
+    --card-bg-color: rgba(255, 255, 255, 0.1); /* Kaca */
+    --card-text-color: #FDFDFD;
+}
+
+/* 2. Tema Terang (Light) */
+body.theme-light {
+    --primary-color: #007BFF;
+    --accent-color: #00C49F;
+    --bg-color: #F4F4F9; /* Abu-abu muda */
+    --text-color: #2C3E50; /* Teks gelap */
+    --card-bg-color: #FFFFFF; /* Kartu putih */
+    --card-text-color: #2C3E50;
+}
+
+/* 3. Tema Gelap (Dark) */
+body.theme-dark {
+    --primary-color: #00C49F; /* Aksen hijau di tema gelap */
+    --accent-color: #007BFF;
+    --bg-color: #2C3E50; /* Biru gelap */
+    --text-color: #FDFDFD; /* Teks terang */
+    --card-bg-color: #34495E; /* Kartu biru lebih muda */
+    --card-text-color: #FDFDFD;
+}
+
+/* 4. Tema Biru Lembut (BARU) */
+body.theme-soft-blue {
+    --primary-color: #5B86E5;
+    --accent-color: #36D1DC;
+    --bg-color: #EDF2FB; /* Latar sangat pucat */
+    --text-color: #334257;
+    --card-bg-color: #FFFFFF;
+    --card-text-color: #334257;
+}
+
+/* 5. Tema Hijau Sage (BARU) */
+body.theme-sage-green {
+    --primary-color: #6A994E;
+    --accent-color: #A7C957;
+    --bg-color: #F2F4F0; /* Latar hijau pucat */
+    --text-color: #386641;
+    --card-bg-color: #FFFFFF;
+    --card-text-color: #386641;
+}
+
+/* 6. Tema Warna Tanah (BARU) */
+body.theme-earth {
+    --primary-color: #BC6C25;
+    --accent-color: #DDA15E;
+    --bg-color: #FEFAE0; /* Krem */
+    --text-color: #283618;
+    --card-bg-color: #FFFFFF;
+    --card-text-color: #283618;
+}
+
+/* 7. Tema Lavender (BARU) */
+body.theme-lavender {
+    --primary-color: #8E78FF;
+    --accent-color: #C3B1E1;
+    --bg-color: #F5F3F9; /* Latar lavender pucat */
+    --text-color: #4A4458;
+    --card-bg-color: #FFFFFF;
+    --card-text-color: #4A4458;
+}
+
+
+/* --- Global Elemen Update --- */
+
+/* Latar belakang gradasi HANYA ada di tema gradasi */
 .background-shapes {
     position: fixed;
     top: 0;
@@ -39,7 +115,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: linear-gradient(45deg, #6d80fe, #00c4ff); /* Default Gradasi */
+    background: var(--bg-color); /* Latar sekarang dikontrol oleh tema */
     transition: background 0.5s ease;
 }
 
@@ -47,32 +123,4 @@ body {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 2rem;
-}
-
-/* --- (BARU) Pengaturan Tema --- */
-
-/* 1. TEMA TERANG (LIGHT) */
-body.theme-light {
-    background-color: var(--bg-light);
-    color: var(--text-dark);
-}
-/* Di tema terang, header halaman pakai teks gelap */
-body.theme-light .page-header {
-    color: var(--text-dark); 
-}
-
-/* 2. TEMA GELAP (DARK) */
-body.theme-dark {
-    background-color: var(--text-dark);
-    color: var(--text-light);
-}
-/* Di tema gelap, header halaman pakai teks terang */
-body.theme-dark .page-header {
-    color: var(--text-light);
-}
-
-/* 3. TEMA GRADASI (DEFAULT) */
-/* Di tema gradasi, header halaman pakai teks terang */
-.page-header {
-    color: var(--text-light);
     }
