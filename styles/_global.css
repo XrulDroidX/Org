@@ -10,7 +10,7 @@
     --primary-color: #007BFF;
     --accent-color: #00C49F;
     --bg-color: linear-gradient(45deg, #6d80fe, #00c4ff);
-    --text-color: #FDFDFD; /* Teks terang di atas gradasi */
+    --text-color: #FDFDFD;
     --card-bg-color: rgba(255, 255, 255, 0.1);
     --card-text-color: #FDFDFD;
     
@@ -25,16 +25,12 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
-    
-    /* Default (akan ditimpa oleh JS saat memuat) */
     background: var(--bg-color);
     color: var(--text-color);
     transition: background 0.5s ease, color 0.5s ease;
 }
 
-/* --- (PENTING) Variabel Tema --- */
-
-/* 1. Tema Gradasi (Default) */
+/* --- Variabel Tema --- */
 body.theme-gradient {
     --primary-color: #007BFF;
     --accent-color: #00C49F;
@@ -43,8 +39,6 @@ body.theme-gradient {
     --card-bg-color: rgba(255, 255, 255, 0.1); /* Kaca */
     --card-text-color: #FDFDFD;
 }
-
-/* 2. Tema Terang (Light) */
 body.theme-light {
     --primary-color: #007BFF;
     --accent-color: #00C49F;
@@ -53,38 +47,30 @@ body.theme-light {
     --card-bg-color: #FFFFFF; /* Kartu putih */
     --card-text-color: #2C3E50;
 }
-
-/* 3. Tema Gelap (Dark) */
 body.theme-dark {
-    --primary-color: #00C49F; /* Aksen hijau di tema gelap */
+    --primary-color: #00C49F;
     --accent-color: #007BFF;
     --bg-color: #2C3E50; /* Biru gelap */
     --text-color: #FDFDFD; /* Teks terang */
     --card-bg-color: #34495E; /* Kartu biru lebih muda */
     --card-text-color: #FDFDFD;
 }
-
-/* 4. Tema Biru Lembut */
 body.theme-soft-blue {
     --primary-color: #5B86E5;
     --accent-color: #36D1DC;
-    --bg-color: #EDF2FB; /* Latar sangat pucat */
+    --bg-color: #EDF2FB;
     --text-color: #334257;
     --card-bg-color: #FFFFFF;
     --card-text-color: #334257;
 }
-
-/* 5. Tema Hijau Sage */
 body.theme-sage-green {
     --primary-color: #6A994E;
     --accent-color: #A7C957;
-    --bg-color: #F2F4F0; /* Latar hijau pucat */
+    --bg-color: #F2F4F0;
     --text-color: #386641;
     --card-bg-color: #FFFFFF;
     --card-text-color: #386641;
 }
-
-/* 6. Tema Warna Tanah */
 body.theme-earth {
     --primary-color: #BC6C25;
     --accent-color: #DDA15E;
@@ -93,19 +79,16 @@ body.theme-earth {
     --card-bg-color: #FFFFFF;
     --card-text-color: #283618;
 }
-
-/* 7. Tema Lavender */
 body.theme-lavender {
     --primary-color: #8E78FF;
     --accent-color: #C3B1E1;
-    --bg-color: #F5F3F9; /* Latar lavender pucat */
+    --bg-color: #F5F3F9;
     --text-color: #4A4458;
     --card-bg-color: #FFFFFF;
     --card-text-color: #4A4458;
 }
 
 /* --- Global Elemen Update --- */
-
 .background-shapes {
     position: fixed;
     top: 0;
@@ -116,7 +99,6 @@ body.theme-lavender {
     background: var(--bg-color); /* Latar sekarang dikontrol oleh tema */
     transition: background 0.5s ease;
 }
-
 .container {
     max-width: 1100px;
     margin: 0 auto;
@@ -124,8 +106,6 @@ body.theme-lavender {
 }
 
 /* --- Penyesuaian Tema Global --- */
-
-/* Di tema TERANG (apapun), header halaman pakai teks gelap */
 body.theme-light .page-header,
 body.theme-soft-blue .page-header,
 body.theme-sage-green .page-header,
@@ -133,13 +113,9 @@ body.theme-earth .page-header,
 body.theme-lavender .page-header {
     color: var(--text-color); 
 }
-
-/* Di tema GELAP, header halaman pakai teks terang */
 body.theme-dark .page-header {
     color: var(--text-color);
 }
-
-/* Di tema GRADASI, header halaman pakai teks terang */
 body.theme-gradient .page-header {
     color: var(--text-color);
-}
+        }
