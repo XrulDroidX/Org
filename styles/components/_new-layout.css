@@ -1,0 +1,145 @@
+/* File: styles/components/_new-layout.css */
+
+/* Kontainer Grid Utama */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    min-height: 90vh; /* Penuhi layar */
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+}
+
+/* Konten Kiri (Hero) */
+.hero-left .hero-title {
+    font-size: 3rem;
+    color: var(--text-color);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+.hero-left .hero-description {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+/* Tombol-tombol di Hero */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+/* Tombol sekunder (tidak solid) */
+.button-secondary {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.button-secondary:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+/* Di tema terang, tombol sekunder warnanya gelap */
+body.theme-light .button-secondary,
+body.theme-soft-blue .button-secondary,
+body.theme-sage-green .button-secondary,
+body.theme-earth .button-secondary,
+body.theme-lavender .button-secondary {
+    color: var(--text-color);
+    border-color: var(--text-color);
+}
+body.theme-light .button-secondary:hover,
+body.theme-soft-blue .button-secondary:hover,
+body.theme-sage-green .button-secondary:hover,
+body.theme-earth .button-secondary:hover,
+body.theme-lavender .button-secondary:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+
+/* Konten Kanan (Kartu) */
+.hero-right {
+    display: grid;
+    gap: 2rem;
+}
+
+.info-card {
+    background: var(--card-bg-color);
+    color: var(--card-text-color);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+/* Style kartu "dark" (seperti di Figma) */
+.info-card.dark {
+    /* Di tema terang, kartu ini jadi gelap */
+    background: var(--text-color);
+    color: var(--bg-color);
+}
+/* Di tema gelap, kartu "dark" ini jadi terang (atau lebih gelap) */
+body.theme-dark .info-card.dark {
+    background: #4A637C; /* Sedikit lebih gelap dari bg */
+    color: var(--text-color);
+}
+/* Di tema gradasi, kartu "dark" ini pakai glassmorphism */
+body.theme-gradient .info-card.dark {
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    color: var(--text-color);
+}
+
+.info-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.info-card ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+.info-card li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+.info-card li span {
+    font-size: 1.2rem;
+}
+.card-link {
+    display: block;
+    text-decoration: none;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: transform 0.3s ease;
+}
+.card-link:hover {
+    transform: translateX(5px);
+}
+body.theme-gradient .info-card.dark .card-link,
+body.theme-dark .info-card.dark .card-link {
+    color: var(--accent-color);
+}
+body:not(.theme-dark):not(.theme-gradient) .info-card.dark .card-link {
+     color: var(--accent-color);
+}
+
+
+/* Responsif */
+@media (max-width: 768px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        padding-top: 6rem;
+    }
+    .hero-left .hero-title {
+        font-size: 2.5rem;
+    }
+  }
