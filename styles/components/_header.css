@@ -1,4 +1,4 @@
-/* File: styles/components/_header.css */
+/* File: styles/components/_header.css (Versi FINAL dengan perbaikan scroll) */
 .header {
     position: fixed;
     width: 100%;
@@ -102,7 +102,7 @@ body {
 }
 
 
-/* === TAMPILAN MOBILE (SUDAH DIGABUNG) === */
+/* === TAMPILAN MOBILE (SUDAH DIGABUNG & DIPERBAIKI) === */
 @media (max-width: 768px) {
     
     /* 1. Sembunyikan dropdown versi desktop */
@@ -127,6 +127,10 @@ body {
         transition: right 0.4s ease;
         padding: 6rem 2rem 0; /* Padding atas 6rem untuk menu */
         z-index: 100;
+        
+        /* INI PERBAIKANNYA 
+        */
+        overflow-y: auto; 
     }
 
     .nav-menu-wrapper.show-menu {
@@ -150,6 +154,11 @@ body {
     .google-translate-mobile {
         display: block;
         margin-top: 2rem; /* Jarak dari item menu terakhir */
+        margin-left: 0; /* Reset margin */
+        
+        /* INI PERBAIKAN KEDUA (Beri jarak di bawah) 
+        */
+        padding-bottom: 2rem; 
     }
 
     /* 5. Atur jarak konten halaman */
