@@ -1,4 +1,4 @@
-// File: scripts/main.js (Versi FINAL dengan Testimoni)
+// File: scripts/main.js (Versi FINAL dengan SEMUA Animasi)
 
 // --- INTI: Jalankan semua modul saat halaman dimuat ---
 document.addEventListener('DOMContentLoaded', async () => {
@@ -8,20 +8,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 2. Jalankan sisa skrip SETELAH header dimuat
     setupHamburgerMenu(); 
     setupDesktopDropdown(); // Dropdown "Lainnya"
-    setupScrollAnimation();
+    setupScrollAnimation(); // (Ini sudah di-upgrade ke versi baru)
     setupHeaderScrollEffect();
     setupThemeSwitcher();
+    setupPageTransitions(); // <-- (BARU) Transisi Halaman
 
     // 3. Jalankan skrip spesifik halaman (jika elemennya ada)
     setupSlider();
     setupWelcomePopup(); // Pop-up selamat datang
     setupLightbox();
-    setupTestimonials(); // <-- (BARU) INI TAMBAHANNYA
+    setupTestimonials(); 
 });
 
 
 // --- Fungsi Pemuat Komponen Modular ---
 async function loadPartials() {
+    // ... (kode tidak berubah) ...
     const headerElement = document.querySelector('header.header');
     const footerElement = document.querySelector('footer.footer');
 
@@ -42,6 +44,7 @@ async function loadPartials() {
 
 // --- Fungsi Menandai Navigasi Aktif ---
 function setActiveNavLink() {
+    // ... (kode tidak berubah) ...
     const navLinks = document.querySelectorAll('.nav-link');
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
@@ -55,24 +58,37 @@ function setActiveNavLink() {
     });
 }
 
-// --- Modul 1: Animasi Scroll ---
+// --- (DI-UPGRADE) Modul 1: Animasi Scroll (Versi Baru dengan Stagger/Delay) ---
 function setupScrollAnimation() {
     const elementsToReveal = document.querySelectorAll('.reveal');
     if (elementsToReveal.length === 0) return;
+
     const observerOptions = { root: null, threshold: 0.1 };
+    
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                
+                // (BARU) Ambil delay dari data-attribute, default 0ms
+                const delay = entry.target.dataset.delay || '0';
+                
+                // (BARU) Terapkan delay ke style
+                entry.target.style.transitionDelay = `${delay}ms`;
+                
                 entry.target.classList.add('visible');
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
-    elementsToReveal.forEach(element => observer.observe(element));
+    
+    elementsToReveal.forEach(element => {
+        observer.observe(element);
+    });
 }
 
 // --- Modul 2: Efek Header Scroll ---
 function setupHeaderScrollEffect() {
+    // ... (kode tidak berubah) ...
     const header = document.querySelector('.header');
     if (!header) return; 
     window.addEventListener('scroll', () => {
@@ -88,6 +104,7 @@ function setupHeaderScrollEffect() {
 
 // --- Modul 3: Logika Hamburger Menu ---
 function setupHamburgerMenu() {
+    // ... (kode tidak berubah) ...
     const navMenu = document.getElementById('nav-menu');
     const navToggle = document.getElementById('nav-toggle');
     const navClose = document.getElementById('nav-close');
@@ -106,6 +123,7 @@ function setupHamburgerMenu() {
 
 // --- Modul 4: Logika Slider ---
 function setupSlider() {
+    // ... (kode tidak berubah) ...
     const slider = document.querySelector('.slider');
     if (!slider) return;
     const slides = slider.querySelectorAll('.slide');
@@ -130,6 +148,7 @@ function setupSlider() {
 
 // --- Modul 6: Logika Background Switcher ---
 function setupThemeSwitcher() {
+    // ... (kode tidak berubah) ...
     const bgElement = document.getElementById('bg-shapes');
     if (!bgElement) return;
     const buttons = document.querySelectorAll('.theme-switcher button');
@@ -158,6 +177,7 @@ function setupThemeSwitcher() {
 
 // --- Modul 7: Logika Lightbox Galeri ---
 function setupLightbox() {
+    // ... (kode tidak berubah) ...
     const galleryItems = document.querySelectorAll('.gallery-item');
     const lightbox = document.getElementById('lightbox');
     if (!lightbox) return;
@@ -182,8 +202,9 @@ function setupLightbox() {
 
 // --- Modul 8: Logika Dropdown "Lainnya" di Desktop ---
 function setupDesktopDropdown() {
+    // ... (kode tidak berubah) ...
     const dropdown = document.querySelector('.nav-item.dropdown');
-    if (!dropdown) return; // Hentikan jika tidak ada dropdown
+    if (!dropdown) return; 
 
     const toggle = dropdown.querySelector('.dropdown-toggle');
     const menu = dropdown.querySelector('.dropdown-menu');
@@ -206,6 +227,7 @@ function setupDesktopDropdown() {
 
 // --- Modul 9: Pop-up Selamat Datang (Satu Kali Sesi) ---
 function setupWelcomePopup() {
+    // ... (kode tidak berubah) ...
     const popup = document.getElementById('welcome-popup');
     if (!popup) return; 
 
@@ -227,28 +249,25 @@ function setupWelcomePopup() {
     }
 }
 
-// --- (BARU) Modul 10: Logika Slider Testimoni ---
+// --- Modul 10: Logika Slider Testimoni ---
 function setupTestimonials() {
+    // ... (kode tidak berubah) ...
     const slider = document.getElementById('testimonial-slider');
-    if (!slider) return; // Hentikan jika tidak di halaman/slider ini
+    if (!slider) return; 
 
     const slides = slider.querySelectorAll('.testimonial-slide');
     const navContainer = document.getElementById('testimonial-nav');
     
-    // Hentikan jika tidak ada slide atau navigasi
     if (slides.length === 0 || !navContainer) return;
 
     let currentSlide = 0;
     let slideInterval;
 
     function showSlide(index) {
-        // 1. Sembunyikan semua slide & nonaktifkan titik
         slides.forEach((slide, i) => {
             slide.classList.remove('active');
             navContainer.children[i].classList.remove('active');
         });
-
-        // 2. Tampilkan slide & titik yang dipilih
         slides[index].classList.add('active');
         navContainer.children[index].classList.add('active');
         currentSlide = index;
@@ -259,8 +278,7 @@ function setupTestimonials() {
         showSlide(newIndex);
     }
 
-    // 3. Buat titik-titik navigasi
-    navContainer.innerHTML = ''; // Kosongkan dulu untuk jaga-jaga
+    navContainer.innerHTML = ''; 
     slides.forEach((slide, i) => {
         const dot = document.createElement('div');
         dot.classList.add('testimonial-dot');
@@ -268,20 +286,69 @@ function setupTestimonials() {
         
         dot.addEventListener('click', () => {
             showSlide(i);
-            // Reset interval saat diklik manual
             clearInterval(slideInterval);
             startInterval();
         });
         navContainer.appendChild(dot);
     });
 
-    // 4. Mulai auto-slide
     function startInterval() {
-        // Hapus interval lama jika ada
         clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 5000); // Ganti slide setiap 5 detik
+        slideInterval = setInterval(nextSlide, 5000); 
     }
 
-    startInterval(); // Jalankan
-        }
+    startInterval();
+}
+
+
+// --- (BARU) Modul 11: Logika Preloader ---
+// Ini harus menggunakan 'load', BUKAN 'DOMContentLoaded', 
+// agar menunggu gambar selesai dimuat.
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.classList.add('hidden');
+    }
+});
+
+
+// --- (BARU) Modul 12: Logika Transisi Halaman ---
+function setupPageTransitions() {
+    // 1. Hapus class fade-out (untuk tombol 'Back' browser)
+    document.body.classList.remove('fade-out');
+
+    // 2. Cari semua link internal
+    const links = document.querySelectorAll('a');
+    
+    links.forEach(link => {
+        const href = link.getAttribute('href');
         
+        // Cek apakah link valid, BUKAN link eksternal, BUKAN link #, 
+        // BUKAN mailto, BUKAN target _blank, BUKAN link unduh, BUKAN Google Translate
+        if (href && 
+            !href.startsWith('#') && 
+            !href.startsWith('mailto:') && 
+            !href.includes('translate.google') && // Abaikan link google translate
+            !href.startsWith('javascript:') && // Abaikan pemicu google translate
+            link.target !== '_blank' &&
+            !href.endsWith('.pdf') && !href.endsWith('.docx') && !href.endsWith('.pptx') &&
+            (href.startsWith('/') || href.endsWith('.html') || href.includes(window.location.host)) &&
+            !link.classList.contains('dropdown-toggle') // Abaikan pemicu dropdown
+           ) 
+        {
+            link.addEventListener('click', (e) => {
+                // 3. Hentikan navigasi normal
+                e.preventDefault(); 
+                
+                // 4. Terapkan animasi fade-out
+                document.body.classList.add('fade-out');
+                
+                // 5. Tunggu animasi selesai, baru pindah halaman
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 400); // 400ms (harus cocok dengan durasi transisi CSS)
+            });
+        }
+    });
+}
+    
