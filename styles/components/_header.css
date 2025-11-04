@@ -65,12 +65,57 @@
     color: var(--text-light);
 }
 
-/* === TAMPILAN MOBILE === */
+/* --- Style Google Translate --- */
+.google-translate-container, .google-translate-mobile {
+    margin-left: 1rem;
+}
+.google-translate-mobile {
+    display: none; /* Sembunyikan versi mobile di desktop */
+}
+
+/* Sembunyikan 'Powered by Google' */
+.skiptranslate.goog-te-gadget {
+    font-size: 0 !important;
+}
+.skiptranslate.goog-te-gadget > div {
+    font-size: 1rem; /* Tampilkan lagi dropdown-nya */
+}
+/* Atur dropdown agar rapi */
+.goog-te-combo {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--text-light);
+    color: var(--text-light);
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-family: 'Poppins', sans-serif;
+}
+.goog-te-combo option {
+    color: var(--text-dark);
+}
+
+/* Sembunyikan banner Google di atas */
+body {
+    top: 0 !important;
+}
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+
+/* === TAMPILAN MOBILE (SUDAH DIGABUNG) === */
 @media (max-width: 768px) {
+    
+    /* 1. Sembunyikan dropdown versi desktop */
+    .google-translate-container {
+        display: none; 
+    }
+
+    /* 2. Tampilkan tombol hamburger */
     .nav-toggle {
         display: block;
     }
     
+    /* 3. Atur menu slide-out */
     .nav-menu-wrapper {
         position: fixed;
         top: 0;
@@ -80,7 +125,7 @@
         background: rgba(44, 62, 80, 0.9);
         backdrop-filter: blur(10px);
         transition: right 0.4s ease;
-        padding: 6rem 2rem 0;
+        padding: 6rem 2rem 0; /* Padding atas 6rem untuk menu */
         z-index: 100;
     }
 
@@ -101,7 +146,13 @@
         gap: 2.5rem;
     }
     
-    /* Beri jarak agar konten tidak tertutup header */
+    /* 4. Tampilkan dropdown versi mobile DI DALAM menu */
+    .google-translate-mobile {
+        display: block;
+        margin-top: 2rem; /* Jarak dari item menu terakhir */
+    }
+
+    /* 5. Atur jarak konten halaman */
     .page-header {
         padding-top: 6rem;
     }
