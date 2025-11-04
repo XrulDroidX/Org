@@ -1,4 +1,4 @@
-// File: scripts/main.js (Versi FINAL dengan dropdown DAN Welcome Popup)
+// File: scripts/main.js (Versi FINAL dengan Testimoni)
 
 // --- INTI: Jalankan semua modul saat halaman dimuat ---
 document.addEventListener('DOMContentLoaded', async () => {
@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 3. Jalankan skrip spesifik halaman (jika elemennya ada)
     setupSlider();
-    // setupModal(); // <-- (DIHAPUS) Ini pop-up lama
-    setupWelcomePopup(); // <-- (BARU) Ini pop-up selamat datang yang baru
+    setupWelcomePopup(); // Pop-up selamat datang
     setupLightbox();
+    setupTestimonials(); // <-- (BARU) INI TAMBAHANNYA
 });
 
 
@@ -128,12 +128,6 @@ function setupSlider() {
     });
 }
 
-// --- (DIHAPUS) Modul 5: Logika Pop-up Modal Lama ---
-/* function setupModal() {
-    // ... (Fungsi ini sudah tidak kita pakai) ...
-}
-*/
-
 // --- Modul 6: Logika Background Switcher ---
 function setupThemeSwitcher() {
     const bgElement = document.getElementById('bg-shapes');
@@ -210,33 +204,84 @@ function setupDesktopDropdown() {
     });
 }
 
-// --- (BARU) Modul 9: Pop-up Selamat Datang (Satu Kali Sesi) ---
+// --- Modul 9: Pop-up Selamat Datang (Satu Kali Sesi) ---
 function setupWelcomePopup() {
     const popup = document.getElementById('welcome-popup');
-    // Hanya jalankan jika kita berada di Halaman Depan (index.html)
     if (!popup) return; 
 
     const closeButton = document.getElementById('welcome-close');
     
-    // Cek sessionStorage: apakah sudah pernah lihat di sesi ini?
     const hasSeenPopup = sessionStorage.getItem('hasSeenWelcomePopup');
 
-    // 1. Jika BELUM PERNAH lihat:
     if (!hasSeenPopup) {
-        // Tampilkan pop-up (beri jeda 1 detik agar tidak kaget)
         setTimeout(() => {
             popup.classList.add('show');
         }, 1000); 
-
-        // 2. Tandai bahwa sekarang sudah melihat
         sessionStorage.setItem('hasSeenWelcomePopup', 'true');
     }
 
-    // 3. Tambahkan fungsi ke tombol close
     if (closeButton) {
         closeButton.addEventListener('click', () => {
             popup.classList.remove('show');
         });
     }
-                }
+}
+
+// --- (BARU) Modul 10: Logika Slider Testimoni ---
+function setupTestimonials() {
+    const slider = document.getElementById('testimonial-slider');
+    if (!slider) return; // Hentikan jika tidak di halaman/slider ini
+
+    const slides = slider.querySelectorAll('.testimonial-slide');
+    const navContainer = document.getElementById('testimonial-nav');
     
+    // Hentikan jika tidak ada slide atau navigasi
+    if (slides.length === 0 || !navContainer) return;
+
+    let currentSlide = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+        // 1. Sembunyikan semua slide & nonaktifkan titik
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            navContainer.children[i].classList.remove('active');
+        });
+
+        // 2. Tampilkan slide & titik yang dipilih
+        slides[index].classList.add('active');
+        navContainer.children[index].classList.add('active');
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        let newIndex = (currentSlide + 1) % slides.length;
+        showSlide(newIndex);
+    }
+
+    // 3. Buat titik-titik navigasi
+    navContainer.innerHTML = ''; // Kosongkan dulu untuk jaga-jaga
+    slides.forEach((slide, i) => {
+        const dot = document.createElement('div');
+        dot.classList.add('testimonial-dot');
+        if (i === 0) dot.classList.add('active');
+        
+        dot.addEventListener('click', () => {
+            showSlide(i);
+            // Reset interval saat diklik manual
+            clearInterval(slideInterval);
+            startInterval();
+        });
+        navContainer.appendChild(dot);
+    });
+
+    // 4. Mulai auto-slide
+    function startInterval() {
+        // Hapus interval lama jika ada
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 5000); // Ganti slide setiap 5 detik
+    }
+
+    startInterval(); // Jalankan
+        }
+        
