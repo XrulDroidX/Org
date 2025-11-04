@@ -19,13 +19,23 @@
             <li class="nav-item"><a href="relawan.html" class="nav-link button">Jadi Relawan</a></li>
         </ul>
 
-        </div>
+        <div id="google_translate_mobile" class="google-translate-mobile"></div>
+        
+        <div class="nav-close" id="nav-close">
+            &times; </div>
+    </div>
 
-    </nav>
+    <div id="google_translate_element" class="google-translate-container"></div>
 
+    <div class="nav-toggle" id="nav-toggle">
+        &#9776; </div>
+</nav>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: 'id', 
-    includedLanguages: 'id,en,es,ar', // (Indonesia, English, Spanish, Arabic) - Ganti sesuai kebutuhan
+    includedLanguages: 'id,en,es,ar',
     layout: google.translate.TranslateElement.InlineLayout.SIMPLE
   }, 'google_translate_element');
 
