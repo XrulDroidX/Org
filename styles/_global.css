@@ -1,4 +1,4 @@
-/* File: styles/_global.css */
+/* File: styles/_global.css (Sudah Diperbaiki) */
 * {
     margin: 0;
     padding: 0;
@@ -7,11 +7,11 @@
 
 :root {
     /* Palet Warna Anda */
-    --primary-color: #007BFF; /* Biru Dinamis */
-    --accent-color: #00C49F;  /* Hijau Aksi */
-    --text-dark: #2C3E50;    /* Biru Gelap (teks) */
-    --text-light: #FDFDFD;   /* Putih Bersih */
-    --bg-light: #F4F4F9;     /* Abu-abu Latar */
+    --primary-color: #007BFF;
+    --accent-color: #00C49F;
+    --text-dark: #2C3E50;
+    --text-light: #FDFDFD;
+    --bg-light: #F4F4F9;
     --glass-bg: rgba(255, 255, 255, 0.1);
     
     --header-height: 4.5rem;
@@ -23,11 +23,24 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif;
-    color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
-    /* Default body background */
-    background-color: var(--bg-light);
+    
+    /* DEFAULT: Tema Terang (Light) */
+    background-color: var(--bg-light); /* Latar abu-abu muda */
+    color: var(--text-dark); /* Teks gelap */
+}
+
+/* Latar belakang gradasi (hanya di body, bukan di tema) */
+.background-shapes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(45deg, #6d80fe, #00c4ff); /* Default Gradasi */
+    transition: background 0.5s ease;
 }
 
 .container {
@@ -36,14 +49,30 @@ body {
     padding: 0 2rem;
 }
 
-.background-shapes {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    /* Default background */
-    background: linear-gradient(45deg, #6d80fe, #00c4ff);
-    transition: background 0.5s ease;
+/* --- (BARU) Pengaturan Tema --- */
+
+/* 1. TEMA TERANG (LIGHT) */
+body.theme-light {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
 }
+/* Di tema terang, header halaman pakai teks gelap */
+body.theme-light .page-header {
+    color: var(--text-dark); 
+}
+
+/* 2. TEMA GELAP (DARK) */
+body.theme-dark {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+}
+/* Di tema gelap, header halaman pakai teks terang */
+body.theme-dark .page-header {
+    color: var(--text-light);
+}
+
+/* 3. TEMA GRADASI (DEFAULT) */
+/* Di tema gradasi, header halaman pakai teks terang */
+.page-header {
+    color: var(--text-light);
+    }
