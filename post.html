@@ -6,8 +6,10 @@
     <meta name="description" content="Artikel dari [Nama Organisasi Anda]">
     <title>Memuat Artikel... - JEJAKA</title>
     
-    <link rel="icon" href="assets/logo/favicon.png" type="image/png"> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logo/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2H0P06HDK"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -19,11 +21,15 @@
 </head>
 <body>
 
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo">JEJAKA</div>
+    </div>
+
     <div class="background-shapes" id="bg-shapes"></div>
     <header class="header"></header>
 
     <main>
-        <article id="post-container" class="post-container container">
+        <article id="post-container" class="post-container container reveal" data-delay="0">
             <p id="post-loading">Memuat artikel...</p>
         </article>
     </main>
