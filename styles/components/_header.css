@@ -48,14 +48,28 @@
     background-color: var(--text-light);
     color: var(--accent-color);
 }
-.nav-link.active::after {
+/* ... DENGAN BLOK BARU INI ... */
+/* Atur semua link non-tombol untuk punya garis bawah (hidden) */
+.nav-link:not(.button) {
+    position: relative;
+}
+
+.nav-link:not(.button)::after {
     content: '';
     position: absolute;
     bottom: -5px;
-    left: 0;
-    width: 100%;
+    left: 50%; /* Mulai dari tengah */
+    transform: translateX(-50%);
+    width: 0; /* Lebar awal 0 */
     height: 2px;
     background-color: var(--accent-color);
+    transition: width 0.3s ease; /* Transisi saat 'tumbuh' */
+}
+
+/* Buat garis 'tumbuh' saat di-hover ATAU saat aktif */
+.nav-link:not(.button):hover::after,
+.nav-link:not(.button).active::after {
+    width: 100%;
 }
 
 .nav-toggle, .nav-close {
