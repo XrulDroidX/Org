@@ -271,7 +271,9 @@ function setupTestimonials() {
         if (!navContainer.children[index]) return; // Jaga-jaga jika error
         slides.forEach((slide, i) => {
             slide.classList.remove('active');
-            navContainer.children[i].classList.remove('active');
+            if (navContainer.children[i]) {
+                navContainer.children[i].classList.remove('active');
+            }
         });
         slides[index].classList.add('active');
         navContainer.children[index].classList.add('active');
@@ -306,7 +308,9 @@ function setupTestimonials() {
 }
 
 
-// --- Modul 11: Logika Preloader ---
+// --- (PENTING) Modul 11: Logika Preloader ---
+// Ini harus menggunakan 'load', BUKAN 'DOMContentLoaded', 
+// agar menunggu gambar selesai dimuat.
 window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
     if (preloader) {
@@ -315,7 +319,7 @@ window.addEventListener('load', () => {
 });
 
 
-// --- Modul 12: Logika Transisi Halaman ---
+// --- (PENTING) Modul 12: Logika Transisi Halaman ---
 function setupPageTransitions() {
     document.body.classList.remove('fade-out'); // Hapus class fade-out
     const links = document.querySelectorAll('a');
@@ -343,5 +347,4 @@ function setupPageTransitions() {
             });
         }
     });
-                }
-        
+}
