@@ -7,6 +7,7 @@
     <link rel="icon" href="assets/logo/favicon.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2H0P06HDK"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -17,6 +18,10 @@
     </script>
 </head>
 <body>
+
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo">JEJAKA</div>
+    </div>
 
     <div class="background-shapes" id="bg-shapes"></div>
     <header class="header"></header>
@@ -29,7 +34,7 @@
 
         <section class="contact-section container">
             
-            <div class="contact-form glass-card reveal">
+            <div class="contact-form glass-card reveal" data-delay="0">
                 <h3>Kirim Pesan</h3>
                 <form id="form-kontak" name="kontak" method="POST" data-netlify="true">
                     <div class="form-group">
@@ -49,7 +54,7 @@
                 </form>
             </div>
 
-            <div class="contact-info reveal">
+            <div class="contact-info reveal" data-delay="150">
                 <div class="info-item glass-card">
                     <h4>Alamat</h4>
                     <p>Jl. Perjuangan Pemuda No. 45<br>Labuhanhaji, Indonesia 12345</p>
@@ -57,7 +62,7 @@
                 
                 <div class="map-container">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=..." 
+                        src="http://googleusercontent.com/maps/google.com/0..." 
                         width="600" 
                         height="450" 
                         style="border:0;" 
@@ -81,5 +86,5 @@
 
     <script src="scripts/main.js"></script>
 </body>
-    </html>
-    
+                            </html>
+                            
