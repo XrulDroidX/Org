@@ -8,25 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
     
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2H0P06HDK"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-P2H0P06HDK');
-    </script>
-</head>
+    </head>
 <body>
 
     <div class="welcome-popup" id="welcome-popup">
         <div class="welcome-card glass-card">
             <button class="welcome-close" id="welcome-close">&times;</button>
-            
             <h3>Selamat Datang di JEJAKA!</h3>
-            <p>
-                Juanda love ms. Brew kiwkiwkiw
-            </p>
+            <p>Pengumuman baru Anda di sini.</p>
             <a href="relawan.html" class="button-solid">Gabung Jadi Relawan</a>
         </div>
     </div>
@@ -36,85 +25,25 @@
     <header class="header"></header>
 
     <main>
-        <div class="hero-grid container">
-        
-            <div class="hero-left reveal" data-delay="0">
-                <h1 class="hero-title">Navigasi Masa Depan, Satu Aksi Nyata.</h1>
+        <section id="hero" class="hero container">
+            <div class="hero-content glass-card">
+                <h1 class="hero-title">Membangun Masa Depan, Satu Aksi Nyata.</h1>
                 <p class="hero-description">
-                    Kami adalah JEJAKA, kolektif pemuda yang berdedikasi untuk menciptakan perubahan sosial positif di komunitas kami.
+                    Kami adalah kolektif pemuda yang berdedikasi...
                 </p>
-                <div class="hero-buttons">
-                    <a href="program.html" class="button-solid">Lihat Program</a>
-                    <a href="relawan.html" class="button-secondary">Gabung Relawan</a>
-                </div>
+                <a href="program.html" class="button">Lihat Program Kami</a>
             </div>
-            
-            <div class="hero-right reveal" data-delay="150">
-                
-                <div class="info-card">
-                    <h4>Apa yang Kami Lakukan?</h4>
-                    <p>Program kami berfokus pada 3 pilar utama untuk dampak berkelanjutan.</p>
-                    <ul>
-                        <li><span>🎓</span> Pendidikan & Literasi</li>
-                        <li><span>🌳</span> Lingkungan & Konservasi</li>
-                        <li><span>🤝</span> Pemberdayaan Komunitas</li>
-                    </ul>
-                </div>
-                
-                <div class="info-card dark">
-                    <h4>Layanan Kami</h4>
-                    <p>Kami menyediakan sumber daya untuk membantu Anda bergerak.</p>
-                    <a href="sumber-daya.html" class="card-link">Pusat Sumber Daya <span>&rarr;</span></a>
-                    <a href="agenda.html" class="card-link">Agenda Kegiatan <span>&rarr;</span></a>
-                </div>
-                
-            </div>
-            
-        </div> 
+        </section>
 
-        <section class="testimonial-section container reveal">
-            <h2>Apa Kata Mereka?</h2>
-            <p class="testimonial-subtitle">Cerita dari mereka yang telah bergabung dan merasakan dampaknya.</p>
-
-            <div class="testimonial-slider" id="testimonial-slider">
-                
-                <div class="testimonial-slide active">
-                    <p class="testimonial-quote">"Bergabung dengan JEJAKA membuka mata saya tentang pentingnya aksi nyata. Bukan cuma bicara, tapi kami benar-benar turun ke lapangan."</p>
-                    <div class="testimonial-author">
-                        <img src="assets/images/profil-testi-1.jpg" alt="Foto Relawan">
-                        <div>
-                            <h4>Nama Relawan</h4>
-                            <span>Relawan Program Pendidikan</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-slide">
-                    <p class="testimonial-quote">"Programnya sangat berdampak. Sebagai mitra, kami bangga bisa mendukung visi dan energi anak-anak muda di JEJAKA."</p>
-                    <div class="testimonial-author">
-                        <img src="assets/images/profil-testi-2.jpg" alt="Foto Mitra">
-                        <div>
-                            <h4>Nama Mitra</h4>
-                            <span>CEO Mitra Perusahaan</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-slide">
-                    <p class="testimonial-quote">"Anak saya sekarang bisa baca tulis berkat program 'Pendidikan Untuk Semua'. Terima kasih tak terhingga untuk JEJAKA."</p>
-                    <div class="testimonial-author">
-                        <img src="assets/images/profil-testi-3.jpg" alt="Foto Penerima Manfaat">
-                        <div>
-                            <h4>Ibu Fulanah</h4>
-                            <span>Orang Tua Penerima Manfaat</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-nav" id="testimonial-nav">
+        <section id="slider" class="slider-container container reveal">
+            <h2>Galeri Program</h2>
+            <div class="slider">
                 </div>
         </section>
+        
+        <section class="testimonial-section container reveal">
+            <h2>Apa Kata Mereka?</h2>
+            </section>
 
     </main>
 
@@ -123,14 +52,9 @@
     <div class="theme-switcher">
         <button data-theme="gradient" title="Gradasi">🎨</button>
         <button data-theme="light" title="Terang">☀️</button>
-        <button data-theme="dark" title="Gelap">🌙</button>
-        <button data-theme="soft-blue" title="Biru Lembut" style="background: #5B86E5;"></button>
-        <button data-theme="sage-green" title="Hijau Sage" style="background: #6A994E;"></button>
-        <button data-theme="earth" title="Warna Tanah" style="background: #BC6C25;"></button>
-        <button data-theme="lavender" title="Lavender" style="background: #C3B1E1;"></button>
+        <button data-theme="dark" title="Mode Gelap">🌙</button>
     </div>
 
     <script src="scripts/main.js"></script>
 </body>
-                        </html>
-                        
+</html>
