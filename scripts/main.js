@@ -146,33 +146,42 @@ function setupSlider() {
     });
 }
 
-// --- Modul 6: Logika Background Switcher ---
+// --- Modul 6: Logika Background Switcher (VERSI UPGRADE 7 TEMA) ---
 function setupThemeSwitcher() {
-    // ... (kode tidak berubah) ...
-    const bgElement = document.getElementById('bg-shapes');
-    if (!bgElement) return;
     const buttons = document.querySelectorAll('.theme-switcher button');
     const body = document.body;
+    
+    // Objek Latar Belakang (untuk preloader)
+    const bgElement = document.getElementById('bg-shapes');
+
     function applyTheme(theme) {
-        body.classList.remove('theme-light', 'theme-dark');
-        if (theme === 'dark') {
-            bgElement.style.background = 'var(--text-dark)';
-            body.classList.add('theme-dark');
-        } else if (theme === 'light') {
-            bgElement.style.background = 'var(--bg-light)';
-            body.classList.add('theme-light');
-        } else {
-            bgElement.style.background = 'linear-gradient(45deg, #6d80fe, #00c4ff)';
+        // Hapus semua class tema sebelumnya
+        body.className = '';
+        
+        // Tambahkan class tema yang baru
+        if (theme) {
+            body.classList.add(theme);
         }
+        
+        // Perbarui background-shapes agar cocok
+        if (bgElement) {
+            // Kita perlu mengambil warna dari CSS variabel yang baru saja kita set
+            const newBg = getComputedStyle(body).getPropertyValue('--bg-color');
+            bgElement.style.background = newBg;
+        }
+        
         localStorage.setItem('sitetheme', theme);
     }
+
     buttons.forEach(button => {
         button.addEventListener('click', () => {
             applyTheme(button.dataset.theme);
         });
     });
-    const savedTheme = localStorage.getItem('sitetheme');
-    if (savedTheme) applyTheme(savedTheme);
+
+    // Cek tema yg tersimpan saat memuat halaman
+    const savedTheme = localStorage.getItem('sitetheme') || 'gradient'; // Default ke gradasi
+    applyTheme(savedTheme);
 }
 
 // --- Modul 7: Logika Lightbox Galeri ---
