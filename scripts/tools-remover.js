@@ -3,8 +3,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // --- GANTI DUA BARIS INI DENGAN INFO AKUN ANDA ---
-    const CLOUD_NAME = "GANTI_DENGAN_NAMA_CLOUD_ANDA"; 
-    const UPLOAD_PRESET = "GANTI_DENGAN_NAMA_PRESET_ANDA"; // (misal: 'jejaka-bg-remover')
+    const CLOUD_NAME = "dj1re1gkj"; 
+    const UPLOAD_PRESET = "jejaka-bg-remover"; // (misal: 'jejaka-bg-remover')
     // --------------------------------------------------
 
     const uploadButton = document.getElementById('upload-widget');
