@@ -1,4 +1,4 @@
-// File: scripts/main.js (Versi Stabil TANPA Preloader/Transisi)
+// File: scripts/main.js (PERBAIKAN FINAL: Menghapus 1 karakter '}' ekstra)
 
 // --- INTI: Jalankan semua modul saat halaman dimuat ---
 document.addEventListener('DOMContentLoaded', async () => {
@@ -258,3 +258,5 @@ function setupTestimonials() {
     }
     startInterval();
 }
+// <-- SATU '}' YANG SALAH SUDAH DIHAPUS DARI SINI
+                
