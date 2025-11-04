@@ -1,4 +1,4 @@
-/* File: styles/components/_header.css (Versi FINAL dengan perbaikan scroll) */
+/* File: styles/components/_header.css (Versi BARU dengan Dropdown) */
 .header {
     position: fixed;
     width: 100%;
@@ -12,11 +12,11 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align: center;
 }
 
 .nav-logo-img {
-    height: 40px; /* Sesuaikan ukuran logo */
+    height: 40px;
     display: block;
 }
 
@@ -33,6 +33,7 @@
     font-weight: 400;
     transition: color 0.3s ease;
     position: relative;
+    white-space: nowrap; /* Mencegah teks "Lainnya" patah */
 }
 .nav-link:hover {
     color: var(--accent-color);
@@ -57,7 +58,6 @@
     background-color: var(--accent-color);
 }
 
-/* Tombol Hamburger & Close (hidden di desktop) */
 .nav-toggle, .nav-close {
     display: none;
     cursor: pointer;
@@ -65,22 +65,76 @@
     color: var(--text-light);
 }
 
+/* --- (BARU) Style Dropdown Desktop --- */
+.dropdown {
+    position: relative; /* Jadi jangkar untuk dropdown-menu */
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+.dropdown-toggle span {
+    font-size: 0.7rem; /* Mengecilkan panah */
+    margin-left: 4px;
+    transition: transform 0.3s ease;
+}
+/* Efek panah berputar saat dropdown aktif */
+.dropdown.active .dropdown-toggle span {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 150%; /* Posisi di bawah link "Lainnya" */
+    right: 0; /* Rata kanan */
+    min-width: 200px;
+    
+    /* Style Glassmorphism */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+    
+    /* Sembunyikan dropdown */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 110;
+}
+
+/* Style untuk menampilkan dropdown (dikelola oleh JS) */
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-link {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+.dropdown-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+/* Rapikan sudut atas & bawah */
+.dropdown-link:first-child { border-radius: 15px 15px 0 0; }
+.dropdown-link:last-child { border-radius: 0 0 15px 15px; }
+
+
 /* --- Style Google Translate --- */
 .google-translate-container, .google-translate-mobile {
     margin-left: 1rem;
 }
-.google-translate-mobile {
-    display: none; /* Sembunyikan versi mobile di desktop */
-}
-
-/* Sembunyikan 'Powered by Google' */
-.skiptranslate.goog-te-gadget {
-    font-size: 0 !important;
-}
-.skiptranslate.goog-te-gadget > div {
-    font-size: 1rem; /* Tampilkan lagi dropdown-nya */
-}
-/* Atur dropdown agar rapi */
+.google-translate-mobile { display: none; }
+.skiptranslate.goog-te-gadget { font-size: 0 !important; }
+.skiptranslate.goog-te-gadget > div { font-size: 1rem; }
 .goog-te-combo {
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid var(--text-light);
@@ -89,80 +143,81 @@
     padding: 5px 8px;
     font-family: 'Poppins', sans-serif;
 }
-.goog-te-combo option {
-    color: var(--text-dark);
-}
-
-/* Sembunyikan banner Google di atas */
-body {
-    top: 0 !important;
-}
-.goog-te-banner-frame {
-    display: none !important;
-}
+.goog-te-combo option { color: var(--text-dark); }
+body { top: 0 !important; }
+.goog-te-banner-frame { display: none !important; }
 
 
-/* === TAMPILAN MOBILE (SUDAH DIGABUNG & DIPERBAIKI) === */
+/* === TAMPILAN MOBILE (PENTING: Membatalkan Dropdown) === */
 @media (max-width: 768px) {
     
-    /* 1. Sembunyikan dropdown versi desktop */
-    .google-translate-container {
-        display: none; 
-    }
-
-    /* 2. Tampilkan tombol hamburger */
-    .nav-toggle {
-        display: block;
-    }
+    .google-translate-container { display: none; }
+    .nav-toggle { display: block; }
     
-    /* 3. Atur menu slide-out */
     .nav-menu-wrapper {
         position: fixed;
         top: 0;
-        right: -100%; /* Sembunyi */
+        right: -100%;
         width: 70%;
         height: 100vh;
         background: rgba(44, 62, 80, 0.9);
         backdrop-filter: blur(10px);
         transition: right 0.4s ease;
-        padding: 6rem 2rem 0; /* Padding atas 6rem untuk menu */
+        padding: 6rem 2rem 0;
         z-index: 100;
-        
-        /* INI PERBAIKANNYA 
-        */
-        overflow-y: auto; 
+        overflow-y: auto; /* Izinkan scroll menu */
     }
-
-    .nav-menu-wrapper.show-menu {
-        right: 0;
-    }
-
+    .nav-menu-wrapper.show-menu { right: 0; }
     .nav-close {
         display: block;
         position: absolute;
         top: 1.5rem;
         right: 1.5rem;
     }
-
     .nav-menu {
         flex-direction: column;
         align-items: flex-start;
         gap: 2.5rem;
     }
-    
-    /* 4. Tampilkan dropdown versi mobile DI DALAM menu */
     .google-translate-mobile {
         display: block;
-        margin-top: 2rem; /* Jarak dari item menu terakhir */
-        margin-left: 0; /* Reset margin */
-        
-        /* INI PERBAIKAN KEDUA (Beri jarak di bawah) 
-        */
-        padding-bottom: 2rem; 
+        margin-top: 2rem;
+        margin-left: 0;
+        padding-bottom: 2rem;
     }
-
-    /* 5. Atur jarak konten halaman */
-    .page-header {
-        padding-top: 6rem;
+    .page-header { padding-top: 6rem; }
+    
+    /* --- (BARU) Batalkan Dropdown di Mobile --- */
+    
+    /* 1. Sembunyikan pemicu "Lainnya" */
+    .dropdown-toggle {
+        display: none;
     }
-}
+    
+    /* 2. Jadikan menu dropdown "normal" (tidak tersembunyi) */
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: transparent;
+        backdrop-filter: none;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        min-width: auto;
+        padding-top: 2.5rem; /* Beri jarak dari link utama */
+    }
+    
+    /* 3. Tampilkan link dropdown sebagai bagian dari daftar */
+    .dropdown-link {
+        padding: 0;
+        color: var(--text-light);
+        font-size: 1rem; /* Samakan font-size */
+        font-weight: 400;
+    }
+    .dropdown-link:hover {
+        background: transparent;
+        color: var(--accent-color);
+    }
+        }
