@@ -1,0 +1,112 @@
+/* File: styles/components/_testimonials.css */
+
+.testimonial-section {
+    padding: 4rem 0;
+    /* Kita gunakan --bg-light agar kontras */
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.testimonial-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text-dark);
+}
+
+.testimonial-subtitle {
+    text-align: center;
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 3rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.testimonial-slider {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    min-height: 250px; /* Jaga ketinggian saat slide berganti */
+}
+
+.testimonial-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    
+    /* Sembunyikan dan beri animasi */
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+}
+
+.testimonial-slide.active {
+    position: relative; /* Ganti jadi relative agar slide aktif mengambil ruang */
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.testimonial-quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 300;
+    color: #444;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.testimonial-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.testimonial-author h4 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.testimonial-author span {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+/* Navigasi Titik-titik */
+.testimonial-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.testimonial-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.testimonial-dot:hover {
+    background: #aaa;
+}
+
+.testimonial-dot.active {
+    background: var(--primary-color);
+}
