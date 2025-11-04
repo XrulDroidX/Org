@@ -1,4 +1,4 @@
-// File: scripts/main.js (PERBAIKAN FINAL: Menghapus 1 karakter '}' ekstra)
+// File: scripts/main.js (Versi Stabil TERAKHIR)
 
 // --- INTI: Jalankan semua modul saat halaman dimuat ---
 document.addEventListener('DOMContentLoaded', async () => {
@@ -128,17 +128,20 @@ function setupSlider() {
     }
 }
 
-// --- FUNGSI TEMA ---
+// --- FUNGSI TEMA (Versi 3 Tombol Sederhana) ---
 function applyTheme(theme) {
     const body = document.body;
     const bgElement = document.getElementById('bg-shapes');
     
-    body.classList.remove('theme-gradient', 'theme-light', 'theme-dark', 'theme-soft-blue', 'theme-sage-green', 'theme-earth', 'theme-lavender');
+    // Hapus hanya class tema lama
+    body.classList.remove('theme-gradient', 'theme-light', 'theme-dark');
+
     if (theme) {
         body.classList.add(theme);
     }
     if (bgElement) {
         setTimeout(() => {
+            // Ambil warna dari CSS (akan di-set oleh _global.css)
             const newBg = getComputedStyle(body).getPropertyValue('--bg-color');
             bgElement.style.background = newBg;
         }, 0);
@@ -257,6 +260,5 @@ function setupTestimonials() {
         slideInterval = setInterval(nextSlide, 5000); 
     }
     startInterval();
-}
-// <-- SATU '}' YANG SALAH SUDAH DIHAPUS DARI SINI
-                
+                                              }
+                    
