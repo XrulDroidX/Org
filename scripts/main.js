@@ -1,4 +1,4 @@
-// File: scripts/main.js (Versi Stabil TANPA animasi canggih)
+// File: scripts/main.js (Versi Stabil + PERBAIKAN PRELOADER)
 
 // --- INTI: Jalankan semua modul saat halaman dimuat ---
 document.addEventListener('DOMContentLoaded', async () => {
@@ -258,4 +258,14 @@ function setupTestimonials() {
     }
     startInterval();
 }
-    
+
+// --- (BARU) Modul 11: Logika Preloader ---
+// Ini harus menggunakan 'load', BUKAN 'DOMContentLoaded', 
+// agar menunggu gambar selesai dimuat.
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.classList.add('hidden');
+    }
+});
+                          
