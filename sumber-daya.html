@@ -9,6 +9,7 @@
     <link rel="icon" href="assets/logo/favicon.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2H0P06HDK"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -20,48 +21,52 @@
 </head>
 <body>
 
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo">JEJAKA</div>
+    </div>
+
     <div class="background-shapes" id="bg-shapes"></div>
     <header class="header"></header>
 
     <main>
-        <section class="page-header container reveal">
+        <section class="page-header container reveal" data-delay="0">
             <h1>Pusat Sumber Daya</h1>
             <p>Kami berbagi pengetahuan. Unduh panduan dan toolkit gratis untuk membantu Anda bergerak.</p>
         </section>
 
-        <section class="laporan-list-container container reveal">
+        <section class="laporan-list-container container">
             <div class="laporan-list">
                 
-                <div class="laporan-item-kategori">
+                <div class="laporan-item-kategori reveal" data-delay="150">
                     <h3>Panduan Aksi</h3>
                 </div>
 
-                <div class="laporan-item">
+                <div class="laporan-item reveal" data-delay="300">
                     <h4>Panduan Memulai Organisasi Sosial</h4>
                     <p>Langkah demi langkah membangun fondasi organisasi, dari visi hingga struktur tim.</p>
                     
                     <a href="assets/sumber-daya/panduan-memulai-organisasi.pdf" target="_blank" class="button-solid">Unduh PDF</a>
                 </div>
 
-                <div class="laporan-item">
+                <div class="laporan-item reveal" data-delay="450">
                     <h4>Panduan Public Speaking untuk Aktivis</h4>
                     <p>Tips praktis untuk menyampaikan gagasan Anda dengan percaya diri dan persuasif di depan umum.</p>
                     
                     <a href="assets/sumber-daya/panduan-public-speaking.pdf" target="_blank" class="button-solid">Unduh PDF</a>
                 </div>
                 
-                <div class="laporan-item-kategori">
+                <div class="laporan-item-kategori reveal" data-delay="0">
                     <h3>Toolkit & Template</h3>
                 </div>
 
-                <div class="laporan-item">
+                <div class="laporan-item reveal" data-delay="150">
                     <h4>Template Proposal Acara (PPTX)</h4>
                     <p>Template siap pakai untuk mengajukan proposal acara sosial Anda ke mitra atau sponsor.</p>
                     
                     <a href="assets/sumber-daya/template-proposal-acara.pptx" target="_blank" class="button-solid">Unduh PPTX</a>
                 </div>
 
-                <div class="laporan-item">
+                <div class="laporan-item reveal" data-delay="300">
                     <h4>Template Rilis Pers (DOCX)</h4>
                     <p>Format standar rilis pers untuk dikirimkan ke media setelah Anda mengadakan kegiatan.</p>
                     
@@ -82,5 +87,5 @@
 
     <script src="scripts/main.js"></script>
 </body>
-  </html>
-  
+        </html>
+    
