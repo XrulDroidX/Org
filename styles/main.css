@@ -1,4 +1,4 @@
-/* File: styles/main.css (Versi FINAL yang Lengkap) */
+/* File: styles/main.css (Versi Stabil) */
 
 /* 1. Global (Variabel, Font, Body) */
 @import url('_global.css');
@@ -22,12 +22,12 @@
 @import url('components/_agenda-list.css');
 @import url('components/_welcome-popup.css');
 @import url('components/_testimonials.css');
-@import url('components/_new-layout.css');
+/* @import url('components/_new-layout.css'); (Dihapus) */
 
 /* 3. Animasi & Preloader */
 @import url('_animations.css');
-@import url('_page-transitions.css');
-@import url('components/_preloader.css');
+/* @import url('_page-transitions.css'); (Dihapus) */
+/* @import url('components/_preloader.css'); (Dihapus) */
 
 /* 4. Layout spesifik */
 @import url('_layouts.css'); /* (Mengatur .page-header) */
