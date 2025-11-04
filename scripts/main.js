@@ -1,4 +1,4 @@
-// File: scripts/main.js (Versi FINAL dengan SEMUA Animasi)
+// File: scripts/main.js (Versi FINAL dengan SEMUA Fitur & Perbaikan Tema)
 
 // --- INTI: Jalankan semua modul saat halaman dimuat ---
 document.addEventListener('DOMContentLoaded', async () => {
@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 2. Jalankan sisa skrip SETELAH header dimuat
     setupHamburgerMenu(); 
     setupDesktopDropdown(); // Dropdown "Lainnya"
-    setupScrollAnimation(); // (Ini sudah di-upgrade ke versi baru)
+    setupScrollAnimation(); // Animasi beruntun
     setupHeaderScrollEffect();
-    setupThemeSwitcher();
-    setupPageTransitions(); // <-- (BARU) Transisi Halaman
+    setupThemeSwitcher(); // (SUDAH DIPERBAIKI)
+    setupPageTransitions(); // Transisi Halaman
 
     // 3. Jalankan skrip spesifik halaman (jika elemennya ada)
     setupSlider();
@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // --- Fungsi Pemuat Komponen Modular ---
 async function loadPartials() {
-    // ... (kode tidak berubah) ...
     const headerElement = document.querySelector('header.header');
     const footerElement = document.querySelector('footer.footer');
 
@@ -44,7 +43,6 @@ async function loadPartials() {
 
 // --- Fungsi Menandai Navigasi Aktif ---
 function setActiveNavLink() {
-    // ... (kode tidak berubah) ...
     const navLinks = document.querySelectorAll('.nav-link');
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
@@ -68,13 +66,8 @@ function setupScrollAnimation() {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                
-                // (BARU) Ambil delay dari data-attribute, default 0ms
                 const delay = entry.target.dataset.delay || '0';
-                
-                // (BARU) Terapkan delay ke style
                 entry.target.style.transitionDelay = `${delay}ms`;
-                
                 entry.target.classList.add('visible');
                 observer.unobserve(entry.target);
             }
@@ -88,7 +81,6 @@ function setupScrollAnimation() {
 
 // --- Modul 2: Efek Header Scroll ---
 function setupHeaderScrollEffect() {
-    // ... (kode tidak berubah) ...
     const header = document.querySelector('.header');
     if (!header) return; 
     window.addEventListener('scroll', () => {
@@ -104,7 +96,6 @@ function setupHeaderScrollEffect() {
 
 // --- Modul 3: Logika Hamburger Menu ---
 function setupHamburgerMenu() {
-    // ... (kode tidak berubah) ...
     const navMenu = document.getElementById('nav-menu');
     const navToggle = document.getElementById('nav-toggle');
     const navClose = document.getElementById('nav-close');
@@ -123,7 +114,6 @@ function setupHamburgerMenu() {
 
 // --- Modul 4: Logika Slider ---
 function setupSlider() {
-    // ... (kode tidak berubah) ...
     const slider = document.querySelector('.slider');
     if (!slider) return;
     const slides = slider.querySelectorAll('.slide');
@@ -136,17 +126,19 @@ function setupSlider() {
             if (i === index) slide.classList.add('active');
         });
     }
-    next.addEventListener('click', () => {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    });
-    prev.addEventListener('click', () => {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
-    });
+    if (next && prev) { // Pastikan tombol ada
+        next.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        });
+        prev.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        });
+    }
 }
 
-// --- Modul 6: Logika Background Switcher (VERSI DIPERBAIKI) ---
+// --- (DIPERBAIKI) Modul 6: Logika Background Switcher ---
 function setupThemeSwitcher() {
     const buttons = document.querySelectorAll('.theme-switcher button');
     if (buttons.length === 0) return; // Hentikan jika tidak ada tombol
@@ -155,10 +147,7 @@ function setupThemeSwitcher() {
     const bgElement = document.getElementById('bg-shapes');
 
     function applyTheme(theme) {
-        // 1. Hapus semua class tema sebelumnya dari body
-        body.className = ''; 
-        // Ini adalah kesalahan sebelumnya, kita tidak boleh menghapus semua class,
-        // Hapus hanya class tema
+        // 1. Hapus hanya class tema, biarkan class lain (seperti 'fade-out')
         body.classList.remove('theme-gradient', 'theme-light', 'theme-dark', 'theme-soft-blue', 'theme-sage-green', 'theme-earth', 'theme-lavender');
 
         // 2. Tambahkan class tema yang baru
@@ -169,8 +158,11 @@ function setupThemeSwitcher() {
         // 3. Perbarui background-shapes agar cocok
         if (bgElement) {
             // Kita perlu mengambil warna dari CSS variabel yang baru saja kita set di body
-            const newBg = getComputedStyle(body).getPropertyValue('--bg-color');
-            bgElement.style.background = newBg;
+            // Diberi jeda singkat agar style-nya sempat di-apply
+            setTimeout(() => {
+                const newBg = getComputedStyle(body).getPropertyValue('--bg-color');
+                bgElement.style.background = newBg;
+            }, 0);
         }
         
         // 4. Simpan pilihan tema
@@ -185,14 +177,12 @@ function setupThemeSwitcher() {
     });
 
     // 5. Terapkan tema yang tersimpan saat memuat halaman
-    //    (Pastikan tema diterapkan SEBELUM preloader hilang agar tidak 'flash')
     const savedTheme = localStorage.getItem('sitetheme') || 'gradient'; // Default ke gradasi
     applyTheme(savedTheme);
 }
 
 // --- Modul 7: Logika Lightbox Galeri ---
 function setupLightbox() {
-    // ... (kode tidak berubah) ...
     const galleryItems = document.querySelectorAll('.gallery-item');
     const lightbox = document.getElementById('lightbox');
     if (!lightbox) return;
@@ -204,9 +194,11 @@ function setupLightbox() {
             lightboxImg.src = item.src;
         });
     });
-    lightboxClose.addEventListener('click', () => {
-        lightbox.classList.remove('active');
-    });
+    if(lightboxClose) {
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+    }
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
             lightbox.classList.remove('active');
@@ -217,7 +209,6 @@ function setupLightbox() {
 
 // --- Modul 8: Logika Dropdown "Lainnya" di Desktop ---
 function setupDesktopDropdown() {
-    // ... (kode tidak berubah) ...
     const dropdown = document.querySelector('.nav-item.dropdown');
     if (!dropdown) return; 
 
@@ -242,7 +233,6 @@ function setupDesktopDropdown() {
 
 // --- Modul 9: Pop-up Selamat Datang (Satu Kali Sesi) ---
 function setupWelcomePopup() {
-    // ... (kode tidak berubah) ...
     const popup = document.getElementById('welcome-popup');
     if (!popup) return; 
 
@@ -266,7 +256,6 @@ function setupWelcomePopup() {
 
 // --- Modul 10: Logika Slider Testimoni ---
 function setupTestimonials() {
-    // ... (kode tidak berubah) ...
     const slider = document.getElementById('testimonial-slider');
     if (!slider) return; 
 
@@ -279,6 +268,7 @@ function setupTestimonials() {
     let slideInterval;
 
     function showSlide(index) {
+        if (!navContainer.children[index]) return; // Jaga-jaga jika error
         slides.forEach((slide, i) => {
             slide.classList.remove('active');
             navContainer.children[i].classList.remove('active');
@@ -316,9 +306,7 @@ function setupTestimonials() {
 }
 
 
-// --- (BARU) Modul 11: Logika Preloader ---
-// Ini harus menggunakan 'load', BUKAN 'DOMContentLoaded', 
-// agar menunggu gambar selesai dimuat.
+// --- Modul 11: Logika Preloader ---
 window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
     if (preloader) {
@@ -327,43 +315,33 @@ window.addEventListener('load', () => {
 });
 
 
-// --- (BARU) Modul 12: Logika Transisi Halaman ---
+// --- Modul 12: Logika Transisi Halaman ---
 function setupPageTransitions() {
-    // 1. Hapus class fade-out (untuk tombol 'Back' browser)
-    document.body.classList.remove('fade-out');
-
-    // 2. Cari semua link internal
+    document.body.classList.remove('fade-out'); // Hapus class fade-out
     const links = document.querySelectorAll('a');
     
     links.forEach(link => {
         const href = link.getAttribute('href');
         
-        // Cek apakah link valid, BUKAN link eksternal, BUKAN link #, 
-        // BUKAN mailto, BUKAN target _blank, BUKAN link unduh, BUKAN Google Translate
         if (href && 
             !href.startsWith('#') && 
             !href.startsWith('mailto:') && 
-            !href.includes('translate.google') && // Abaikan link google translate
-            !href.startsWith('javascript:') && // Abaikan pemicu google translate
+            !href.includes('translate.google') && 
+            !href.startsWith('javascript:') && 
             link.target !== '_blank' &&
             !href.endsWith('.pdf') && !href.endsWith('.docx') && !href.endsWith('.pptx') &&
             (href.startsWith('/') || href.endsWith('.html') || href.includes(window.location.host)) &&
-            !link.classList.contains('dropdown-toggle') // Abaikan pemicu dropdown
+            !link.classList.contains('dropdown-toggle') 
            ) 
         {
             link.addEventListener('click', (e) => {
-                // 3. Hentikan navigasi normal
                 e.preventDefault(); 
-                
-                // 4. Terapkan animasi fade-out
                 document.body.classList.add('fade-out');
-                
-                // 5. Tunggu animasi selesai, baru pindah halaman
                 setTimeout(() => {
                     window.location.href = href;
-                }, 400); // 400ms (harus cocok dengan durasi transisi CSS)
+                }, 400); 
             });
         }
     });
-}
-    
+                }
+        
