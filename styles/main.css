@@ -15,6 +15,7 @@
 @import url('components/_contact-form.css'); /* (Kode tidak berubah) */
 @import url('components/_pengurus.css');
 @import url('components/_program-card.css');
+@import url('components/_gallery-grid.css');
 
 /* 3. Animasi & Utilitas */
 @import url('_animations.css'); /* (Kode tidak berubah) */
