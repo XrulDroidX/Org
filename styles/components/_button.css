@@ -1,0 +1,53 @@
+/* File: styles/components/_button.css */
+
+/* (BARU) INI ADALAH STYLE "MORPH" BUTTON UTAMA ANDA
+  Digunakan di atas latar belakang gradasi (seperti di Homepage) 
+*/
+.button {
+    display: inline-block;
+    padding: 12px 30px; /* Sedikit lebih besar agar efeknya terlihat */
+    text-decoration: none;
+    font-weight: 600;
+    
+    /* --- Efek Glassmorphism --- */
+    background: rgba(255, 255, 255, 0.15); /* Latar transparan */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px; /* Bentuk pil modern */
+    color: var(--text-light); /* Teks putih */
+    
+    /* --- Efek Hover --- */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    /* Saat di-hover, membuatnya lebih cerah */
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px); /* Tetap ada efek angkat */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* (BARU) STYLE UNTUK TOMBOL DI ATAS LATAR PUTIH
+  Ini adalah style tombol solid Anda yang lama, 
+  kita beri nama baru agar tidak konflik.
+*/
+.button-solid {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: var(--primary-color); /* Biru solid */
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-solid:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
