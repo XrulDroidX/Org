@@ -9,6 +9,7 @@
     <link rel="icon" href="assets/logo/favicon.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2H0P06HDK"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -20,33 +21,37 @@
 </head>
 <body>
 
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo">JEJAKA</div>
+    </div>
+
     <div class="background-shapes" id="bg-shapes"></div>
     <header class="header"></header>
 
     <main>
-        <section class="page-header container reveal">
+        <section class="page-header container reveal" data-delay="0">
             <h1>Laporan & Transparansi</h1>
             <p>Kami percaya pada akuntabilitas. Lihat laporan kami untuk mengetahui dampak yang telah kami ciptakan bersama.</p>
         </section>
 
-        <section class="laporan-list-container container reveal">
+        <section class="laporan-list-container container">
             <div class="laporan-list">
                 
-                <div class="laporan-item">
+                <div class="laporan-item reveal" data-delay="150">
                     <h4>Laporan Tahunan 2024</h4>
                     <p>Ringkasan semua program, pencapaian, dan laporan keuangan kami sepanjang tahun 2024.</p>
                     
                     <a href="assets/laporan/laporan-tahunan-2024.pdf" target="_blank" class="button-solid">Unduh PDF</a>
                 </div>
 
-                <div class="laporan-item">
+                <div class="laporan-item reveal" data-delay="300">
                     <h4>Laporan Dampak Program "Pendidikan Untuk Semua" Q4 2024</h4>
                     <p>Laporan mendalam mengenai hasil dan dampak dari program bimbingan belajar kami.</p>
                     
                     <a href="assets/laporan/laporan-dampak-pendidikan-q4-2024.pdf" target="_blank" class="button-solid">Unduh PDF</a>
                 </div>
 
-                <div class="laporan-item">
+                <div class="laporan-item reveal" data-delay="450">
                     <h4>Laporan Keuangan 2023</h4>
                     <p>Rincian alokasi dana donasi dan operasional organisasi tahun 2023.</p>
                     
