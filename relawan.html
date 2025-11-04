@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gabung menjadi relawan dan jadilah bagian dari perubahan. Daftar di sini.">
+    <title>JEJAKA - Jadi Relawan</title>
+    
+    <link rel="icon" href="assets/logo/favicon.png" type="image/png"> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+    <div class="background-shapes" id="bg-shapes"></div>
+    <header class="header"></header>
+
+    <main>
+        <section class="page-header container reveal">
+            <h1>Gabung Jadi Relawan</h1>
+            <p>Kami mencari anak muda penuh semangat yang ingin berkontribusi nyata.</p>
+        </section>
+
+        <section class="container reveal">
+            <div class="contact-form glass-card">
+                <h3>Formulir Pendaftaran</h3>
+                <p>Isi data diri Anda, dan tim kami akan segera menghubungi Anda.</p>
+                <form name="relawan" method="POST" data-netlify="true">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Nomor HP (WhatsApp)</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reason">Apa motivasi Anda bergabung?</label>
+                        <textarea id="reason" name="reason" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="button">Kirim Pendaftaran</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer"></footer>
+    
+    <div class="theme-switcher">
+        <button data-theme="gradient" title="Mode Gradasi">🎨</button>
+        <button data-theme="light" title="Mode Terang">☀️</button>
+        <button data-theme="dark" title="Mode Gelap">🌙</button>
+    </div>
+
+    <script src="scripts/main.js"></script>
+</body>
+  </html>
+  
