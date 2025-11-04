@@ -1,4 +1,4 @@
-/* File: styles/_global.css (Versi BARU dengan 7 Tema) */
+/* File: styles/_global.css (Versi FINAL dengan 7 Tema) */
 * {
     margin: 0;
     padding: 0;
@@ -26,13 +26,13 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     
-    /* Default */
+    /* Default (akan ditimpa oleh JS saat memuat) */
     background: var(--bg-color);
     color: var(--text-color);
     transition: background 0.5s ease, color 0.5s ease;
 }
 
-/* --- Variabel Tema --- */
+/* --- (PENTING) Variabel Tema --- */
 
 /* 1. Tema Gradasi (Default) */
 body.theme-gradient {
@@ -64,7 +64,7 @@ body.theme-dark {
     --card-text-color: #FDFDFD;
 }
 
-/* 4. Tema Biru Lembut (BARU) */
+/* 4. Tema Biru Lembut */
 body.theme-soft-blue {
     --primary-color: #5B86E5;
     --accent-color: #36D1DC;
@@ -74,7 +74,7 @@ body.theme-soft-blue {
     --card-text-color: #334257;
 }
 
-/* 5. Tema Hijau Sage (BARU) */
+/* 5. Tema Hijau Sage */
 body.theme-sage-green {
     --primary-color: #6A994E;
     --accent-color: #A7C957;
@@ -84,7 +84,7 @@ body.theme-sage-green {
     --card-text-color: #386641;
 }
 
-/* 6. Tema Warna Tanah (BARU) */
+/* 6. Tema Warna Tanah */
 body.theme-earth {
     --primary-color: #BC6C25;
     --accent-color: #DDA15E;
@@ -94,7 +94,7 @@ body.theme-earth {
     --card-text-color: #283618;
 }
 
-/* 7. Tema Lavender (BARU) */
+/* 7. Tema Lavender */
 body.theme-lavender {
     --primary-color: #8E78FF;
     --accent-color: #C3B1E1;
@@ -104,10 +104,8 @@ body.theme-lavender {
     --card-text-color: #4A4458;
 }
 
-
 /* --- Global Elemen Update --- */
 
-/* Latar belakang gradasi HANYA ada di tema gradasi */
 .background-shapes {
     position: fixed;
     top: 0;
@@ -123,4 +121,25 @@ body.theme-lavender {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 2rem;
-    }
+}
+
+/* --- Penyesuaian Tema Global --- */
+
+/* Di tema TERANG (apapun), header halaman pakai teks gelap */
+body.theme-light .page-header,
+body.theme-soft-blue .page-header,
+body.theme-sage-green .page-header,
+body.theme-earth .page-header,
+body.theme-lavender .page-header {
+    color: var(--text-color); 
+}
+
+/* Di tema GELAP, header halaman pakai teks terang */
+body.theme-dark .page-header {
+    color: var(--text-color);
+}
+
+/* Di tema GRADASI, header halaman pakai teks terang */
+body.theme-gradient .page-header {
+    color: var(--text-color);
+}
