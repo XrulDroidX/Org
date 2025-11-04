@@ -3,8 +3,8 @@
 // --- 1. GANTI DENGAN KUNCI API CONTENTFUL ANDA ---
 // Anda bisa dapatkan ini dari Dasbor Contentful:
 // Settings -> API keys -> Content Delivery API
-const CONTENTFUL_SPACE_ID = 'GANTI_DENGAN_SPACE_ID_ANDA';
-const CONTENTFUL_ACCESS_TOKEN = 'GANTI_DENGAN_ACCESS_TOKEN_ANDA';
+const CONTENTFUL_SPACE_ID = 'dddfffpze5ox';
+const CONTENTFUL_ACCESS_TOKEN = '8DlARaMEWuTncoJ8IZcpHUnZQZTVnw9t6NLCF8YobRc';
 const CONTENTFUL_CONTENT_TYPE = 'berita'; // ID dari Tipe Konten 'Berita' Anda
 
 const blogGrid = document.getElementById('blog-grid');
