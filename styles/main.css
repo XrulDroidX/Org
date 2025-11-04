@@ -13,6 +13,7 @@
 @import url('components/_theme-switcher.css'); /* (Kode BARU di bawah) */
 @import url('components/_blog-card.css'); /* (Kode BARU di bawah) */
 @import url('components/_contact-form.css'); /* (Kode tidak berubah) */
+@import url('components/_pengurus.css');
 
 /* 3. Animasi & Utilitas */
 @import url('_animations.css'); /* (Kode tidak berubah) */
