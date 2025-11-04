@@ -1,0 +1,103 @@
+/* File: styles/components/_welcome-popup.css */
+
+.welcome-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 999; /* Muncul di atas segalanya */
+    
+    /* Latar belakang gelap transparan dengan blur */
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    
+    /* Sembunyikan by default */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Status 'show' akan ditambahkan oleh JavaScript */
+.welcome-popup.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animasi kartu agar meluncur dari bawah */
+.welcome-popup.show .welcome-card {
+    animation: slideUpFadeIn 0.5s ease forwards;
+}
+
+.welcome-card {
+    position: relative;
+    max-width: 500px; /* Batasi lebar pop-up */
+    width: 100%;
+    
+    /* Kita gunakan style .glass-card tapi kita atur lagi di sini */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+    
+    color: var(--text-light); /* Teks di pop-up ini putih */
+    text-align: center;
+    
+    /* Sembunyikan kartu by default untuk animasi */
+    opacity: 0;
+}
+
+/* Penyesuaian untuk Tema Terang */
+body.theme-light .welcome-card {
+    background: #fff; /* Latar putih solid */
+    color: var(--text-dark); /* Teks gelap */
+}
+
+.welcome-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+.welcome-card p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.welcome-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    transition: transform 0.3s ease;
+}
+.welcome-close:hover {
+    transform: scale(1.1);
+}
+
+/* Penyesuaian tombol close untuk Tema Terang */
+body.theme-light .welcome-close {
+    color: var(--text-dark);
+}
+
+/* Animasi Keyframes */
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
