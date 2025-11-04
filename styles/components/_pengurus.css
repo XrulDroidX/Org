@@ -1,0 +1,62 @@
+/* File: styles/components/_pengurus.css */
+
+.pengurus-section {
+    padding: 4rem 0;
+    /* Kita gunakan --bg-light agar kontras dengan
+       latar belakang gradasi/gelap */
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.pengurus-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--text-dark);
+}
+
+.pengurus-grid {
+    display: grid;
+    /* Membuat grid responsif: 
+       - Coba muat 4 kolom (250px)
+       - Jika tidak muat, jadi 3, 2, dst.
+    */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.pengurus-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+    text-align: center;
+    padding: 2rem 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pengurus-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.pengurus-card-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Membuat gambar jadi bulat */
+    object-fit: cover; /* Memastikan gambar pas */
+    margin-bottom: 1.5rem;
+    border: 5px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pengurus-card h4 {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.pengurus-card p {
+    font-size: 0.9rem;
+    color: var(--primary-color); /* Warna jabatan/posisi */
+    font-weight: 600;
+}
