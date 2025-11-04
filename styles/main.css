@@ -24,6 +24,8 @@
 @import url('components/_button.css');
 @import url('components/_welcome-popup.css');
 @import url('components/_testimonials.css');
+@import url('_preloader.css'); /* <-- TAMBAHKAN INI */
+@import url('_page-transitions.css'); /* <-- TAMBAHKAN INI */
 
 
 /* 3. Animasi & Utilitas */
