@@ -9,6 +9,7 @@
     <link rel="icon" href="assets/logo/favicon.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2H0P06HDK"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -20,6 +21,10 @@
 </head>
 <body>
 
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo">JEJAKA</div>
+    </div>
+
     <div class="background-shapes" id="bg-shapes"></div>
     <header class="header"></header>
 
@@ -29,10 +34,10 @@
             <p>Jadilah bagian dari aksi kami selanjutnya. Catat tanggalnya dan ikuti kegiatannya.</p>
         </section>
 
-        <section class="agenda-list-container container reveal">
+        <section class="agenda-list-container container">
             <div class="agenda-list">
                 
-                <div class="agenda-item">
+                <div class="agenda-item reveal" data-delay="0">
                     <div class="agenda-date">
                         <span class="day">20</span>
                         <span class="month">NOV</span>
@@ -45,7 +50,7 @@
                     <a href="kontak.html" class="button-solid">Info Detail</a>
                 </div>
 
-                <div class="agenda-item">
+                <div class="agenda-item reveal" data-delay="150">
                     <div class="agenda-date">
                         <span class="day">05</span>
                         <span class="month">DES</span>
@@ -58,7 +63,7 @@
                     <a href="relawan.html" class="button-solid">Daftar Relawan</a>
                 </div>
 
-                <div class="agenda-item past-event">
+                <div class="agenda-item past-event reveal" data-delay="300">
                     <div class="agenda-date">
                         <span class="day">15</span>
                         <span class="month">OKT</span>
@@ -69,7 +74,7 @@
                     </div>
                     
                     <a href="laporan.html" class="button button-secondary">Lihat Laporan</a>
-                    </div>
+                </div>
 
             </div>
         </section>
@@ -85,5 +90,5 @@
 
     <script src="scripts/main.js"></script>
 </body>
-            </html>
-            
+        </html>
+        
