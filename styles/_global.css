@@ -1,4 +1,4 @@
-/* File: styles/_global.css (Versi FINAL dengan 7 Tema) */
+/* File: styles/_global.css (Versi Stabil 3 Tema) */
 * {
     margin: 0;
     padding: 0;
@@ -42,7 +42,7 @@ body.theme-gradient {
 body.theme-light {
     --primary-color: #007BFF;
     --accent-color: #00C49F;
-    --bg-color: #F4F4F9; /* Abu-abu muda */
+    --bg-color: #F4F49; /* Abu-abu muda */
     --text-color: #2C3E50; /* Teks gelap */
     --card-bg-color: #FFFFFF; /* Kartu putih */
     --card-text-color: #2C3E50;
@@ -55,38 +55,6 @@ body.theme-dark {
     --card-bg-color: #34495E; /* Kartu biru lebih muda */
     --card-text-color: #FDFDFD;
 }
-body.theme-soft-blue {
-    --primary-color: #5B86E5;
-    --accent-color: #36D1DC;
-    --bg-color: #EDF2FB;
-    --text-color: #334257;
-    --card-bg-color: #FFFFFF;
-    --card-text-color: #334257;
-}
-body.theme-sage-green {
-    --primary-color: #6A994E;
-    --accent-color: #A7C957;
-    --bg-color: #F2F4F0;
-    --text-color: #386641;
-    --card-bg-color: #FFFFFF;
-    --card-text-color: #386641;
-}
-body.theme-earth {
-    --primary-color: #BC6C25;
-    --accent-color: #DDA15E;
-    --bg-color: #FEFAE0; /* Krem */
-    --text-color: #283618;
-    --card-bg-color: #FFFFFF;
-    --card-text-color: #283618;
-}
-body.theme-lavender {
-    --primary-color: #8E78FF;
-    --accent-color: #C3B1E1;
-    --bg-color: #F5F3F9;
-    --text-color: #4A4458;
-    --card-bg-color: #FFFFFF;
-    --card-text-color: #4A4458;
-}
 
 /* --- Global Elemen Update --- */
 .background-shapes {
@@ -96,7 +64,7 @@ body.theme-lavender {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: var(--bg-color); /* Latar sekarang dikontrol oleh tema */
+    background: var(--bg-color);
     transition: background 0.5s ease;
 }
 .container {
@@ -106,11 +74,7 @@ body.theme-lavender {
 }
 
 /* --- Penyesuaian Tema Global --- */
-body.theme-light .page-header,
-body.theme-soft-blue .page-header,
-body.theme-sage-green .page-header,
-body.theme-earth .page-header,
-body.theme-lavender .page-header {
+body.theme-light .page-header {
     color: var(--text-color); 
 }
 body.theme-dark .page-header {
@@ -118,4 +82,4 @@ body.theme-dark .page-header {
 }
 body.theme-gradient .page-header {
     color: var(--text-color);
-        }
+}
