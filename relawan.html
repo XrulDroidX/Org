@@ -9,6 +9,7 @@
     <link rel="icon" href="assets/logo/favicon.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2H0P06HDK"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -20,16 +21,20 @@
 </head>
 <body>
 
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo">JEJAKA</div>
+    </div>
+
     <div class="background-shapes" id="bg-shapes"></div>
     <header class="header"></header>
 
     <main>
-        <section class="page-header container reveal">
+        <section class="page-header container reveal" data-delay="0">
             <h1>Gabung Jadi Relawan</h1>
             <p>Kami mencari anak muda penuh semangat yang ingin berkontribusi nyata.</p>
         </section>
 
-        <section class="container reveal">
+        <section class="container reveal" data-delay="150">
             <div class="contact-form glass-card">
                 <h3>Formulir Pendaftaran</h3>
                 <p>Isi data diri Anda, dan tim kami akan segera menghubungi Anda.</p>
@@ -67,5 +72,4 @@
 
     <script src="scripts/main.js"></script>
 </body>
-    </html>
-    
+</html>
