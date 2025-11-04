@@ -20,9 +20,9 @@
 @import url('components/_mitra-grid.css');
 @import url('components/_laporan-list.css');
 @import url('components/_agenda-list.css');
-@import url('components/_welcome-popup.css'); /* (Menggantikan _modal.css) */
+@import url('components/_welcome-popup.css');
 @import url('components/_testimonials.css');
-@import url('components/_new-layout.css'); /* (Layout baru Halaman Depan) */
+@import url('components/_new-layout.css');
 
 /* 3. Animasi & Preloader */
 @import url('_animations.css');
