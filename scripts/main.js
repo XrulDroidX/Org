@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 3. Jalankan skrip spesifik halaman (jika elemennya ada)
     setupSlider();
     setupModal();
+    setupLightbox();
 });
 
 
@@ -183,4 +184,31 @@ function setupThemeSwitcher() {
     if (savedTheme) {
         applyTheme(savedTheme);
     }
+}
+// --- (BARU) Modul 7: Logika Lightbox Galeri ---
+function setupLightbox() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    if (!lightbox) return; // Hentikan jika tidak di halaman galeri
+
+    galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            lightbox.classList.add('active');
+            lightboxImg.src = item.src;
+        });
+    });
+
+    lightboxClose.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+    });
+
+    // Tutup juga saat klik di luar gambar
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            lightbox.classList.remove('active');
+        }
+    });
 }
