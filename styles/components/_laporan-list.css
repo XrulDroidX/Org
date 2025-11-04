@@ -1,0 +1,61 @@
+/* File: styles/components/_laporan-list.css */
+
+.laporan-list-container {
+    max-width: 800px; /* Lebar optimal untuk daftar */
+    padding-bottom: 4rem;
+}
+
+.laporan-list {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.07);
+    overflow: hidden; /* Agar border-radius rapi */
+}
+
+.laporan-item {
+    display: flex;
+    flex-wrap: wrap; /* Agar responsif di mobile */
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.laporan-item:last-child {
+    border-bottom: none;
+}
+
+.laporan-item h4 {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+    /* Ambil ruang utama */
+    flex-basis: 70%;
+}
+
+.laporan-item p {
+    font-size: 0.9rem;
+    color: #666;
+    flex-basis: 100%; /* Buat deskripsi di bawah judul */
+    margin-bottom: 1rem;
+}
+
+.laporan-item .button {
+    padding: 10px 20px;
+    /* Pindah ke kanan di desktop */
+    margin-left: auto;
+    /* Penuhi lebar di mobile */
+    flex-basis: 100%;
+    text-align: center;
+}
+
+/* Penyesuaian untuk desktop */
+@media (min-width: 768px) {
+    .laporan-item p {
+        flex-basis: 70%; /* Deskripsi di samping judul */
+        margin-bottom: 0;
+    }
+    .laporan-item .button {
+        flex-basis: auto; /* Tombol ambil ukuran sendiri */
+    }
+}
