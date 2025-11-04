@@ -26,13 +26,3 @@
 
 /* 3. Animasi & Utilitas */
 @import url('_animations.css'); /* (Kode tidak berubah) */
-
-/* 4. Layout spesifik */
-.page-header {
-    padding-top: 8rem;
-    padding-bottom: 2rem;
-    color: var(--text-light);
-}
-.page-header h1 {
-    font-size: 2.5rem;
-}
