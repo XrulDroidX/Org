@@ -1,4 +1,4 @@
-// File: scripts/main.js (Versi FINAL dengan dropdown)
+// File: scripts/main.js (Versi FINAL dengan dropdown DAN Welcome Popup)
 
 // --- INTI: Jalankan semua modul saat halaman dimuat ---
 document.addEventListener('DOMContentLoaded', async () => {
@@ -7,14 +7,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     // 2. Jalankan sisa skrip SETELAH header dimuat
     setupHamburgerMenu(); 
-    setupDesktopDropdown(); // <-- (BARU) INI TAMBAHANNYA
+    setupDesktopDropdown(); // Dropdown "Lainnya"
     setupScrollAnimation();
     setupHeaderScrollEffect();
     setupThemeSwitcher();
 
     // 3. Jalankan skrip spesifik halaman (jika elemennya ada)
     setupSlider();
-    setupModal();
+    // setupModal(); // <-- (DIHAPUS) Ini pop-up lama
+    setupWelcomePopup(); // <-- (BARU) Ini pop-up selamat datang yang baru
     setupLightbox();
 });
 
@@ -41,12 +42,10 @@ async function loadPartials() {
 
 // --- Fungsi Menandai Navigasi Aktif ---
 function setActiveNavLink() {
-    // (Kode Anda sebelumnya, tidak berubah)
     const navLinks = document.querySelectorAll('.nav-link');
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
     navLinks.forEach(link => {
-        // (Modifikasi kecil untuk mengabaikan link dropdown)
         if (link.classList.contains('dropdown-toggle')) return; 
 
         const linkPage = link.getAttribute('href').split('/').pop();
@@ -58,7 +57,6 @@ function setActiveNavLink() {
 
 // --- Modul 1: Animasi Scroll ---
 function setupScrollAnimation() {
-    // (Kode Anda sebelumnya, tidak berubah)
     const elementsToReveal = document.querySelectorAll('.reveal');
     if (elementsToReveal.length === 0) return;
     const observerOptions = { root: null, threshold: 0.1 };
@@ -75,7 +73,6 @@ function setupScrollAnimation() {
 
 // --- Modul 2: Efek Header Scroll ---
 function setupHeaderScrollEffect() {
-    // (Kode Anda sebelumnya, tidak berubah)
     const header = document.querySelector('.header');
     if (!header) return; 
     window.addEventListener('scroll', () => {
@@ -91,7 +88,6 @@ function setupHeaderScrollEffect() {
 
 // --- Modul 3: Logika Hamburger Menu ---
 function setupHamburgerMenu() {
-    // (Kode Anda sebelumnya, tidak berubah)
     const navMenu = document.getElementById('nav-menu');
     const navToggle = document.getElementById('nav-toggle');
     const navClose = document.getElementById('nav-close');
@@ -110,7 +106,6 @@ function setupHamburgerMenu() {
 
 // --- Modul 4: Logika Slider ---
 function setupSlider() {
-    // (Kode Anda sebelumnya, tidak berubah)
     const slider = document.querySelector('.slider');
     if (!slider) return;
     const slides = slider.querySelectorAll('.slide');
@@ -133,23 +128,14 @@ function setupSlider() {
     });
 }
 
-// --- Modul 5: Logika Pop-up Modal ---
-function setupModal() {
-    // (Kode Anda sebelumnya, tidak berubah)
-    const modal = document.getElementById('my-modal');
-    if (!modal) return;
-    const closeModal = modal.querySelector('.modal-close');
-    setTimeout(() => {
-        modal.classList.add('show-modal');
-    }, 3000);
-    closeModal.addEventListener('click', () => {
-        modal.classList.remove('show-modal');
-    });
+// --- (DIHAPUS) Modul 5: Logika Pop-up Modal Lama ---
+/* function setupModal() {
+    // ... (Fungsi ini sudah tidak kita pakai) ...
 }
+*/
 
 // --- Modul 6: Logika Background Switcher ---
 function setupThemeSwitcher() {
-    // (Kode Anda sebelumnya, tidak berubah)
     const bgElement = document.getElementById('bg-shapes');
     if (!bgElement) return;
     const buttons = document.querySelectorAll('.theme-switcher button');
@@ -178,7 +164,6 @@ function setupThemeSwitcher() {
 
 // --- Modul 7: Logika Lightbox Galeri ---
 function setupLightbox() {
-    // (Kode Anda sebelumnya, tidak berubah)
     const galleryItems = document.querySelectorAll('.gallery-item');
     const lightbox = document.getElementById('lightbox');
     if (!lightbox) return;
@@ -201,7 +186,7 @@ function setupLightbox() {
 }
 
 
-// --- (BARU) Modul 8: Logika Dropdown "Lainnya" di Desktop ---
+// --- Modul 8: Logika Dropdown "Lainnya" di Desktop ---
 function setupDesktopDropdown() {
     const dropdown = document.querySelector('.nav-item.dropdown');
     if (!dropdown) return; // Hentikan jika tidak ada dropdown
@@ -209,23 +194,49 @@ function setupDesktopDropdown() {
     const toggle = dropdown.querySelector('.dropdown-toggle');
     const menu = dropdown.querySelector('.dropdown-menu');
     
-    // Pastikan elemennya ada sebelum lanjut
     if (!toggle || !menu) return;
 
-    // Tampilkan/sembunyikan menu saat tombol "Lainnya" diklik
     toggle.addEventListener('click', (event) => {
-        event.preventDefault(); // Mencegah link # diikuti
+        event.preventDefault(); 
         menu.classList.toggle('show');
-        dropdown.classList.toggle('active'); // Untuk memutar panah
+        dropdown.classList.toggle('active'); 
     });
 
-    // Sembunyikan menu saat klik di luar area menu
     window.addEventListener('click', (event) => {
-        // Cek apakah klik terjadi di luar .dropdown
         if (!dropdown.contains(event.target)) {
             menu.classList.remove('show');
             dropdown.classList.remove('active');
         }
     });
-                                               }
-        
+}
+
+// --- (BARU) Modul 9: Pop-up Selamat Datang (Satu Kali Sesi) ---
+function setupWelcomePopup() {
+    const popup = document.getElementById('welcome-popup');
+    // Hanya jalankan jika kita berada di Halaman Depan (index.html)
+    if (!popup) return; 
+
+    const closeButton = document.getElementById('welcome-close');
+    
+    // Cek sessionStorage: apakah sudah pernah lihat di sesi ini?
+    const hasSeenPopup = sessionStorage.getItem('hasSeenWelcomePopup');
+
+    // 1. Jika BELUM PERNAH lihat:
+    if (!hasSeenPopup) {
+        // Tampilkan pop-up (beri jeda 1 detik agar tidak kaget)
+        setTimeout(() => {
+            popup.classList.add('show');
+        }, 1000); 
+
+        // 2. Tandai bahwa sekarang sudah melihat
+        sessionStorage.setItem('hasSeenWelcomePopup', 'true');
+    }
+
+    // 3. Tambahkan fungsi ke tombol close
+    if (closeButton) {
+        closeButton.addEventListener('click', () => {
+            popup.classList.remove('show');
+        });
+    }
+                }
+    
